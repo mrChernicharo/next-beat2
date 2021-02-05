@@ -1,12 +1,12 @@
-import Head from "next/head";
-import React from "react";
-import BeatMaker from "./components/BeatMaker/Beatmaker";
-import Header from "./components/Header/Header";
-import SEO from "./components/SEO";
+import Head from 'next/head';
+import React from 'react';
+import BeatMaker from './components/BeatMaker/Beatmaker';
+import Header from './components/Header/Header';
+import SEO from './components/SEO/SEO';
 
 export default function Home() {
   return (
-    <>
+    <div>
       <SEO />
       <header>
         <Header />
@@ -14,6 +14,6 @@ export default function Home() {
       <main>
         <BeatMaker />
       </main>
-    </>
+    </div>
   );
 }

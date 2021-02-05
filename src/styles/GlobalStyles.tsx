@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 * {
@@ -7,8 +7,17 @@ export default createGlobalStyle`
 	box-sizing: border-box;
 }
 body{
-	background:#121214;
+	background: #32333c;
 	color: #fff;
 	font-family: 'Montserrat', sans-serif;
+	
 }
+
+span{
+	display:block;
+	margin-bottom: 10px;
+	border: none;
+	border-right: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	}
 `;
