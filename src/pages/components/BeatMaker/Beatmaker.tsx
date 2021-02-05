@@ -1,21 +1,21 @@
 import { useState } from "react";
 
-// export interface INote {
-//   play: boolean;
-//   beat?: number;
-//   click?: number;
-// }
+export interface INote {
+  play: boolean;
+  beat?: number;
+  click?: number;
+}
 
-// export interface Track {
-//   intrument: string;
-//   beats: number;
-//   clicks: number;
-//   notes: INote[];
-//   playing: boolean;
-// }
+export interface Track {
+  intrument: string;
+  beats: number;
+  clicks: number;
+  notes: INote[];
+  playing: boolean;
+}
 
 export default function BeatMaker() {
-  // const [tracks, setTracks] = useState<Track[]>();
+  const [tracks, setTracks] = useState<Track[]>();
 
   return <div>Beat Maker</div>;
 }
