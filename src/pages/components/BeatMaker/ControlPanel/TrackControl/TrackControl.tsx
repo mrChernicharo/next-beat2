@@ -2,7 +2,7 @@ import { TrackControlContainer } from '../../../../../styles/TrackControlStyles'
 export function TrackControl() {
   return (
     <TrackControlContainer>
-      <span>TrackControl</span>
+      <p className="component-title">TrackControl</p>
       <div>🎮</div>
     </TrackControlContainer>
   );

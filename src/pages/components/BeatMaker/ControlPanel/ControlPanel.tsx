@@ -8,7 +8,7 @@ export function ControlPanel() {
   return (
     <ControlPanelContainer>
       <div className="header">
-        <span>ControlPanel</span>
+        <p className="component-title">ControlPanel</p>
       </div>
       <div className="body">
         <TempoSlider />

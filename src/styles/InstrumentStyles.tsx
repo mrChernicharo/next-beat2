@@ -2,8 +2,15 @@ import styled from 'styled-components';
 
 export const InstrumentContainer = styled.div`
   border: 1px solid;
-  // 100%;
-  height: 100%;
+  height: 100px;
   padding: 16px;
   margin: 10px;
+  display: flex;
+
+  .head {
+    border: 1px solid;
+  }
+  .body {
+    display: flex;
+  }
 `;

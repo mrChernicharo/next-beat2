@@ -17,7 +17,8 @@ span{
 	display:block;
 	margin-bottom: 10px;
 	border: none;
-	border-right: 1px solid #fff;
-	border-bottom: 1px solid #fff;
+	font-size: 10px;
+	/* border-right: 1px solid #fff; */
+	/* border-bottom: 1px solid #fff; */
 	}
 `;

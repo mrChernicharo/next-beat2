@@ -3,7 +3,7 @@ import { TempoSliderContainer } from '../../../../../styles/TempoSliderStyles';
 export default function TempoSlider() {
   return (
     <TempoSliderContainer>
-      <span>TempoSlider</span>
+      <p className="component-title">TempoSlider</p>
       <div>
         <input type="range" name="tempo" id="tempo" />
       </div>
