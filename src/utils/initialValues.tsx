@@ -1,5 +1,6 @@
 export interface INote {
   play: boolean;
+  id: string;
 }
 
 export interface IInstrument {
@@ -48,14 +49,14 @@ export const initialTrack: ITrack = {
         voice: appVoices[0],
         image: instrumentImgs.snare,
       },
-      notes: Array(2 * 4 * 1).fill({ play: false }),
+      notes: Array(2 * 4 * 1).fill({ play: false, id: '' }),
     },
     {
       instrument: {
         voice: appVoices[1],
         image: instrumentImgs.bassKick,
       },
-      notes: Array(2 * 4 * 1).fill({ play: false }),
+      notes: Array(2 * 4 * 1).fill({ play: false, id: '' }),
     },
   ],
 };
@@ -72,30 +73,31 @@ export const resetTrackNotes = (
   function resetNotes(bts, clcks, brs): INote[] {
     const trackLength = bts * clcks * brs;
 
-    return Array(trackLength).fill({ play: false } as INote);
+    return Array(trackLength).fill({ play: false, id: '' } as INote);
   }
-  // console.log(trackCopy);
 
   trackCopy.instrumentRows.forEach((row, i) => {
     row.notes = resetNotes(beats, clicks, bars);
   });
 
-  // console.log(trackCopy);
-
   return trackCopy;
 };
 
 export const updateNote = (track: ITrack, play: boolean, rowI: number, noteI: number) => {
+  console.log('updateNote');
   const trackCopy = { ...track };
+
+  // AQUI Q TUDO ACONTECE!
 
   const newNotes: INote[] = [];
   trackCopy.instrumentRows[rowI].notes.forEach((note, i) => {
     newNotes.push(note);
   });
 
-  trackCopy.instrumentRows[rowI].notes[noteI] = { play };
-
-  // console.log(trackCopy.instrumentRows[rowI].notes);
+  trackCopy.instrumentRows[rowI].notes[noteI] = {
+    play,
+    id: trackCopy.instrumentRows[rowI].notes[noteI].id,
+  };
 
   return trackCopy;
 };
