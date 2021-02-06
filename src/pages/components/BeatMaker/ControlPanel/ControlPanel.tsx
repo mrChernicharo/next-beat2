@@ -46,7 +46,7 @@ export function ControlPanel({
           setBeats={setBeats}
           setBars={setBars}
         />
-        <PlayPause />
+        <PlayPause isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
       </div>
     </ControlPanelContainer>
   );

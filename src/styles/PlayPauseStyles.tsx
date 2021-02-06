@@ -6,3 +6,4 @@ export const PlayPauseContainer = styled.div`
   height: 100%;
   padding: 16px;
 `;
+export const PlayPauseBtn = styled.button``;

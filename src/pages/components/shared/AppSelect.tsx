@@ -1,10 +1,5 @@
 import { useEffect, useState } from 'react';
 import { AppSelectContainer } from '../../../styles/AppSelectStyles';
-
-// interface IOption {
-//   value: any;
-// }
-
 interface ISelectProps {
   options: any[];
   lable: string;

@@ -6,7 +6,6 @@ import { Track } from './Track/Track';
 
 export default function BeatMaker() {
   const [track, setTrack] = useState<ITrack>(initialTrack);
-  const [isPlaying, setIsPlaying] = useState(false);
   // const [loop, setLoop] = useState(null);
 
   function handleTempoSliderChange(val: number) {
@@ -29,6 +28,10 @@ export default function BeatMaker() {
     setTrack({ ...track, bars: val });
   }
 
+  function handlePlay(val: boolean) {
+    setTrack({ ...track, playing: val });
+  }
+
   return (
     <BeatMakerContainer>
       <span className="component-title">Beat Maker</span>
@@ -39,8 +42,8 @@ export default function BeatMaker() {
           clicks={track.clicks}
           beats={track.beats}
           bars={track.bars}
-          isPlaying={isPlaying}
-          setIsPlaying={setIsPlaying}
+          isPlaying={track.playing}
+          setIsPlaying={handlePlay}
           setTempo={handleTempoSliderChange}
           setClicks={handleClicksChange}
           setBeats={handleBeatsChange}
