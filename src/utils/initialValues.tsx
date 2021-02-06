@@ -38,7 +38,7 @@ export const instrumentImgs = {
 };
 
 const idMaker = (row, beat, click, bar) => {
-  return `row-${row}-beat-${beat}-click-${click}-bar-${bar}`;
+  return `row-${row + 1}-beat-${beat}-click-${click}-bar-${bar}`;
 };
 
 export const initialTrack: ITrack = {
@@ -87,13 +87,18 @@ export const resetTrackNotes = (
   return trackCopy;
 };
 
-export const updateNote = (track: ITrack, play: boolean, rowI: number, noteI: number) => {
+export const updateNote = (
+  track: ITrack,
+  notePlay: boolean,
+  rowI: number,
+  noteI: number
+) => {
   console.log('updateNote');
   const trackCopy = { ...track };
   const trackLength = track.beats * track.clicks * track.bars;
   const idsRow = [];
-  const newRow = [];
-  console.log(play, rowI + 1, noteI);
+  const newNotes = [];
+  console.log(notePlay, rowI + 1, noteI);
 
   // AQUI Q TUDO ACONTECE!
   let z = 0;
@@ -109,7 +114,22 @@ export const updateNote = (track: ITrack, play: boolean, rowI: number, noteI: nu
 
     idsRow.push(idMaker(rowI, beat, click, bar));
   }
-  console.log(idsRow);
+
+  trackCopy.instrumentRows[rowI].notes.forEach((note, i) => {
+    // console.log(i, note, noteI);
+    let shouldPlay = note.play;
+    if (i === noteI) {
+      shouldPlay = notePlay;
+    }
+    newNotes.push({ id: idsRow[i], play: shouldPlay });
+  });
+  console.log(newNotes);
+  const newRow: IInstrumentRow = { ...trackCopy.instrumentRows[rowI], notes: newNotes };
+  console.log(newRow);
+
+  trackCopy.instrumentRows[rowI] = newRow;
+  console.log(trackCopy);
+  // console.log(idsRow);
 
   // trackCopy.instrumentRows[rowI].notes.forEach((note, i) => {
   //   let id = idsRow[i];
