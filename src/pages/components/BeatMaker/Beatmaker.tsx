@@ -44,17 +44,17 @@ export default function BeatMaker() {
   }
 
   // muda o intrument dentro do row
-  function handleInstrumentChange({ voice, image, instrIndex }) {
+  function handleInstrumentChange(voice, image, instrIndex) {
     console.log(voice);
     console.log(image);
     console.log(instrIndex);
     // //
-    // const updatedRows = (instr: IInstrument, rowIndex: number) => {
-    //   const rowsCopy = [...track.instrumentRows];
-    //   rowsCopy[rowIndex].instrument = instr;
-    //   return rowsCopy as IInstrumentRow[];
-    // };
-    // setTrack({ ...track, instrumentRows: updatedRows(instrument, instrIndex) });
+    const updatedRows = (instr: IInstrument, rowIndex: number) => {
+      const rowsCopy = [...track.instrumentRows];
+      rowsCopy[rowIndex].instrument = instr;
+      return rowsCopy as IInstrumentRow[];
+    };
+    setTrack({ ...track, instrumentRows: updatedRows({ voice, image }, instrIndex) });
   }
 
   function handleNoteChange(note: INote, index: number) {
