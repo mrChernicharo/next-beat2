@@ -1,6 +1,6 @@
 import React from 'react';
 import { ControlPanelContainer } from '../../../../styles/ControlPanelStyles';
-import { IInstrument } from '../../../../utils/initialValues';
+import { IInstrument, IInstrumentRow } from '../../../../utils/initialValues';
 import { InstrumentsControl } from './InstrumentsControl/InstrumentsControl';
 import { PlayPause } from './PlayPause/PlayPause';
 import TempoSlider from './TempoSlider/TempoSlider';
@@ -11,7 +11,7 @@ interface IControlPanelProps {
   beats: number;
   clicks: number;
   bars: number;
-  instruments: IInstrument[];
+  instruments: IInstrumentRow[];
   isPlaying: boolean;
   setIsPlaying: Function;
   setTempo: Function;

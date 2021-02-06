@@ -5,13 +5,14 @@ import {
 import {
   appVoices,
   IInstrument,
+  IInstrumentRow,
   instrumentImgs,
 } from '../../../../../utils/initialValues';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
 
 interface IInstrumentControlProps {
-  instruments: IInstrument[];
+  instruments: IInstrumentRow[];
   setInstruments: Function;
 }
 
@@ -28,9 +29,8 @@ export function InstrumentsControl({
 
   function addInstrument() {
     if (appInstruments.length < 6) {
-      const newInstr: IInstrument = {
-        voice: appVoices.shake,
-        image: instrumentImgs.shake,
+      const newInstr: IInstrumentRow = {
+        instrument: { voice: appVoices.shake, image: instrumentImgs.shake },
         notes: Array(appInstruments[0].notes.length).fill({ play: false }),
       };
       setAppInstruments([...appInstruments, newInstr]);

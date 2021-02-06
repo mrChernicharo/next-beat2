@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { BeatMakerContainer } from '../../../styles/BeatMakerStyles';
-import { IInstrument, initialTrack, ITrack } from '../../../utils/initialValues';
+import {
+  IInstrument,
+  IInstrumentRow,
+  initialTrack,
+  ITrack,
+} from '../../../utils/initialValues';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
 
@@ -32,33 +37,40 @@ export default function BeatMaker() {
     setTrack({ ...track, playing: val });
   }
 
-  function handleInstrumentsChange(val: IInstrument[]) {
-    setTrack({ ...track, instruments: val });
+  function handleInstrumentRowsChange(val: IInstrumentRow[]) {
+    setTrack({ ...track, instrumentRows: val });
   }
 
   return (
     <BeatMakerContainer>
       <span className="component-title">Beat Maker</span>
-      <div className="state-log">{JSON.stringify(track)}</div>
       <div>
         <ControlPanel
           tempo={track.tempo}
           clicks={track.clicks}
           beats={track.beats}
           bars={track.bars}
-          instruments={track.instruments}
+          instruments={track.instrumentRows}
           isPlaying={track.playing}
           setIsPlaying={handlePlay}
           setTempo={handleTempoSliderChange}
           setClicks={handleClicksChange}
           setBeats={handleBeatsChange}
           setBars={handleBarsChange}
-          setInstruments={handleInstrumentsChange}
+          setInstruments={handleInstrumentRowsChange}
         />
       </div>
       <div>
-        <Track />
+        <Track
+          tempo={track.tempo}
+          clicks={track.clicks}
+          beats={track.beats}
+          bars={track.bars}
+          instrumentRows={track.instrumentRows}
+          isPlaying={track.playing}
+        />
       </div>
+      <div className="state-log">{JSON.stringify(track)}</div>
     </BeatMakerContainer>
   );
 }

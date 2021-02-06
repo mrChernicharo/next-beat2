@@ -1,5 +1,9 @@
 import { TrackControlContainer } from '../../../../../styles/TrackControlStyles';
-import { appBeatOptions, appClickOptions } from '../../../../../utils/initialValues';
+import {
+  appBarOptions,
+  appBeatOptions,
+  appClickOptions,
+} from '../../../../../utils/initialValues';
 import AppSelect from '../../../shared/AppSelect';
 
 interface ITrackControlProps {
@@ -40,7 +44,7 @@ export function TrackControl({
 
       <AppSelect
         lable={'bars'}
-        options={appClickOptions}
+        options={appBarOptions}
         initialValue={bars}
         setValue={setBars}
       />

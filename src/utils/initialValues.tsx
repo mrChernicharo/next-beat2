@@ -5,6 +5,10 @@ export interface INote {
 export interface IInstrument {
   voice: string;
   image: string;
+}
+
+export interface IInstrumentRow {
+  instrument: IInstrument;
   notes: INote[];
 }
 
@@ -14,11 +18,12 @@ export interface ITrack {
   clicks: number;
   bars: number;
   playing: boolean;
-  instruments: IInstrument[];
+  instrumentRows: IInstrumentRow[];
 }
 
 export const appBeatOptions = [2, 3, 4, 6];
-export const appClickOptions = [1, 2, 3, 4];
+export const appClickOptions = [1, 2, 3, 4, 5, 6, 7];
+export const appBarOptions = [1, 2, 3, 4];
 
 export const appVoices = {
   snare: 'snare',
@@ -43,16 +48,20 @@ export const initialTrack: ITrack = {
   clicks: 4,
   bars: 1,
   playing: false,
-  instruments: [
+  instrumentRows: [
     {
-      voice: appVoices.snare,
-      image: instrumentImgs.snare,
-      notes: Array(8).fill({ play: false }),
+      instrument: {
+        voice: appVoices.snare,
+        image: instrumentImgs.snare,
+      },
+      notes: Array(2 * 4 * 1).fill({ play: false }),
     },
     {
-      voice: appVoices.bassKick,
-      image: instrumentImgs.bassKick,
-      notes: Array(8).fill({ play: false }),
+      instrument: {
+        voice: appVoices.bassKick,
+        image: instrumentImgs.bassKick,
+      },
+      notes: Array(2 * 4 * 1).fill({ play: false }),
     },
   ],
 };

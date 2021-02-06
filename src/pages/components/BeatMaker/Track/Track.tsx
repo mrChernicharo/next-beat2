@@ -1,13 +1,34 @@
 import { TrackContainer } from '../../../../styles/TrackStyles';
-import Instrument from './Instrument/Instrument';
+import { IInstrumentRow } from '../../../../utils/initialValues';
+import InstrumentRow from './InstrumentRow/InstrumentRow';
 
-export function Track() {
+interface ITrackProps {
+  tempo: number;
+  beats: number;
+  clicks: number;
+  bars: number;
+  isPlaying: boolean;
+  instrumentRows: IInstrumentRow[];
+}
+
+export function Track({
+  bars,
+  beats,
+  clicks,
+  instrumentRows,
+  isPlaying,
+  tempo,
+}: ITrackProps) {
   return (
     <TrackContainer>
       <span className="component-title">Track</span>
       <div>
-        <Instrument />
-        <Instrument />
+        {instrumentRows.map(instrumentRow => (
+          <InstrumentRow
+            instrument={instrumentRow.instrument}
+            notes={instrumentRow.notes}
+          />
+        ))}
       </div>
     </TrackContainer>
   );
