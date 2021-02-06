@@ -28,7 +28,7 @@ export const appBarOptions = [1, 2, 3, 4];
 export const appVoices = ['snare', 'bassKick', 'shake', 'hiHat', 'crash'];
 export const instrumentImgs = {
   snare:
-    'https://www.google.com.br/imgres?imgurl=https%3A%2F%2Fe7.pngegg.com%2Fpngimages%2F937%2F711%2Fpng-clipart-a-snare-drum-etiquette-musical-instruments-drums.png&imgrefurl=https%3A%2F%2Fwww.pngegg.com%2Fen%2Fpng-dxsqs&tbnid=PzKdSFfGGwTvuM&vet=12ahUKEwjPx8zz7NPuAhUMlBoKHddiAdMQMygOegUIARD7AQ..i&docid=XRtoWLxUpGEsdM&w=900&h=900&q=instruments%20drums&hl=en&ved=2ahUKEwjPx8zz7NPuAhUMlBoKHddiAdMQMygOegUIARD7AQ',
+    'https://www.gretschdrums.com/sites/default/files/drums/snares/usa-snares/GAS542514-GB.png',
   bassKick:
     'https://i.pinimg.com/originals/d2/19/0f/d2190fa3af0509799ada2dd695dd9fbd.jpg',
   hiHat: 'https://images-na.ssl-images-amazon.com/images/I/71KOqhGS7bL._AC_SX425_.jpg',
@@ -60,15 +60,27 @@ export const initialTrack: ITrack = {
   ],
 };
 
-export const resetTrackNotes = (beats: number, clicks: number, bars: number) => {
+export const resetTrackNotes = (
+  track: ITrack,
+  beats: number,
+  clicks: number,
+  bars: number
+) => {
   // TODO melhorar algorítimo pra aprovitar notas clicadas anteriormente
+  const trackCopy: ITrack = Object.assign(track, { beats, clicks, bars });
 
-  const notes: INote[] = [];
-  const trackLength = beats * clicks * bars;
-  for (let i = 0; i < trackLength; i++) {
-    notes.push({
-      play: false,
-    });
+  function resetNotes(bts, clcks, brs): INote[] {
+    const trackLength = bts * clcks * brs;
+
+    return Array(trackLength).fill({ play: false } as INote);
   }
-  return notes;
+  console.log(trackCopy);
+
+  trackCopy.instrumentRows.forEach((row, i) => {
+    row.notes = resetNotes(beats, clicks, bars);
+  });
+
+  console.log(trackCopy);
+
+  return trackCopy;
 };

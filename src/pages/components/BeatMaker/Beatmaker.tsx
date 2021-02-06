@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BeatMakerContainer } from '../../../styles/BeatMakerStyles';
 import {
   IInstrument,
@@ -14,41 +14,29 @@ import { Track } from './Track/Track';
 export default function BeatMaker() {
   const [track, setTrack] = useState<ITrack>(initialTrack);
   // const [loop, setLoop] = useState(null);
+  // useEffect(() => {
 
-  function handleTempoSliderChange(val: number) {
-    // console.log(val);
-    setTrack({ ...track, tempo: val });
+  // }, [track])
+
+  function handleTempoSliderChange(tempo: number) {
+    setTrack({ ...track, tempo });
   }
 
-  function handleBeatsChange(val: number) {
-    // console.log("beats " + val);
-    const trackCopy: ITrack = { ...track };
-    trackCopy.instrumentRows.forEach((row, i) => {
-      row.notes = resetTrackNotes(val, track.clicks, track.bars);
-    });
-    setTrack({ ...track, beats: val });
+  function handleBeatsChange(beats: number) {
+    setTrack({ ...resetTrackNotes(track, beats, track.clicks, track.bars) });
   }
 
-  function handleClicksChange(val: number) {
-    // console.log("clicks " + val);
-    const trackCopy: ITrack = { ...track };
-    trackCopy.instrumentRows.forEach((row, i) => {
-      row.notes = resetTrackNotes(track.beats, val, track.bars);
-    });
-    setTrack({ ...trackCopy, clicks: val });
+  function handleClicksChange(clicks: number) {
+    setTrack({ ...resetTrackNotes(track, track.beats, clicks, track.bars) });
   }
 
-  function handleBarsChange(val: number) {
-    // console.log("clicks " + val);
-    const trackCopy: ITrack = { ...track };
-    trackCopy.instrumentRows.forEach((row, i) => {
-      row.notes = resetTrackNotes(track.beats, track.clicks, val);
-    });
-    setTrack({ ...trackCopy, bars: val });
+  function handleBarsChange(bars: number) {
+    console.log(bars);
+    setTrack({ ...resetTrackNotes(track, track.beats, track.clicks, bars) });
   }
 
-  function handlePlay(val: boolean) {
-    setTrack({ ...track, playing: val });
+  function handlePlay(playing: boolean) {
+    setTrack({ ...track, playing });
   }
 
   // muda o row todo

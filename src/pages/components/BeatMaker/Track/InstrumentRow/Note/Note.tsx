@@ -19,7 +19,7 @@ export default function Note({ index, play, changeNote }: INoteProps) {
   }
   return (
     <NoteContainer onClick={() => toggleActive()}>
-      <div>{index}</div>
+      <div>{index + 1}</div>
     </NoteContainer>
   );
 }

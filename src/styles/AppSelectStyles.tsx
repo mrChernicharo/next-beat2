@@ -13,6 +13,7 @@ export const AppSelectContainer = styled.div`
   }
   .value {
     border: 1px solid;
+    cursor: pointer;
 
     &:hover {
       background: #02ffab;
@@ -21,9 +22,11 @@ export const AppSelectContainer = styled.div`
   .dropdown {
     border: 1px solid;
     display: block;
+    background: #32333c;
 
     .option {
       border: 1px solid;
+      cursor: pointer;
 
       &:hover {
         background: #02ffab;
