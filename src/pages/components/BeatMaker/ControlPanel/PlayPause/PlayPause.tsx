@@ -2,7 +2,7 @@ import { PlayPauseContainer } from '../../../../../styles/PlayPauseStyles';
 export function PlayPause() {
   return (
     <PlayPauseContainer>
-      <p className="component-title">PlayPause</p>
+      <span className="component-title">PlayPause</span>
       <div>🎮</div>
     </PlayPauseContainer>
   );

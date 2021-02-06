@@ -26,7 +26,7 @@ export default function BeatMaker() {
 
   return (
     <BeatMakerContainer>
-      <p className="component-title">Beat Maker</p>
+      <span className="component-title">Beat Maker</span>
       <div className="state-log">{JSON.stringify(track)}</div>
       <div>
         <ControlPanel

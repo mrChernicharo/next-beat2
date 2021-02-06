@@ -29,7 +29,7 @@ export function ControlPanel({
   return (
     <ControlPanelContainer>
       <div className="header">
-        <p className="component-title">ControlPanel</p>
+        <span className="component-title">ControlPanel</span>
       </div>
       <div className="body">
         <TempoSlider tempo={tempo} setTempo={setTempo} />

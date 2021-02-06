@@ -4,7 +4,7 @@ import Instrument from './Instrument/Instrument';
 export function Track() {
   return (
     <TrackContainer>
-      <p className="component-title">Track</p>
+      <span className="component-title">Track</span>
       <div>
         <Instrument />
         <Instrument />

@@ -2,7 +2,7 @@ import { InstrumentsControlContainer } from '../../../../../styles/InstrumentsCo
 export function InstrumentsControl() {
   return (
     <InstrumentsControlContainer>
-      <p className="component-title">InstrumentsControl</p>
+      <span className="component-title">InstrumentsControl</span>
       <div>🎮</div>
     </InstrumentsControlContainer>
   );
