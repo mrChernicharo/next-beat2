@@ -59,3 +59,16 @@ export const initialTrack: ITrack = {
     },
   ],
 };
+
+export const resetTrackNotes = (beats: number, clicks: number, bars: number) => {
+  // TODO melhorar algorítimo pra aprovitar notas clicadas anteriormente
+
+  const notes: INote[] = [];
+  const trackLength = beats * clicks * bars;
+  for (let i = 0; i < trackLength; i++) {
+    notes.push({
+      play: false,
+    });
+  }
+  return notes;
+};

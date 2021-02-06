@@ -6,6 +6,7 @@ import {
   initialTrack,
   INote,
   ITrack,
+  resetTrackNotes,
 } from '../../../utils/initialValues';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
@@ -21,17 +22,29 @@ export default function BeatMaker() {
 
   function handleBeatsChange(val: number) {
     // console.log("beats " + val);
+    const trackCopy: ITrack = { ...track };
+    trackCopy.instrumentRows.forEach((row, i) => {
+      row.notes = resetTrackNotes(val, track.clicks, track.bars);
+    });
     setTrack({ ...track, beats: val });
   }
 
   function handleClicksChange(val: number) {
     // console.log("clicks " + val);
-    setTrack({ ...track, clicks: val });
+    const trackCopy: ITrack = { ...track };
+    trackCopy.instrumentRows.forEach((row, i) => {
+      row.notes = resetTrackNotes(track.beats, val, track.bars);
+    });
+    setTrack({ ...trackCopy, clicks: val });
   }
 
   function handleBarsChange(val: number) {
     // console.log("clicks " + val);
-    setTrack({ ...track, bars: val });
+    const trackCopy: ITrack = { ...track };
+    trackCopy.instrumentRows.forEach((row, i) => {
+      row.notes = resetTrackNotes(track.beats, track.clicks, val);
+    });
+    setTrack({ ...trackCopy, bars: val });
   }
 
   function handlePlay(val: boolean) {
@@ -44,11 +57,8 @@ export default function BeatMaker() {
   }
 
   // muda o intrument dentro do row
-  function handleInstrumentChange(voice, image, instrIndex) {
-    console.log(voice);
-    console.log(image);
-    console.log(instrIndex);
-    // //
+  function handleInstrumentChange(voice: string, image: string, instrIndex: number) {
+    //
     const updatedRows = (instr: IInstrument, rowIndex: number) => {
       const rowsCopy = [...track.instrumentRows];
       rowsCopy[rowIndex].instrument = instr;
@@ -57,7 +67,8 @@ export default function BeatMaker() {
     setTrack({ ...track, instrumentRows: updatedRows({ voice, image }, instrIndex) });
   }
 
-  function handleNoteChange(note: INote, index: number) {
+  // muda nota dentro do row
+  function handleNoteChange(note: INote, rowIndex: number, noteIndex: number) {
     console.log(note.play);
     //   setTrack({ ...track, instrumentRows: rows(val, index) });
   }
