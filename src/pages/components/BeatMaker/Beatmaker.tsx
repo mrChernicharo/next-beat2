@@ -24,6 +24,11 @@ export default function BeatMaker() {
     setTrack({ ...track, clicks: val });
   }
 
+  function handleBarsChange(val: number) {
+    // console.log("clicks " + val);
+    setTrack({ ...track, bars: val });
+  }
+
   return (
     <BeatMakerContainer>
       <span className="component-title">Beat Maker</span>
@@ -33,11 +38,13 @@ export default function BeatMaker() {
           tempo={track.tempo}
           clicks={track.clicks}
           beats={track.beats}
+          bars={track.bars}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
           setTempo={handleTempoSliderChange}
           setClicks={handleClicksChange}
           setBeats={handleBeatsChange}
+          setBars={handleBarsChange}
         />
       </div>
       <div>

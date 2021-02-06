@@ -9,22 +9,26 @@ interface IControlPanelProps {
   tempo: number;
   beats: number;
   clicks: number;
+  bars: number;
   isPlaying: boolean;
   setIsPlaying: Function;
   setTempo: Function;
   setClicks: Function;
   setBeats: Function;
+  setBars: Function;
 }
 
 export function ControlPanel({
   tempo,
   clicks,
   beats,
+  bars,
   isPlaying,
   setIsPlaying,
   setTempo,
   setClicks,
   setBeats,
+  setBars,
 }: IControlPanelProps) {
   return (
     <ControlPanelContainer>
@@ -37,8 +41,10 @@ export function ControlPanel({
         <TrackControl
           clicks={clicks}
           beats={beats}
+          bars={bars}
           setClicks={setClicks}
           setBeats={setBeats}
+          setBars={setBars}
         />
         <PlayPause />
       </div>

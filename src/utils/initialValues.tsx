@@ -12,6 +12,7 @@ export interface ITrack {
   tempo: number;
   beats: number;
   clicks: number;
+  bars: number;
   playing: boolean;
   instruments: IInstrument[];
 }
@@ -38,6 +39,7 @@ export const initialTrack: ITrack = {
   tempo: 120,
   beats: 2,
   clicks: 4,
+  bars: 1,
   playing: false,
   instruments: [
     {

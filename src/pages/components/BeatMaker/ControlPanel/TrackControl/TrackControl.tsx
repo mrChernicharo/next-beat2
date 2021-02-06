@@ -5,11 +5,20 @@ import AppSelect from '../../../shared/AppSelect';
 interface ITrackControlProps {
   clicks: number;
   beats: number;
+  bars: number;
   setClicks: Function;
   setBeats: Function;
+  setBars: Function;
 }
 
-export function TrackControl({ clicks, beats, setClicks, setBeats }: ITrackControlProps) {
+export function TrackControl({
+  clicks,
+  beats,
+  bars,
+  setClicks,
+  setBeats,
+  setBars,
+}: ITrackControlProps) {
   return (
     <TrackControlContainer>
       <div>
@@ -27,6 +36,13 @@ export function TrackControl({ clicks, beats, setClicks, setBeats }: ITrackContr
         options={appClickOptions}
         initialValue={clicks}
         setValue={setClicks}
+      />
+
+      <AppSelect
+        lable={'bars'}
+        options={appClickOptions}
+        initialValue={bars}
+        setValue={setBars}
       />
     </TrackControlContainer>
   );
