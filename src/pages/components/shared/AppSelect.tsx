@@ -21,8 +21,10 @@ export default function AppSelect({
   }, [selectedValue]);
 
   function handleOptionClick(val) {
+    console.log(val);
     setSelectedValue(val);
     setIsOpened(false);
+    return selectedValue;
   }
 
   function toggleOpened() {

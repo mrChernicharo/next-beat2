@@ -9,6 +9,9 @@ interface ITrackProps {
   bars: number;
   isPlaying: boolean;
   instrumentRows: IInstrumentRow[];
+  setInstrumentRows: Function;
+  setInstrument: Function;
+  setNote: Function;
 }
 
 export function Track({
@@ -18,13 +21,19 @@ export function Track({
   instrumentRows,
   isPlaying,
   tempo,
+  setInstrumentRows,
+  setInstrument,
+  setNote,
 }: ITrackProps) {
   return (
     <TrackContainer>
       <span className="component-title">Track</span>
       <div>
-        {instrumentRows.map(instrumentRow => (
+        {instrumentRows.map((instrumentRow, i) => (
           <InstrumentRow
+            rowIndex={i}
+            setInstrument={setInstrument}
+            setisPlayNote={setNote}
             instrument={instrumentRow.instrument}
             notes={instrumentRow.notes}
           />

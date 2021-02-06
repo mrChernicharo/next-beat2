@@ -8,5 +8,6 @@ export const BeatMakerContainer = styled.div`
     border: 1px solid;
     font-size: 12px;
     line-height: 24px;
+    pointer-events: none;
   }
 `;

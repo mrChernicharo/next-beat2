@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const InstrumentRowContainer = styled.div`
-  border: 1px solid;
+  border: 1px solid red;
   height: 100px;
   padding: 16px;
   margin: 10px;
   display: flex;
 
-  .head {
+  .instrument-container {
     border: 1px solid;
   }
-  .body {
+  .notes-container {
     display: flex;
   }
 `;

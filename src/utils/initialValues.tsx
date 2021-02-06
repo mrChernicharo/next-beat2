@@ -25,13 +25,7 @@ export const appBeatOptions = [2, 3, 4, 6];
 export const appClickOptions = [1, 2, 3, 4, 5, 6, 7];
 export const appBarOptions = [1, 2, 3, 4];
 
-export const appVoices = {
-  snare: 'snare',
-  bassKick: 'bass kick',
-  shake: 'shake',
-  hiHat: 'hi hat',
-  crash: 'crash',
-};
+export const appVoices = ['snare', 'bassKick', 'shake', 'hiHat', 'crash'];
 export const instrumentImgs = {
   snare:
     'https://www.google.com.br/imgres?imgurl=https%3A%2F%2Fe7.pngegg.com%2Fpngimages%2F937%2F711%2Fpng-clipart-a-snare-drum-etiquette-musical-instruments-drums.png&imgrefurl=https%3A%2F%2Fwww.pngegg.com%2Fen%2Fpng-dxsqs&tbnid=PzKdSFfGGwTvuM&vet=12ahUKEwjPx8zz7NPuAhUMlBoKHddiAdMQMygOegUIARD7AQ..i&docid=XRtoWLxUpGEsdM&w=900&h=900&q=instruments%20drums&hl=en&ved=2ahUKEwjPx8zz7NPuAhUMlBoKHddiAdMQMygOegUIARD7AQ',
@@ -51,14 +45,14 @@ export const initialTrack: ITrack = {
   instrumentRows: [
     {
       instrument: {
-        voice: appVoices.snare,
+        voice: appVoices[0],
         image: instrumentImgs.snare,
       },
       notes: Array(2 * 4 * 1).fill({ play: false }),
     },
     {
       instrument: {
-        voice: appVoices.bassKick,
+        voice: appVoices[1],
         image: instrumentImgs.bassKick,
       },
       notes: Array(2 * 4 * 1).fill({ play: false }),

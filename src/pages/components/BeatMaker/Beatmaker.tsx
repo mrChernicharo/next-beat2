@@ -4,6 +4,7 @@ import {
   IInstrument,
   IInstrumentRow,
   initialTrack,
+  INote,
   ITrack,
 } from '../../../utils/initialValues';
 import { ControlPanel } from './ControlPanel/ControlPanel';
@@ -37,8 +38,28 @@ export default function BeatMaker() {
     setTrack({ ...track, playing: val });
   }
 
+  // muda o row todo
   function handleInstrumentRowsChange(val: IInstrumentRow[]) {
     setTrack({ ...track, instrumentRows: val });
+  }
+
+  // muda o intrument dentro do row
+  function handleInstrumentChange({ voice, image, instrIndex }) {
+    console.log(voice);
+    console.log(image);
+    console.log(instrIndex);
+    // //
+    // const updatedRows = (instr: IInstrument, rowIndex: number) => {
+    //   const rowsCopy = [...track.instrumentRows];
+    //   rowsCopy[rowIndex].instrument = instr;
+    //   return rowsCopy as IInstrumentRow[];
+    // };
+    // setTrack({ ...track, instrumentRows: updatedRows(instrument, instrIndex) });
+  }
+
+  function handleNoteChange(note: INote, index: number) {
+    console.log(note.play);
+    //   setTrack({ ...track, instrumentRows: rows(val, index) });
   }
 
   return (
@@ -68,6 +89,9 @@ export default function BeatMaker() {
           bars={track.bars}
           instrumentRows={track.instrumentRows}
           isPlaying={track.playing}
+          setInstrumentRows={handleInstrumentRowsChange}
+          setInstrument={handleInstrumentChange}
+          setNote={handleNoteChange}
         />
       </div>
       <div className="state-log">{JSON.stringify(track)}</div>

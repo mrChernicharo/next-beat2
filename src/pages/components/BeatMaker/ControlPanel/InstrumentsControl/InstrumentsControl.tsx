@@ -30,7 +30,7 @@ export function InstrumentsControl({
   function addInstrument() {
     if (appInstruments.length < 6) {
       const newInstr: IInstrumentRow = {
-        instrument: { voice: appVoices.shake, image: instrumentImgs.shake },
+        instrument: { voice: appVoices[2], image: instrumentImgs.shake },
         notes: Array(appInstruments[0].notes.length).fill({ play: false }),
       };
       setAppInstruments([...appInstruments, newInstr]);
