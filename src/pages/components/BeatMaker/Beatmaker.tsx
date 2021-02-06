@@ -7,6 +7,7 @@ import {
   INote,
   ITrack,
   resetTrackNotes,
+  updateNote,
 } from '../../../utils/initialValues';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
@@ -56,8 +57,8 @@ export default function BeatMaker() {
   }
 
   // muda nota dentro do row
-  function handleNoteChange(note: INote, rowIndex: number, noteIndex: number) {
-    console.log(note.play);
+  function handleNoteChange(play: boolean, rowIndex: number, noteIndex: number) {
+    console.log(updateNote(track, play, rowIndex, noteIndex));
     //   setTrack({ ...track, instrumentRows: rows(val, index) });
   }
 

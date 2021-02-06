@@ -2,24 +2,25 @@ import { useEffect, useState } from 'react';
 import { NoteContainer } from '../../../../../../styles/NoteStyles';
 
 interface INoteProps {
-  index: number;
+  position: number;
+  rowIndex: number;
   play: boolean;
   changeNote: Function;
 }
 
-export default function Note({ index, play, changeNote }: INoteProps) {
+export default function Note({ position, rowIndex, play, changeNote }: INoteProps) {
   const [active, setActive] = useState(play);
 
   useEffect(() => {
-    changeNote(active);
+    changeNote(active, rowIndex, position);
   }, [active]);
 
   function toggleActive() {
     setActive(!active);
   }
   return (
-    <NoteContainer onClick={() => toggleActive()}>
-      <div>{index + 1}</div>
+    <NoteContainer shouldPlay={active} onClick={() => toggleActive()}>
+      <div>{position + 1}</div>
     </NoteContainer>
   );
 }

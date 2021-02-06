@@ -38,7 +38,12 @@ export default function InstrumentRow({
       </div>
       <div className="notes-container">
         {notes.map((note, i) => (
-          <Note index={i} play={note.play} changeNote={setisPlayNote} />
+          <Note
+            position={i}
+            rowIndex={rowIndex}
+            play={note.play}
+            changeNote={setisPlayNote}
+          />
         ))}
       </div>
     </InstrumentRowContainer>
