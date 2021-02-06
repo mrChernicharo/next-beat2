@@ -1,5 +1,5 @@
 import { TrackControlContainer } from '../../../../../styles/TrackControlStyles';
-import { appBeatOptions } from '../../../../../utils/initialValues';
+import { appBeatOptions, appClickOptions } from '../../../../../utils/initialValues';
 import AppSelect from '../../../shared/AppSelect';
 
 interface ITrackControlProps {
@@ -18,8 +18,15 @@ export function TrackControl({ clicks, beats, setClicks, setBeats }: ITrackContr
       <AppSelect
         lable={'beats'}
         options={appBeatOptions}
-        initialValue="2"
+        initialValue={beats}
         setValue={setBeats}
+      />
+
+      <AppSelect
+        lable={'clicks'}
+        options={appClickOptions}
+        initialValue={clicks}
+        setValue={setClicks}
       />
     </TrackControlContainer>
   );
