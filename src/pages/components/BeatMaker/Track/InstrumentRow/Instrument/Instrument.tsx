@@ -25,7 +25,7 @@ export default function Instrument({
   const [img, setImg] = useState(image);
 
   useEffect(() => {
-    console.log(rowIndex);
+    // console.log(rowIndex);
     setImg(instrumentImgs[vox]);
     updateInstrument(vox, img, rowIndex);
   }, [vox]);

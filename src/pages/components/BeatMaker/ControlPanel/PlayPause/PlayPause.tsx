@@ -11,7 +11,7 @@ export function PlayPause({ isPlaying, setIsPlaying }: IPlayPauseProps) {
   const [playing, setPlaying] = useState(isPlaying);
 
   useEffect(() => {
-    console.log(playing);
+    // console.log(playing);
     setIsPlaying(playing);
   }, [playing]);
 

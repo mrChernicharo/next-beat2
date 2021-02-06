@@ -74,13 +74,13 @@ export const resetTrackNotes = (
 
     return Array(trackLength).fill({ play: false } as INote);
   }
-  console.log(trackCopy);
+  // console.log(trackCopy);
 
   trackCopy.instrumentRows.forEach((row, i) => {
     row.notes = resetNotes(beats, clicks, bars);
   });
 
-  console.log(trackCopy);
+  // console.log(trackCopy);
 
   return trackCopy;
 };
@@ -95,7 +95,7 @@ export const updateNote = (track: ITrack, play: boolean, rowI: number, noteI: nu
 
   trackCopy.instrumentRows[rowI].notes[noteI] = { play };
 
-  console.log(trackCopy.instrumentRows[rowI].notes);
+  // console.log(trackCopy.instrumentRows[rowI].notes);
 
   return trackCopy;
 };

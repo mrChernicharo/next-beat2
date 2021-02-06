@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AppSelectContainer } from '../../../styles/AppSelectStyles';
+import { AppSelectContainer, Overlay } from '../../../styles/AppSelectStyles';
 interface ISelectProps {
   options: any[];
   lable: string;
@@ -21,10 +21,15 @@ export default function AppSelect({
   }, [selectedValue]);
 
   function handleOptionClick(val) {
-    console.log(val);
+    // console.log(val);
     setSelectedValue(val);
     setIsOpened(false);
     return selectedValue;
+  }
+
+  function handleOverlayClick() {
+    console.log('clicked overlay');
+    setIsOpened(false);
   }
 
   function toggleOpened() {
@@ -32,30 +37,33 @@ export default function AppSelect({
   }
 
   return (
-    <AppSelectContainer>
-      <div className="label">
-        <label>{lable}</label>
-      </div>
-      <div className="value" onClick={() => toggleOpened()}>
-        {selectedValue || 2}
-      </div>
-      <>
-        {isOpened ? (
-          <div className="dropdown">
-            {options.map(option => (
-              <div
-                onClick={() => handleOptionClick(option)}
-                className="option"
-                key={option}
-              >
-                {option}
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div></div>
-        )}
-      </>
-    </AppSelectContainer>
+    <>
+      <Overlay onClick={() => handleOverlayClick()} opened={isOpened} />
+      <AppSelectContainer opened={isOpened}>
+        <div className="label">
+          <label>{lable}</label>
+        </div>
+        <div className="value" onClick={() => toggleOpened()}>
+          {selectedValue || 2}
+        </div>
+        <>
+          {isOpened ? (
+            <div className="dropdown">
+              {options.map(option => (
+                <div
+                  onClick={() => handleOptionClick(option)}
+                  className="option"
+                  key={option}
+                >
+                  {option}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </>
+      </AppSelectContainer>
+    </>
   );
 }

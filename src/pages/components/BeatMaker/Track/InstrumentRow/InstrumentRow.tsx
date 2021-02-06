@@ -19,13 +19,6 @@ export default function InstrumentRow({
   setInstrument,
   setisPlayNote,
 }: IInstrumentRowProps) {
-  // const [rowInstrument, setRowInstrument] = useState(instrument);
-
-  // useEffect(() => {
-  //   console.log(rowInstrument);
-  //   console.log(rowIndex);
-  // }, [rowInstrument]);
-
   return (
     <InstrumentRowContainer>
       <div className="instrument-container">
@@ -39,6 +32,7 @@ export default function InstrumentRow({
       <div className="notes-container">
         {notes.map((note, i) => (
           <Note
+            key={i}
             position={i}
             rowIndex={rowIndex}
             play={note.play}

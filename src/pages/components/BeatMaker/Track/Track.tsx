@@ -27,10 +27,11 @@ export function Track({
 }: ITrackProps) {
   return (
     <TrackContainer>
-      <span className="component-title">Track</span>
+      <span>Track</span>
       <div>
         {instrumentRows.map((instrumentRow, i) => (
           <InstrumentRow
+            key={i}
             rowIndex={i}
             setInstrument={setInstrument}
             setisPlayNote={setNote}

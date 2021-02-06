@@ -32,7 +32,7 @@ export default function BeatMaker() {
   }
 
   function handleBarsChange(bars: number) {
-    console.log(bars);
+    // console.log(bars);
     setTrack({ ...resetTrackNotes(track, track.beats, track.clicks, bars) });
   }
 
@@ -58,13 +58,12 @@ export default function BeatMaker() {
 
   // muda nota dentro do row
   function handleNoteChange(play: boolean, rowIndex: number, noteIndex: number) {
-    console.log(updateNote(track, play, rowIndex, noteIndex));
-    //   setTrack({ ...track, instrumentRows: rows(val, index) });
+    setTrack({ ...updateNote(track, play, rowIndex, noteIndex) });
   }
 
   return (
     <BeatMakerContainer>
-      <span className="component-title">Beat Maker</span>
+      <span>Beat Maker</span>
       <div>
         <ControlPanel
           tempo={track.tempo}
