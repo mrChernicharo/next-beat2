@@ -52,31 +52,3 @@ export const initialTrack: ITrack = {
     },
   ],
 };
-
-// const initialNotes: INote[] = [
-//   { play: false, click: 1, beat: 1 },
-//   { play: false, click: 1, beat: 2 },
-//   { play: false, click: 2, beat: 1 },
-//   { play: false, click: 2, beat: 2 },
-//   { play: false, click: 3, beat: 1 },
-//   { play: false, click: 3, beat: 2 },
-//   { play: false, click: 4, beat: 1 },
-//   { play: false, click: 4, beat: 2 },
-// ];
-// const initialTrack1: ITrack = {
-//   beats: 2,
-//   clicks: 4,
-//   intrument: instruments[0],
-//   notes: initialNotes,
-//   playing: false,
-// };
-
-// const initialTrack2: ITrack = {
-//   beats: 2,
-//   clicks: 4,
-//   intrument: instruments[1],
-//   notes: initialNotes,
-//   playing: false,
-// };
-
-// export const initialTracks: ITrack[] = [initialTrack1, initialTrack2];

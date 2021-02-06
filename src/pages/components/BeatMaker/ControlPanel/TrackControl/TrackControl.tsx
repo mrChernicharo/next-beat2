@@ -1,5 +1,13 @@
 import { TrackControlContainer } from '../../../../../styles/TrackControlStyles';
-export function TrackControl() {
+
+interface ITrackControlProps {
+  clicks: number;
+  beats: number;
+  setClicks: Function;
+  setBeats: Function;
+}
+
+export function TrackControl({ clicks, beats, setClicks, setBeats }: ITrackControlProps) {
   return (
     <TrackControlContainer>
       <p className="component-title">TrackControl</p>
