@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BeatMakerContainer } from '../../../styles/BeatMakerStyles';
-import { initialTrack, ITrack } from '../../../utils/initialValues';
+import { IInstrument, initialTrack, ITrack } from '../../../utils/initialValues';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
 
@@ -32,6 +32,10 @@ export default function BeatMaker() {
     setTrack({ ...track, playing: val });
   }
 
+  function handleInstrumentsChange(val: IInstrument[]) {
+    setTrack({ ...track, instruments: val });
+  }
+
   return (
     <BeatMakerContainer>
       <span className="component-title">Beat Maker</span>
@@ -42,12 +46,14 @@ export default function BeatMaker() {
           clicks={track.clicks}
           beats={track.beats}
           bars={track.bars}
+          instruments={track.instruments}
           isPlaying={track.playing}
           setIsPlaying={handlePlay}
           setTempo={handleTempoSliderChange}
           setClicks={handleClicksChange}
           setBeats={handleBeatsChange}
           setBars={handleBarsChange}
+          setInstruments={handleInstrumentsChange}
         />
       </div>
       <div>

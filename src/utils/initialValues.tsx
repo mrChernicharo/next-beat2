@@ -23,6 +23,7 @@ export const appClickOptions = [1, 2, 3, 4];
 export const appVoices = {
   snare: 'snare',
   bassKick: 'bass kick',
+  shake: 'shake',
   hiHat: 'hi hat',
   crash: 'crash',
 };
@@ -33,6 +34,7 @@ export const instrumentImgs = {
     'https://i.pinimg.com/originals/d2/19/0f/d2190fa3af0509799ada2dd695dd9fbd.jpg',
   hiHat: 'https://images-na.ssl-images-amazon.com/images/I/71KOqhGS7bL._AC_SX425_.jpg',
   crash: 'https://sc1.musik-produktiv.com/pic-010119595xl/zildjian-i-family-19-crash.jpg',
+  shake: 'https://www.normans.co.uk/blog/wp-content/uploads/2018/10/maracas-300x300.jpg',
 };
 
 export const initialTrack: ITrack = {

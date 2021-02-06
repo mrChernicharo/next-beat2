@@ -1,9 +1,62 @@
-import { InstrumentsControlContainer } from '../../../../../styles/InstrumentsControlStyles';
-export function InstrumentsControl() {
+import {
+  InstrumentsControlContainer,
+  InstrumentsControlBtn,
+} from '../../../../../styles/InstrumentsControlStyles';
+import {
+  appVoices,
+  IInstrument,
+  instrumentImgs,
+} from '../../../../../utils/initialValues';
+import { FiPlus, FiMinus } from 'react-icons/fi';
+import { useEffect, useState } from 'react';
+
+interface IInstrumentControlProps {
+  instruments: IInstrument[];
+  setInstruments: Function;
+}
+
+export function InstrumentsControl({
+  instruments,
+  setInstruments,
+}: IInstrumentControlProps) {
+  const [appInstruments, setAppInstruments] = useState(instruments);
+
+  useEffect(() => {
+    setInstruments(appInstruments);
+  }, [appInstruments]);
+  // useEffect(() => {}, [])
+
+  function addInstrument() {
+    if (appInstruments.length < 6) {
+      const newInstr: IInstrument = {
+        voice: appVoices.shake,
+        image: instrumentImgs.shake,
+        notes: Array(appInstruments[0].notes.length).fill({ play: false }),
+      };
+      setAppInstruments([...appInstruments, newInstr]);
+    }
+  }
+
+  function removeInstrument() {
+    if (appInstruments.length > 1) {
+      const copy = [...appInstruments];
+      copy.pop();
+
+      setAppInstruments(copy);
+    }
+  }
+
   return (
     <InstrumentsControlContainer>
       <span className="component-title">InstrumentsControl</span>
-      <div>🎮</div>
+      <div>
+        <InstrumentsControlBtn>
+          <FiPlus onClick={() => addInstrument()} />
+        </InstrumentsControlBtn>
+        <InstrumentsControlBtn>
+          <FiMinus onClick={() => removeInstrument()} />
+        </InstrumentsControlBtn>
+      </div>
     </InstrumentsControlContainer>
   );
 }
