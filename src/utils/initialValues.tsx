@@ -98,13 +98,11 @@ export const updateNote = (
   const trackLength = track.beats * track.clicks * track.bars;
   const idsRow = [];
   const newNotes = [];
-  console.log(notePlay, rowI + 1, noteI);
 
   // AQUI Q TUDO ACONTECE!
   let z = 0;
   for (let i = 1; i < trackLength + 1; i++) {
     let beat: number, click: number, bar: number;
-    console.log(i);
 
     beat = i % track.beats === 0 ? track.beats : i % track.beats;
     bar = Math.ceil(i / (trackLength / track.bars));
@@ -123,61 +121,9 @@ export const updateNote = (
     }
     newNotes.push({ id: idsRow[i], play: shouldPlay });
   });
-  console.log(newNotes);
   const newRow: IInstrumentRow = { ...trackCopy.instrumentRows[rowI], notes: newNotes };
-  console.log(newRow);
 
   trackCopy.instrumentRows[rowI] = newRow;
-  console.log(trackCopy);
-  // console.log(idsRow);
-
-  // trackCopy.instrumentRows[rowI].notes.forEach((note, i) => {
-  //   let id = idsRow[i];
-
-  //   if (i === noteI) {
-  //     note.play = play;
-  //   }
-  //   newRow.push({ id, play: note.play });
-  // });
-  // console.log(trackCopy);
-  // console.log(newRow);
 
   return { ...trackCopy } as ITrack;
 };
-
-//
-// let b, c, bar, len
-// b = 4
-// c = 7
-// bar = 2
-// len = b * c * bar
-// let z = 0
-
-// arr = []
-// for(let i = 1; i <= len; i++) {
-//   let fb,fc,fBar
-
-//   fb = i % b === 0 ? b : i % b
-//   fBar = Math.ceil(i / (len/bar))
-
-//   if(i % b === 1) {z++}
-//   fc = (z % c ? z% c : c )
-
-//   // console.table()
-//   arr.push({a: fb, b: fc, c: fBar})
-//   // arr.push(`${i}-${fb}-${c}-${bar}`)
-// }
-// console.table(arr)
-// console.log(arr)
-
-// ISSO FUNCIONA TÁ?
-
-// const newNotes: INote[] = [];
-// trackCopy.instrumentRows[rowI].notes.forEach((note, i) => {
-//   newNotes.push(note);
-// });
-
-// trackCopy.instrumentRows[rowI].notes[noteI] = {
-//   play,
-//   id: trackCopy.instrumentRows[rowI].notes[noteI].id,
-// };

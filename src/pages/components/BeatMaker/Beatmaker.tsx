@@ -9,6 +9,7 @@ import {
   resetTrackNotes,
   updateNote,
 } from '../../../utils/initialValues';
+import { playLoop } from '../../../utils/Loop';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
 
@@ -37,6 +38,8 @@ export default function BeatMaker() {
   }
 
   function handlePlay(playing: boolean) {
+    let interval = playLoop(track);
+    playing ? console.log(interval) : clearInterval(interval);
     setTrack({ ...track, playing });
   }
 
