@@ -6,7 +6,7 @@ export const BeatMakerContainer = styled.div`
 
   .state-log {
     border: 1px solid;
-    font-size: 12px;
+    font-size: 10px;
     line-height: 24px;
     pointer-events: none;
   }

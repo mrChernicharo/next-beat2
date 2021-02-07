@@ -87,7 +87,6 @@ export const resetTrackNotes = (
 
   return trackCopy;
 };
-
 export const updateNotes = (
   track: ITrack,
   notePlay: boolean,
@@ -99,23 +98,23 @@ export const updateNotes = (
   const trackLength = track.beats * track.clicks * track.bars;
   const idsRow = [];
   const newNotes = [];
+  let z = 0;
 
   // AQUI Q TUDO ACONTECE!
-  let z = 0;
   for (let i = 1; i < trackLength + 1; i++) {
     let beat: number, click: number, bar: number;
 
     beat = i % track.beats === 0 ? track.beats : i % track.beats;
     bar = Math.ceil(i / (trackLength / track.bars));
 
-    i % track.bars === 1 ? z++ : '';
+    i % track.beats === 1 ? z++ : '';
     click = z % track.clicks ? z % track.clicks : track.clicks;
 
     idsRow.push(idMaker(rowI, beat, click, bar));
   }
+  console.log(idsRow);
 
   trackCopy.instrumentRows[rowI].notes.forEach((note, i) => {
-    // console.log(i, note, noteI);
     let shouldPlay = note.play;
     if (i === noteI) {
       shouldPlay = notePlay;

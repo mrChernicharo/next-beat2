@@ -7,8 +7,8 @@ export function playLoop(track: ITrack) {
   let pos = 1;
 
   let loopInterval = setInterval(() => {
-    console.log(updateUI(beat, click, bar));
-    console.log(`pos -> ${pos}, beat${beat}, click${click}, bar${bar}`);
+    updateUI(beat, click, bar);
+    // console.log(`pos -> ${pos}, beat${beat}, click${click}, bar${bar}`);
 
     if (beat !== track.beats) {
       beat++;
@@ -43,10 +43,12 @@ export function playLoop(track: ITrack) {
 // }
 
 function updateUI(beat: number, click: number, bar: number) {
-  //   console.log({ beat, click, pos });
-  const currentNoteEl = document.querySelector(
-    `id$=[-beat-${beat}-click-${click}-bar-${bar}]`
+  console.log('updateUI');
+  console.log(beat, click, bar);
+  const currentNoteEl = document.querySelectorAll(
+    `div[id$='-beat-${beat}-click-${click}-bar-${bar}']`
   );
+
   // const previousNoteEl = (beat, click, bar) => {
   //   if (click === 1 && beat === 1 && bar === 1) {
   //     // pega a última div
@@ -62,6 +64,7 @@ function updateUI(beat: number, click: number, bar: number) {
   //       return document.querySelector(`#click-${click - 1}-beat-${track.beats}`);
   //     }
   //   }
+  console.log(currentNoteEl);
   return currentNoteEl;
 }
 //   curentNoteEl.classList.add('current-note');
