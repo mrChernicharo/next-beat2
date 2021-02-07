@@ -7,16 +7,17 @@ interface INoteContainerProps {
 
 export const NoteContainer = styled.div`
   border: 1px solid;
-  width: 20px;
-  height: 20px;
+  min-width: 20px !important;
+  height: 20px !important;
   font-size: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   background-color: ${(props: INoteContainerProps) =>
     props.shouldPlay ? 'blue' : 'transparent'};
 
   &.current-note {
-    border-bottom: 2px solid red;
+    border-bottom: 3px solid red;
   }
 `;

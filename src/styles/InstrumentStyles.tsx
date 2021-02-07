@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const InstrumentContainer = styled.div`
   border: 1px solid green;
 
-  padding: 6px;
-  margin: 10px;
+  padding: 2px;
+  margin: 4px;
   display: flex;
 
   .head {

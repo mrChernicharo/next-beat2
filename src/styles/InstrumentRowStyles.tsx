@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const InstrumentRowContainer = styled.div`
-  border: 1px solid red;
-  /* height: 100px; */
+  border: 1px solid #ccc;
   padding: 4px;
   margin: 10px;
   display: flex;
@@ -12,7 +11,48 @@ export const InstrumentRowContainer = styled.div`
   }
   .notes-container {
     border: 1px solid lightblue;
+    width: 100%;
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
+
+    ::-webkit-scrollbar {
+      height: 8px;
+      background-color: rgb(73, 72, 72);
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: rgba(245, 245, 245, 0.494);
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      transition: background-image 0.3s;
+
+      background-image: -webkit-gradient(
+        linear,
+        right top,
+        left bottom,
+        color-stop(0.24, rgb(94, 117, 162)),
+        color-stop(0.42, rgb(73, 125, 189)),
+        color-stop(0.76, rgb(28, 58, 148))
+      );
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background-image: -webkit-gradient(
+        linear,
+        right top,
+        left bottom,
+        color-stop(0.24, rgb(119, 142, 187)),
+        color-stop(0.42, rgb(98, 150, 214)),
+        color-stop(0.76, rgb(53, 83, 173))
+      );
+    }
   }
 `;

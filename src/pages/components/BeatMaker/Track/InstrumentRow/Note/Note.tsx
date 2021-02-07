@@ -26,7 +26,7 @@ export default function Note({ id, position, rowIndex, play, changeNote }: INote
       onClick={() => toggleActive()}
       className="note"
     >
-      <div>{position + 1}</div>
+      {position + 1}
     </NoteContainer>
   );
 }
