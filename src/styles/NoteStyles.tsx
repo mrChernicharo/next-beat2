@@ -7,9 +7,14 @@ interface INoteContainerProps {
 
 export const NoteContainer = styled.div`
   border: 1px solid;
-  padding: 4px;
+  width: 20px;
+  height: 20px;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: ${(props: INoteContainerProps) =>
-    props.shouldPlay ? 'blue' : 'green'};
+    props.shouldPlay ? 'blue' : 'transparent'};
 
   &.current-note {
     border-bottom: 2px solid red;
