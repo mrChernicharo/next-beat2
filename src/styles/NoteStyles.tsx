@@ -10,4 +10,8 @@ export const NoteContainer = styled.div`
   padding: 4px;
   background-color: ${(props: INoteContainerProps) =>
     props.shouldPlay ? 'blue' : 'green'};
+
+  &.current-note {
+    border-bottom: 2px solid red;
+  }
 `;
