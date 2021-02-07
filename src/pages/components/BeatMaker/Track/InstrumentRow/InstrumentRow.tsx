@@ -32,6 +32,7 @@ export default function InstrumentRow({
       <div className="notes-container">
         {notes.map((note, i) => (
           <Note
+            id={note.id}
             key={i}
             position={i}
             rowIndex={rowIndex}

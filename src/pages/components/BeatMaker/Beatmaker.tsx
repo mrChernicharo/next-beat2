@@ -1,3 +1,4 @@
+import { kill } from 'process';
 import { useEffect, useState } from 'react';
 import { BeatMakerContainer } from '../../../styles/BeatMakerStyles';
 import {
@@ -7,7 +8,7 @@ import {
   INote,
   ITrack,
   resetTrackNotes,
-  updateNote,
+  updateNotes,
 } from '../../../utils/initialValues';
 import { playLoop } from '../../../utils/Loop';
 import { ControlPanel } from './ControlPanel/ControlPanel';
@@ -15,10 +16,14 @@ import { Track } from './Track/Track';
 
 export default function BeatMaker() {
   const [track, setTrack] = useState<ITrack>(initialTrack);
-  // const [loop, setLoop] = useState(null);
-  // useEffect(() => {
-
-  // }, [track])
+  const [loop, setLoop] = useState(null);
+  useEffect(() => {
+    if (track.playing) {
+      setLoop(playLoop(track));
+    } else {
+      killLoop(loop);
+    }
+  }, [track.playing]);
 
   function handleTempoSliderChange(tempo: number) {
     setTrack({ ...track, tempo });
@@ -38,8 +43,8 @@ export default function BeatMaker() {
   }
 
   function handlePlay(playing: boolean) {
-    let interval = playLoop(track);
-    playing ? console.log(interval) : clearInterval(interval);
+    // let interval = playLoop(track);
+    // playing ? console.log(interval) : clearInterval(interval);
     setTrack({ ...track, playing });
   }
 
@@ -61,7 +66,15 @@ export default function BeatMaker() {
 
   // muda nota dentro do row
   function handleNoteChange(play: boolean, rowIndex: number, noteIndex: number) {
-    setTrack({ ...updateNote(track, play, rowIndex, noteIndex) });
+    console.log('handleNoteChange');
+    setTrack({ ...updateNotes(track, play, rowIndex, noteIndex) });
+  }
+
+  ///
+
+  function killLoop(loop) {
+    setLoop(clearInterval(loop));
+    // clearUI();
   }
 
   return (

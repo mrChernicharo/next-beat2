@@ -1,32 +1,27 @@
 import { ITrack } from './initialValues';
 
 export function playLoop(track: ITrack) {
-  const totalBeats = track.beats;
-  const totalclicks = track.clicks;
-  const totalBars = track.bars;
-  const trackLength = totalBeats * totalclicks;
-
   let click = 1;
   let beat = 1;
   let bar = 1;
   let pos = 1;
 
   let loopInterval = setInterval(() => {
-    // updateUI(beat, click, pos);
-    console.log(pos, beat, click, bar);
+    console.log(updateUI(beat, click, bar));
+    console.log(`pos -> ${pos}, beat${beat}, click${click}, bar${bar}`);
 
-    if (beat !== totalBeats) {
+    if (beat !== track.beats) {
       beat++;
-    } else if (beat === totalBeats) {
+    } else if (beat === track.beats) {
       beat = 1;
-      if (click !== totalclicks) {
+      if (click !== track.clicks) {
         click++;
-      } else if (click === totalclicks) {
+      } else if (click === track.clicks) {
         click = 1;
 
-        if (bar !== totalBars) {
+        if (bar !== track.bars) {
           bar++;
-        } else if (bar === totalBars) {
+        } else if (bar === track.bars) {
           bar = 1;
         }
       }
@@ -37,40 +32,44 @@ export function playLoop(track: ITrack) {
     } else {
       pos++;
     }
-  }, Math.round(60_000 / (track.tempo * totalBeats)));
+  }, Math.round(60_000 / (track.tempo * track.beats)));
 
   return loopInterval;
 }
 
-function killLoop() {
-  // setLoop(clearInterval(loop));
-  // clearUI();
+// export function killLoop(loop) {
+//   setLoop(clearInterval(loop));
+//   // clearUI();
+// }
+
+function updateUI(beat: number, click: number, bar: number) {
+  //   console.log({ beat, click, pos });
+  const currentNoteEl = document.querySelector(
+    `id$=[-beat-${beat}-click-${click}-bar-${bar}]`
+  );
+  // const previousNoteEl = (beat, click, bar) => {
+  //   if (click === 1 && beat === 1 && bar === 1) {
+  //     // pega a última div
+  //     return document.querySelector(`#click-${track.clicks}-beat-${track.beats}`);
+  //   } else {
+  //     // pega a anterior
+  //     if (beat !== 1) {
+  //       return document.querySelector(`#click-${click}-beat-${beat - 1}`);
+  //     } else {
+  //       if (bar !== 1) {
+  //         return document.querySelector(`#click-${click}-beat-${beat - 1}`);
+  //       }
+  //       return document.querySelector(`#click-${click - 1}-beat-${track.beats}`);
+  //     }
+  //   }
+  return currentNoteEl;
 }
-
-// function updateUI(beat: number, click: number, pos: number) {
-//   console.log({ beat, click, pos });
-//   const curentNoteEl = document.querySelector(`#click-${click}-beat-${beat}`);
-//   const previousNoteEl = (beat, click) => {
-//     if (click === 1 && beat === 1) {
-//       // pega a última div
-//       return document.querySelector(`#click-${track.clicks}-beat-${track.beats}`);
-//     } else {
-//       // pega a anterior
-//       if (beat !== 1) {
-//         return document.querySelector(`#click-${click}-beat-${beat - 1}`);
-//       } else {
-//         return document.querySelector(`#click-${click - 1}-beat-${track.beats}`);
-//       }
-//     }
-//   };
-
 //   curentNoteEl.classList.add('current-note');
 //   previousNoteEl(beat, click).classList.remove('current-note');
 //   // console.log(curentNoteEl);
 // }
 // function clearUI() {
 //   const remainingEl = document.querySelector('.current-note');
-
 //   if (remainingEl) {
 //     // console.log(remainingEl);
 //     remainingEl.classList.remove('current-note');

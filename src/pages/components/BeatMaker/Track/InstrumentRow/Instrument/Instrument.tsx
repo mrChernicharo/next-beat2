@@ -36,7 +36,6 @@ export default function Instrument({
 
   return (
     <InstrumentContainer>
-      <div>{vox}</div>
       <img src={img} width={30} height={30} />
 
       <AppSelect
