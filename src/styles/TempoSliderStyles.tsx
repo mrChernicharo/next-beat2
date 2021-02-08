@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const TempoSliderContainer = styled.div`
   border: 1px solid;
+  width: 260px;
   height: 64px;
   padding: 4px;
   display: flex;
@@ -9,6 +10,11 @@ export const TempoSliderContainer = styled.div`
 
   .top {
     border: 1px solid;
+    border-bottom: none;
+
+    span {
+      line-height: 18px;
+    }
 
     .title-container {
       width: 100%;
@@ -21,24 +27,31 @@ export const TempoSliderContainer = styled.div`
     border: 1px solid;
 
     > .tempo-container {
-      border: 1px solid;
-      border: 1px solid;
-      width: 40px;
-      height: 42px;
+      /* border: 1px solid; */
+      height: 32px;
+      max-width: 60px;
+      min-width: 60px;
+      justify-content: end;
+      padding: 0 0px 0 6px;
 
       > p {
-        font-size: 10px;
+        font-size: 18px;
+        /* line-height: 26px; */
+        line-height: 32px;
 
         > span.bpm {
-          font-size: 22px;
+          font-size: 18px;
           font-family: 'MusicalSymbols';
           font-weight: bold;
-          margin-right: 4px;
+          margin-right: 8px;
         }
       }
     }
     .slider-container {
-      border: 1px solid;
+      width: 100%;
+      border-left: 1px solid;
+      padding: 10px 0 0 0;
+      justify-content: center;
     }
   }
 
