@@ -76,14 +76,19 @@ export const resetTrackNotes = (
   // TODO melhorar algorítimo pra aprovitar notas clicadas anteriormente
   const trackCopy: ITrack = Object.assign(track, { beats, clicks, bars });
 
-  function resetNotes(bts, clcks, brs): INote[] {
+  function resetNotes(i, bts, clcks, brs): INote[] {
     const trackLength = bts * clcks * brs;
+    const notes = [];
 
-    return Array(trackLength).fill({ play: false, id: '' } as INote);
+    const ids = createIds(i, track);
+
+    ids.forEach(id => notes.push({ id, play: false }));
+
+    return notes;
   }
 
   trackCopy.instrumentRows.forEach((row, i) => {
-    row.notes = resetNotes(beats, clicks, bars);
+    row.notes = resetNotes(i, beats, clicks, bars);
   });
 
   return trackCopy;
@@ -95,7 +100,7 @@ export const updateNotes = (
   rowI: number,
   noteI: number
 ) => {
-  // console.log('updateNote');
+  console.log('updateNote');
   const trackCopy = { ...track };
   const trackLength = track.beats * track.clicks * track.bars;
   const idsRow = [];

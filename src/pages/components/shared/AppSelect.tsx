@@ -44,7 +44,7 @@ export default function AppSelect({
           <label>{lable}</label>
         </div>
         <div className="value" onClick={() => toggleOpened()}>
-          {selectedValue || 2}
+          {selectedValue}
         </div>
         <>
           {isOpened ? (
