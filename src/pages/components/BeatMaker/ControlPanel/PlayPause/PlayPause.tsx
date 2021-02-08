@@ -16,19 +16,15 @@ export function PlayPause({ isPlaying, setIsPlaying }: IPlayPauseProps) {
     setIsPlaying(playing);
   }, [playing]);
 
-  useEffect(() => {
-    console.log(hover);
-  }, [hover]);
-
   function playToggle() {
     setPlaying(!playing);
   }
 
   function hoverIcon() {
-    setHover(!hover);
+    setHover(true);
   }
   function leaveIcon() {
-    setHover(!hover);
+    setHover(false);
   }
 
   return (
@@ -45,12 +41,24 @@ export function PlayPause({ isPlaying, setIsPlaying }: IPlayPauseProps) {
           <h1>
             {playing ? (
               <FiPause
-                onMouseOver={() => hoverIcon()}
+                onMouseEnter={() => hoverIcon()}
                 onMouseLeave={() => leaveIcon()}
-                style={hover ? { stroke: 'url(#purple-gradient)' } : { stroke: '#fff' }}
+                style={
+                  hover
+                    ? { fill: '#fff', stroke: '#fff' }
+                    : { fill: 'url(#purple-gradient)', stroke: 'url(#purple-gradient)' }
+                }
               />
             ) : (
-              <FiPlay style={{ stroke: 'url(#purple-gradient)' }} />
+              <FiPlay
+                onMouseEnter={() => hoverIcon()}
+                onMouseLeave={() => leaveIcon()}
+                style={
+                  hover
+                    ? { fill: '#fff', stroke: '#fff' }
+                    : { fill: 'url(#purple-gradient)', stroke: 'url(#purple-gradient)' }
+                }
+              />
             )}
           </h1>
           {/* <h1>{playing ? '⑊' : '⎶'}</h1> */}

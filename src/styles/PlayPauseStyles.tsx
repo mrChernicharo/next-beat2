@@ -20,14 +20,10 @@ export const PlayPauseBtn = styled.button`
   justify-content: center;
   outline: none;
   cursor: pointer;
-  fill: transparent;
+  transition: 0.4s;
 
   h1 {
-    svg {
-      &:hover {
-        stroke: 'url(#purple-gradient)';
-      }
-    }
+    line-height: 68px;
 
     :active {
       box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 0.4);

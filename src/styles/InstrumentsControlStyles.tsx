@@ -26,7 +26,6 @@ export const InstrumentsControlContainer = styled.div`
   .btn-container {
     border: 1px solid;
     padding: 4px;
-    /* justify-content: center; */
   }
 `;
 export const InstrumentsControlBtn = styled.button`
@@ -35,7 +34,6 @@ export const InstrumentsControlBtn = styled.button`
   color: #fff;
   font-size: 18px;
   border: 1px solid;
-  /* margin: 4px 0; */
   border-radius: 2px;
   display: flex;
   justify-content: center;
