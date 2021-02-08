@@ -8,6 +8,8 @@ module.exports = {
       'https://www.normans.co.uk/blog/wp-content/uploads/2018/10/maracas-300x300.jpg',
     ],
   },
+  test: /\.(woff|svg|ttf|eot|png)$/,
+  loader: 'file-loader',
 };
 
 {

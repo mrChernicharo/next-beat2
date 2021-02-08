@@ -1,4 +1,3 @@
-import { kill } from 'process';
 import { useEffect, useState } from 'react';
 import { BeatMakerContainer } from '../../../styles/BeatMakerStyles';
 import {
