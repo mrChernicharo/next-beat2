@@ -24,12 +24,15 @@ export default function Note({ id, position, rowIndex, play, changeNote }: INote
   }
   return (
     <NoteContainer
+      beat={beat}
+      click={click}
+      bar={bar}
       id={id}
       shouldPlay={active}
       onClick={() => toggleActive()}
       className="note"
     >
-      {beat === '1' ? <div>○</div> : <div>_</div>}
+      {beat === '1' ? <span>○</span> : <span>_</span>}
     </NoteContainer>
   );
 }

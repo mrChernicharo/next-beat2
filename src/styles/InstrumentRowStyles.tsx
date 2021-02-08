@@ -1,37 +1,33 @@
 import styled from 'styled-components';
+import { INote } from '../utils/initialValues';
+
+interface INoteWrapperProps {
+  noteItem: INote;
+}
 
 export const InstrumentRowContainer = styled.div`
   border: 1px solid #ccc;
-  padding: 4px;
+  padding: 0 0 0 4px;
   margin: 10px;
   display: flex;
 
   .instrument-container {
-    border: 1px solid lightblue;
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+    box-shadow: 1px 2px 19px rgba(0, 0, 0, 0.5);
   }
   .notes-container {
-    border: 1px solid lightblue;
-    width: 100%;
+    /* border: 1px solid lightblue; */
+    padding: 0 6px 0 0;
     display: flex;
     align-items: center;
     overflow-x: auto;
     overflow-y: hidden;
 
-    .notes-top {
-      height: 40px;
-    }
-    /* .note-wrapper { */
-    //
-    border: 1px solid;
-    .click-indicator {
-      /* margin: 0 2px; */
+    > :last-child {
+      padding-right: 8px;
     }
 
-    .bar-inidcator {
-      border-left: 3px solid green;
-      height: 75px;
-      transform: translate(0px, -24px);
-    }
     ::-webkit-scrollbar {
       height: 8px;
       background-color: rgb(73, 72, 72);
@@ -73,4 +69,40 @@ export const InstrumentRowContainer = styled.div`
       /* } */
     }
   }
+`;
+
+export const NoteWrapper = styled.div`
+  height: 60px;
+  /* border: 1px solid; */
+  padding-left: ${(props: INoteWrapperProps) =>
+    props.noteItem.id.substr(11, 1) === '1' && props.noteItem.id.substr(19, 1) === '1'
+      ? '12px'
+      : props.noteItem.id.substr(11, 1) === '1'
+      ? '4px'
+      : ''};
+
+  .notes-top {
+    height: 40px;
+  }
+  /* .note-wrapper { */
+  //
+  .click-indicator {
+    text-align: end;
+    padding-left: 4px;
+    z-index: 4;
+    display: inline;
+    position: sticky;
+  }
+
+  .bar-inidcator {
+    border-left: 3px solid #777;
+    height: 60px;
+    position: relative;
+    background: transparent;
+    z-index: -2;
+    transform: translate(-7px, -20px);
+  }
+
+  /* height: 75px; */
+  /* transform: translate(0px, -24px); */
 `;

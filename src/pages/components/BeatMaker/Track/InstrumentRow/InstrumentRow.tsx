@@ -1,4 +1,7 @@
-import { InstrumentRowContainer } from '../../../../../styles/InstrumentRowStyles';
+import {
+  InstrumentRowContainer,
+  NoteWrapper,
+} from '../../../../../styles/InstrumentRowStyles';
 import { IInstrument, INote } from '../../../../../utils/initialValues';
 import Note from './Note/Note';
 import Instrument from './Instrument/Instrument';
@@ -35,14 +38,12 @@ export default function InstrumentRow({
       </div>
       <div className="notes-container">
         {notes.map((note, i) => (
-          <div key={i}>
+          <NoteWrapper key={i} noteItem={note}>
             <div className="notes-top">
-              {beat(note.id) === 1 ? (
-                <div className="click-indicator">{click(note.id)}</div>
-              ) : (
-                ''
-              )}
-              {beat(note.id) === 1 && click(note.id) === 1 ? (
+              <div className="click-indicator">
+                {beat(note.id) === 1 ? `   ${click(note.id)}` : ''}
+              </div>
+              {beat(note.id) === 1 && click(note.id) == 1 ? (
                 <div className="bar-inidcator"></div>
               ) : (
                 ''
@@ -56,7 +57,7 @@ export default function InstrumentRow({
               play={note.play}
               changeNote={setisPlayNote}
             />
-          </div>
+          </NoteWrapper>
         ))}
       </div>
     </InstrumentRowContainer>

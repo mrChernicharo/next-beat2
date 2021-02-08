@@ -3,6 +3,9 @@ import styled from 'styled-components';
 interface INoteContainerProps {
   id: string;
   shouldPlay: boolean;
+  beat: string;
+  click: string;
+  bar: string;
 }
 
 export const NoteContainer = styled.div`
@@ -13,6 +16,7 @@ export const NoteContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
   cursor: pointer;
   background-color: ${(props: INoteContainerProps) =>
     props.shouldPlay ? 'blue' : 'transparent'};
@@ -21,7 +25,7 @@ export const NoteContainer = styled.div`
     border-bottom: 3px solid #9b119b;
   }
 
-  &[id*='beat-1-'] {
-    margin-left: 4px;
+  span {
+    pointer-events: none;
   }
 `;

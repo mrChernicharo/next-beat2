@@ -23,7 +23,7 @@ export interface ITrack {
 }
 
 export const appBeatOptions = [2, 3, 4, 6];
-export const appClickOptions = [1, 2, 3, 4, 5, 6, 7];
+export const appClickOptions = [2, 3, 4, 5, 6, 7];
 export const appBarOptions = [1, 2, 3, 4];
 
 export const appVoices = ['snare', 'bassKick', 'shake', 'hiHat', 'crash'];
