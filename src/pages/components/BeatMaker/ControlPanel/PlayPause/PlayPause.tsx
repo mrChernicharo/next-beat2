@@ -1,5 +1,5 @@
 import { PlayPauseContainer, PlayPauseBtn } from '../../../../../styles/PlayPauseStyles';
-import { FiPlay, FiPause } from 'react-icons/fi';
+import { FiPlay, FiPause, FiCheck } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
 
 interface IPlayPauseProps {
@@ -9,22 +9,52 @@ interface IPlayPauseProps {
 
 export function PlayPause({ isPlaying, setIsPlaying }: IPlayPauseProps) {
   const [playing, setPlaying] = useState(isPlaying);
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
     // console.log(playing);
     setIsPlaying(playing);
   }, [playing]);
 
+  useEffect(() => {
+    console.log(hover);
+  }, [hover]);
+
   function playToggle() {
     setPlaying(!playing);
   }
 
+  function hoverIcon() {
+    setHover(!hover);
+  }
+  function leaveIcon() {
+    setHover(!hover);
+  }
+
   return (
     <PlayPauseContainer>
-      <span className="component-title">PlayPause</span>
+      <svg width="0" height="0">
+        <linearGradient id="purple-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+          <stop stopColor="#7a6ded" offset="0%" />
+          <stop stopColor="#591885" offset="100%" />
+        </linearGradient>
+      </svg>
+
       <div className="btn-container">
-        <PlayPauseBtn onClick={() => playToggle()}>
-          {playing ? <FiPause /> : <FiPlay />}
+        <PlayPauseBtn key="play" onClick={() => playToggle()}>
+          <h1>
+            {playing ? (
+              <FiPause
+                onMouseOver={() => hoverIcon()}
+                onMouseLeave={() => leaveIcon()}
+                style={hover ? { stroke: 'url(#purple-gradient)' } : { stroke: '#fff' }}
+              />
+            ) : (
+              <FiPlay style={{ stroke: 'url(#purple-gradient)' }} />
+            )}
+          </h1>
+          {/* <h1>{playing ? '⑊' : '⎶'}</h1> */}
+          {/* <h1>{playing ? '◻︎' : '▷'}</h1> */}
         </PlayPauseBtn>
       </div>
     </PlayPauseContainer>

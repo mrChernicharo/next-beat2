@@ -48,12 +48,14 @@ export function InstrumentsControl({
 
   return (
     <InstrumentsControlContainer>
-      <span className="component-title">InstrumentsControl</span>
-      <div>
-        <InstrumentsControlBtn>
+      <div className="title-container">
+        <span>Instruments</span>
+      </div>
+      <div className="btn-container">
+        <InstrumentsControlBtn add>
           <FiPlus onClick={() => addInstrument()} />
         </InstrumentsControlBtn>
-        <InstrumentsControlBtn>
+        <InstrumentsControlBtn remove>
           <FiMinus onClick={() => removeInstrument()} />
         </InstrumentsControlBtn>
       </div>

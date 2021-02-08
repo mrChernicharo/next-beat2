@@ -13,7 +13,7 @@ export const TempoSliderContainer = styled.div`
     border-bottom: none;
 
     span {
-      line-height: 18px;
+      line-height: 16px;
     }
 
     .title-container {
@@ -36,7 +36,6 @@ export const TempoSliderContainer = styled.div`
 
       > p {
         font-size: 18px;
-        /* line-height: 26px; */
         line-height: 32px;
 
         > span.bpm {
