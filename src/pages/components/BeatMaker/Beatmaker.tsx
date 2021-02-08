@@ -24,6 +24,10 @@ export default function BeatMaker() {
     }
   }, [track.playing]);
 
+  useEffect(() => {
+    console.log('hey');
+  }, [track]);
+
   function handleTempoSliderChange(tempo: number) {
     setTrack({ ...track, tempo });
   }

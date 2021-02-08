@@ -103,6 +103,7 @@ export const updateNotes = (
   let z = 0;
 
   // AQUI Q TUDO ACONTECE!
+  createIds(rowI, track);
   for (let i = 1; i < trackLength + 1; i++) {
     let beat: number, click: number, bar: number;
 
@@ -129,3 +130,22 @@ export const updateNotes = (
 
   return { ...trackCopy } as ITrack;
 };
+
+function createIds(rowI, track) {
+  let z = 0;
+  const idsRow = [];
+  const trackLength = track.beats * track.clicks * track.bars;
+
+  for (let i = 1; i < trackLength + 1; i++) {
+    let beat: number, click: number, bar: number;
+
+    beat = i % track.beats === 0 ? track.beats : i % track.beats;
+    bar = Math.ceil(i / (trackLength / track.bars));
+
+    i % track.beats === 1 ? z++ : '';
+    click = z % track.clicks ? z % track.clicks : track.clicks;
+
+    idsRow.push(idMaker(rowI, beat, click, bar));
+  }
+  return idsRow;
+}
