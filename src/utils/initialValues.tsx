@@ -45,7 +45,7 @@ export const initialTrack: ITrack = {
   tempo: 120,
   beats: 2,
   clicks: 4,
-  bars: 1,
+  bars: 2,
   playing: false,
   instrumentRows: [
     {
@@ -53,14 +53,14 @@ export const initialTrack: ITrack = {
         voice: appVoices[0],
         image: instrumentImgs.snare,
       },
-      notes: Array(2 * 4 * 1).fill({ play: false, id: idMaker(0, 2, 4, 1) }),
+      notes: Array(2 * 4 * 2).fill({ play: false, id: idMaker(0, 2, 4, 2) }),
     },
     {
       instrument: {
         voice: appVoices[1],
         image: instrumentImgs.bassKick,
       },
-      notes: Array(2 * 4 * 1).fill({ play: false, id: idMaker(1, 2, 4, 1) }),
+      notes: Array(2 * 4 * 2).fill({ play: false, id: idMaker(1, 2, 4, 2) }),
     },
   ],
 };
@@ -71,7 +71,7 @@ export const resetTrackNotes = (
   clicks: number,
   bars: number
 ) => {
-  // console.log('resetTrackNotes');
+  console.log('resetTrackNotes');
 
   // TODO melhorar algorítimo pra aprovitar notas clicadas anteriormente
   const trackCopy: ITrack = Object.assign(track, { beats, clicks, bars });
@@ -88,6 +88,7 @@ export const resetTrackNotes = (
 
   return trackCopy;
 };
+
 export const updateNotes = (
   track: ITrack,
   notePlay: boolean,

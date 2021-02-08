@@ -35,9 +35,7 @@ export default function InstrumentRow({
       </div>
       <div className="notes-container">
         {notes.map((note, i) => (
-          <div
-          // className={beat(note.id) === 1 && click(note.id) === 1 ? 'bar-indicator' : ''}
-          >
+          <div key={i}>
             <div className="notes-top">
               {beat(note.id) === 1 ? (
                 <div className="click-indicator">{click(note.id)}</div>

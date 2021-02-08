@@ -89,10 +89,10 @@ function updateUI(beat: number, click: number, bar: number) {
   currentNoteEl.forEach(el => el.classList.add('current-note'));
   //   previousNoteEl(beat, click).classList.remove('current-note');
 }
-// function clearUI() {
-//   const remainingEl = document.querySelector('.current-note');
-//   if (remainingEl) {
-//     // console.log(remainingEl);
-//     remainingEl.classList.remove('current-note');
-//   }
-// }
+export function clearUI() {
+  const remainingEl = document.querySelector('.current-note');
+  if (remainingEl) {
+    // console.log(remainingEl);
+    remainingEl.classList.remove('current-note');
+  }
+}

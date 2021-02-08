@@ -10,6 +10,7 @@ import {
 } from '../../../../../utils/initialValues';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
+import { clearUI } from '../../../../../utils/Loop';
 
 interface IInstrumentControlProps {
   instruments: IInstrumentRow[];
@@ -23,6 +24,7 @@ export function InstrumentsControl({
   const [appInstruments, setAppInstruments] = useState(instruments);
 
   useEffect(() => {
+    console.log(appInstruments);
     setInstruments(appInstruments);
   }, [appInstruments]);
   // useEffect(() => {}, [])
@@ -42,7 +44,7 @@ export function InstrumentsControl({
       const copy = [...appInstruments];
       copy.pop();
 
-      setAppInstruments(copy);
+      setAppInstruments([...copy]);
     }
   }
 
