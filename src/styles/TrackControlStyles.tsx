@@ -9,8 +9,14 @@ export const TrackControlContainer = styled.div`
 
   .title {
     border: 1px solid;
+    justify-content: center;
+
+    span {
+      line-height: 16px;
+    }
   }
   .container {
+    padding: 4px 4px 0px;
     border: 1px solid;
   }
 `;

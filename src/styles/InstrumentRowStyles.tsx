@@ -13,6 +13,7 @@ export const InstrumentRowContainer = styled.div`
     border: 1px solid lightblue;
     width: 100%;
     display: flex;
+    align-items: center;
     overflow-x: auto;
 
     ::-webkit-scrollbar {

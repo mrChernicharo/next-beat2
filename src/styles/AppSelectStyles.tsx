@@ -5,17 +5,16 @@ interface ISelectProps {
 }
 
 export const AppSelectContainer = styled.div`
-  /* border: 1px solid; */
   height: 36px;
   min-width: 60px;
   font-size: 12px;
   flex-direction: column;
   border-radius: 2px;
   z-index: ${(props: ISelectProps) => (props.opened ? 5 : 3)};
-  /* transition: 0.8s; */
 
   .label {
     border: 1px solid;
+    font-size: 10px;
     padding: 0 4px;
   }
   .value {
