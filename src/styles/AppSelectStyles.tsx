@@ -5,19 +5,23 @@ interface ISelectProps {
 }
 
 export const AppSelectContainer = styled.div`
-  border: 1px solid;
+  /* border: 1px solid; */
   height: 36px;
+  min-width: 60px;
   font-size: 12px;
   flex-direction: column;
   border-radius: 2px;
   z-index: ${(props: ISelectProps) => (props.opened ? 5 : 3)};
-  transition: 0.8s;
+  /* transition: 0.8s; */
 
   .label {
     border: 1px solid;
+    padding: 0 4px;
   }
   .value {
     border: 1px solid;
+    padding: 0 4px;
+
     cursor: pointer;
 
     &:hover {
@@ -32,6 +36,8 @@ export const AppSelectContainer = styled.div`
 
     .option {
       border: 1px solid;
+      padding: 0 4px;
+
       cursor: pointer;
       z-index: ${(props: ISelectProps) => (props.opened ? 5 : 4)};
 

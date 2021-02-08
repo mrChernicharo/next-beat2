@@ -18,7 +18,7 @@ export const NoteContainer = styled.div`
     props.shouldPlay ? 'blue' : 'transparent'};
 
   &.current-note {
-    border-bottom: 3px solid purple;
+    border-bottom: 3px solid #9b119b;
   }
 
   &[id*='beat-1-'] {

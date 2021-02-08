@@ -25,29 +25,31 @@ export function TrackControl({
 }: ITrackControlProps) {
   return (
     <TrackControlContainer>
-      <div>
-        <span className="component-title">TrackControl</span>
+      <div className="title">
+        <span>TrackControl</span>
       </div>
-      <AppSelect
-        lable={'beats'}
-        options={appBeatOptions}
-        initialValue={beats}
-        setValue={setBeats}
-      />
+      <div className="container">
+        <AppSelect
+          lable={'beats'}
+          options={appBeatOptions}
+          initialValue={beats}
+          setValue={setBeats}
+        />
 
-      <AppSelect
-        lable={'clicks'}
-        options={appClickOptions}
-        initialValue={clicks}
-        setValue={setClicks}
-      />
+        <AppSelect
+          lable={'clicks'}
+          options={appClickOptions}
+          initialValue={clicks}
+          setValue={setClicks}
+        />
 
-      <AppSelect
-        lable={'bars'}
-        options={appBarOptions}
-        initialValue={bars}
-        setValue={setBars}
-      />
+        <AppSelect
+          lable={'bars'}
+          options={appBarOptions}
+          initialValue={bars}
+          setValue={setBars}
+        />
+      </div>
     </TrackControlContainer>
   );
 }
