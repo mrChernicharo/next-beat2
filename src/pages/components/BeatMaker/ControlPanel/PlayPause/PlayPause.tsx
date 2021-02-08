@@ -61,8 +61,6 @@ export function PlayPause({ isPlaying, setIsPlaying }: IPlayPauseProps) {
               />
             )}
           </h1>
-          {/* <h1>{playing ? '⑊' : '⎶'}</h1> */}
-          {/* <h1>{playing ? '◻︎' : '▷'}</h1> */}
         </PlayPauseBtn>
       </div>
     </PlayPauseContainer>

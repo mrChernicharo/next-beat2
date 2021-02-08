@@ -18,6 +18,10 @@ export const NoteContainer = styled.div`
     props.shouldPlay ? 'blue' : 'transparent'};
 
   &.current-note {
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid purple;
+  }
+
+  &[id*='beat-1-'] {
+    margin-left: 4px;
   }
 `;

@@ -25,6 +25,11 @@ export const PlayPauseBtn = styled.button`
   h1 {
     line-height: 68px;
 
+    :hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+    }
+
     :active {
       box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 0.4);
     }
