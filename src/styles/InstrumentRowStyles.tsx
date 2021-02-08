@@ -16,44 +16,61 @@ export const InstrumentRowContainer = styled.div`
     align-items: center;
     overflow-x: auto;
 
-    ::-webkit-scrollbar {
-      height: 8px;
-      background-color: rgb(73, 72, 72);
+    .notes-top {
+      height: 40px;
+    }
+    /* .note-wrapper { */
+    //
+    border: 1px solid;
+    .click-indicator {
+      /* margin: 0 2px; */
     }
 
-    /* Track */
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-      background-color: rgba(245, 245, 245, 0.494);
-      border-radius: 10px;
+    .bar-inidcator {
+      border-left: 3px solid green;
+      height: 75px;
+      transform: translate(0px, -24px);
     }
+  }
+  ::-webkit-scrollbar {
+    height: 8px;
+    background-color: rgb(73, 72, 72);
+  }
 
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      transition: background-image 0.3s;
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: rgba(245, 245, 245, 0.494);
+    border-radius: 10px;
+  }
 
-      background-image: -webkit-gradient(
-        linear,
-        right top,
-        left bottom,
-        color-stop(0.24, rgb(94, 117, 162)),
-        color-stop(0.42, rgb(73, 125, 189)),
-        color-stop(0.76, rgb(28, 58, 148))
-      );
-    }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    transition: background-image 0.3s;
 
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background-image: -webkit-gradient(
-        linear,
-        right top,
-        left bottom,
-        color-stop(0.24, rgb(119, 142, 187)),
-        color-stop(0.42, rgb(98, 150, 214)),
-        color-stop(0.76, rgb(53, 83, 173))
-      );
-    }
+    background-image: -webkit-gradient(
+      linear,
+      right top,
+      left bottom,
+      color-stop(0.24, rgb(94, 117, 162)),
+      color-stop(0.42, rgb(73, 125, 189)),
+      color-stop(0.76, rgb(28, 58, 148))
+    );
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-image: -webkit-gradient(
+      linear,
+      right top,
+      left bottom,
+      color-stop(0.24, rgb(119, 142, 187)),
+      color-stop(0.42, rgb(98, 150, 214)),
+      color-stop(0.76, rgb(53, 83, 173))
+    );
+    /* } */
+    /* } */
   }
 `;

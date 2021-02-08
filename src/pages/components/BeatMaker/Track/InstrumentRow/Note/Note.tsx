@@ -11,6 +11,9 @@ interface INoteProps {
 
 export default function Note({ id, position, rowIndex, play, changeNote }: INoteProps) {
   const [active, setActive] = useState(play);
+  const beat = id.substr(11, 1);
+  const click = id.substr(19, 1);
+  const bar = id.substr(25, 1);
 
   useEffect(() => {
     changeNote(active, rowIndex, position);
@@ -26,7 +29,7 @@ export default function Note({ id, position, rowIndex, play, changeNote }: INote
       onClick={() => toggleActive()}
       className="note"
     >
-      {position + 1}
+      {beat === '1' ? <div>○</div> : <div>_</div>}
     </NoteContainer>
   );
 }
