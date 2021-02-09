@@ -18,7 +18,7 @@ export default function Note({ id, position, rowIndex, play, changeNote }: INote
   useEffect(() => {
     console.log('note touched!');
     changeNote(active, rowIndex, position);
-  }, [active]);
+  }, [active, play]);
 
   function toggleActive() {
     setActive(!active);

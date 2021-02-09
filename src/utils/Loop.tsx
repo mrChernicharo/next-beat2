@@ -100,8 +100,6 @@ export function clearUI() {
 }
 
 export function playSounds(track: ITrack, pos: number) {
-  // const currentEls = document.querySelectorAll('.current-note');
-  // console.log(currentEls);
   const position = pos - 1;
   const soundBatch = [];
   // console.log();
@@ -114,6 +112,4 @@ export function playSounds(track: ITrack, pos: number) {
   console.log(soundBatch);
 
   soundBatch.forEach(s => new Audio(appSounds[s]).play());
-
-  // track.instrumentRows;
 }

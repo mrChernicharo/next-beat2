@@ -14,7 +14,6 @@ import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
 import { of } from 'rxjs';
 import { debounceTime, throttleTime, take, tap } from 'rxjs/operators';
-import { kill } from 'process';
 
 export default function BeatMaker() {
   const [track, setTrack] = useState<ITrack>(initialTrack);
