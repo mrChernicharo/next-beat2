@@ -20,6 +20,10 @@ export default function AppSelect({
     setValue(selectedValue);
   }, [selectedValue]);
 
+  useEffect(() => {
+    // getAllSelects();
+  }, [isOpened]);
+
   function handleOptionClick(val) {
     // console.log(val);
     setSelectedValue(val);
@@ -36,9 +40,19 @@ export default function AppSelect({
     setIsOpened(!isOpened);
   }
 
+  // const openLays: Element[] = [];
+
   return (
     <>
-      <Overlay onClick={() => handleOverlayClick()} opened={isOpened} />
+      {isOpened ? (
+        <Overlay
+          className="select-overlay"
+          onClick={() => handleOverlayClick()}
+          opened={isOpened}
+        />
+      ) : (
+        ''
+      )}
       <AppSelectContainer opened={isOpened}>
         <div className="label">
           <label>{lable}</label>

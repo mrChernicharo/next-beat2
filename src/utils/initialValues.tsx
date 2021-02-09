@@ -100,7 +100,7 @@ export const updateNotes = (
   rowI: number,
   noteI: number
 ) => {
-  console.log('updateNote');
+  // console.log('updateNote');
   const trackCopy = { ...track };
   const trackLength = track.beats * track.clicks * track.bars;
   const idsRow = [];
