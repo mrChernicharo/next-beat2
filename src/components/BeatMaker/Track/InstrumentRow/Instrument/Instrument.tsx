@@ -1,9 +1,9 @@
-import { InstrumentContainer } from '../../../../../../styles/InstrumentStyles';
+import { InstrumentContainer } from '../../../../../styles/InstrumentStyles';
 import {
   appVoices,
   IInstrument,
   instrumentImgs,
-} from '../../../../../../utils/initialValues';
+} from '../../../../../utils/initialValues';
 import Image from 'next/image';
 import AppSelect from '../../../../shared/AppSelect';
 import { useEffect, useState } from 'react';

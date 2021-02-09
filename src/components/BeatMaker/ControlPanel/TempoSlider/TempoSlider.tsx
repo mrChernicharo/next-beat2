@@ -1,4 +1,4 @@
-import { TempoSliderContainer } from '../../../../../styles/TempoSliderStyles';
+import { TempoSliderContainer } from '../../../../styles/TempoSliderStyles';
 
 interface ITempoSliderProps {
   tempo: number;

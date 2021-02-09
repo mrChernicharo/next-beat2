@@ -1,4 +1,4 @@
-import { PlayPauseContainer, PlayPauseBtn } from '../../../../../styles/PlayPauseStyles';
+import { PlayPauseContainer, PlayPauseBtn } from '../../../../styles/PlayPauseStyles';
 import { FiPlay, FiPause, FiCheck } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
 

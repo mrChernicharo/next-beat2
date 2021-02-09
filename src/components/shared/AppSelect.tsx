@@ -1,5 +1,5 @@
 import { BaseSyntheticEvent, useEffect, useState } from 'react';
-import { AppSelectContainer, Overlay } from '../../../styles/AppSelectStyles';
+import { AppSelectContainer, Overlay } from '../../styles/AppSelectStyles';
 interface ISelectProps {
   options: any[];
   lable: string;

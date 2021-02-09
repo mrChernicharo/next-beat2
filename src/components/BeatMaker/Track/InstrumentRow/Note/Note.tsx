@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NoteContainer } from '../../../../../../styles/NoteStyles';
+import { NoteContainer } from '../../../../../styles/NoteStyles';
 
 interface INoteProps {
   id: string;

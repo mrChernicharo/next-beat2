@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { BeatMakerContainer } from '../../../styles/BeatMakerStyles';
+import { BeatMakerContainer } from '../../styles/BeatMakerStyles';
 import {
   IInstrument,
   IInstrumentRow,
@@ -8,8 +8,8 @@ import {
   ITrack,
   resetTrackNotes,
   updateNotes,
-} from '../../../utils/initialValues';
-import { clearUI, playLoop } from '../../../utils/Loop';
+} from '../../utils/initialValues';
+import { clearUI, playLoop } from '../../utils/Loop';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
 

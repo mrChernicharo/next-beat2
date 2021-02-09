@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { TrackControlContainer } from '../../../../../styles/TrackControlStyles';
+import { TrackControlContainer } from '../../../../styles/TrackControlStyles';
 import {
   appBarOptions,
   appBeatOptions,
   appClickOptions,
-} from '../../../../../utils/initialValues';
+} from '../../../../utils/initialValues';
 import AppSelect from '../../../shared/AppSelect';
 
 interface ITrackControlProps {

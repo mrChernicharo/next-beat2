@@ -1,5 +1,5 @@
-import { TrackContainer } from '../../../../styles/TrackStyles';
-import { IInstrumentRow } from '../../../../utils/initialValues';
+import { TrackContainer } from '../../../styles/TrackStyles';
+import { IInstrumentRow } from '../../../utils/initialValues';
 import InstrumentRow from './InstrumentRow/InstrumentRow';
 
 interface ITrackProps {

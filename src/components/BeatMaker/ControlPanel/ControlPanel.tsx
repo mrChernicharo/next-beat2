@@ -1,6 +1,6 @@
 import React from 'react';
-import { ControlPanelContainer } from '../../../../styles/ControlPanelStyles';
-import { IInstrument, IInstrumentRow } from '../../../../utils/initialValues';
+import { ControlPanelContainer } from '../../../styles/ControlPanelStyles';
+import { IInstrument, IInstrumentRow } from '../../../utils/initialValues';
 import { InstrumentsControl } from './InstrumentsControl/InstrumentsControl';
 import { PlayPause } from './PlayPause/PlayPause';
 import TempoSlider from './TempoSlider/TempoSlider';

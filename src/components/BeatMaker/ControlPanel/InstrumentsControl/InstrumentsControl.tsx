@@ -1,16 +1,16 @@
 import {
   InstrumentsControlContainer,
   InstrumentsControlBtn,
-} from '../../../../../styles/InstrumentsControlStyles';
+} from '../../../../styles/InstrumentsControlStyles';
 import {
   appVoices,
   IInstrument,
   IInstrumentRow,
   instrumentImgs,
-} from '../../../../../utils/initialValues';
+} from '../../../../utils/initialValues';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
-import { clearUI } from '../../../../../utils/Loop';
+import { clearUI } from '../../../../utils/Loop';
 
 interface IInstrumentControlProps {
   instruments: IInstrumentRow[];
