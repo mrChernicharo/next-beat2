@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react';
 import { TempoSliderContainer } from '../../../../styles/TempoSliderStyles';
 
 interface ITempoSliderProps {
@@ -6,6 +7,17 @@ interface ITempoSliderProps {
 }
 
 export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
+  const [appTempo, setAppTempo] = useState(tempo);
+
+  const handleTempoChange = useCallback(
+    val => {
+      console.log(val);
+      setAppTempo(val);
+      setTempo(appTempo);
+    },
+    [appTempo]
+  );
+
   return (
     <TempoSliderContainer>
       <div className="top">
@@ -18,7 +30,7 @@ export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
         <div className="tempo-container">
           <p>
             <span className="bpm">q</span>
-            {tempo}
+            {appTempo}
           </p>
         </div>
 
@@ -28,8 +40,8 @@ export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
             type="range"
             min="20"
             max="400"
-            value={tempo}
-            onChange={e => setTempo(+e.target.value)}
+            value={appTempo}
+            onChange={e => handleTempoChange(+e.target.value)}
           />
         </div>
       </div>

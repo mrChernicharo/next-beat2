@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { BeatMakerContainer } from '../../styles/BeatMakerStyles';
 import {
   IInstrument,
@@ -12,12 +12,16 @@ import {
 import { clearUI, playLoop } from '../../utils/Loop';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
+import { of } from 'rxjs';
+import { debounceTime, throttleTime, take, tap } from 'rxjs/operators';
+import { kill } from 'process';
 
 export default function BeatMaker() {
   const [track, setTrack] = useState<ITrack>(initialTrack);
   const [loop, setLoop] = useState(null);
 
   useEffect(() => {
+    console.log('useEffect, setLoopp');
     if (track.playing) {
       setLoop(playLoop(track));
     } else {
@@ -28,7 +32,6 @@ export default function BeatMaker() {
   // useEffect(() => {
   //   console.log('hey');
   // }, [track]);
-
   function handleTempoSliderChange(tempo: number) {
     setTrack({ ...track, tempo });
   }
@@ -47,8 +50,6 @@ export default function BeatMaker() {
   }
 
   function handlePlay(playing: boolean) {
-    // let interval = playLoop(track);
-    // playing ? console.log(interval) : clearInterval(interval);
     setTrack({ ...track, playing });
   }
 
@@ -58,28 +59,42 @@ export default function BeatMaker() {
   }
 
   // muda o intrument dentro do row
-  function handleInstrumentChange(voice: string, image: string, instrIndex: number) {
-    //
-    const updatedRows = (instr: IInstrument, rowIndex: number) => {
-      const rowsCopy = [...track.instrumentRows];
-      rowsCopy[rowIndex].instrument = instr;
-      return rowsCopy as IInstrumentRow[];
-    };
-    setTrack({ ...track, instrumentRows: updatedRows({ voice, image }, instrIndex) });
-  }
+  const handleInstrumentChange = useCallback(
+    (voice: string, image: string, instrIndex: number) => {
+      //
+      const updatedRows = (instr: IInstrument, rowIndex: number) => {
+        const rowsCopy = [...track.instrumentRows];
+        rowsCopy[rowIndex].instrument = instr;
+        return rowsCopy as IInstrumentRow[];
+      };
+
+      setTrack({ ...track, instrumentRows: updatedRows({ voice, image }, instrIndex) });
+    },
+    [track]
+  );
 
   // muda nota dentro do row
-  function handleNoteChange(play: boolean, rowIndex: number, noteIndex: number) {
+  const handleNoteChange = useCallback(
     // console.log('handleNoteChange');
-    setTrack({ ...updateNotes(track, play, rowIndex, noteIndex) });
-  }
+    (play: boolean, rowIndex: number, noteIndex: number) => {
+      setTrack({ ...updateNotes(track, play, rowIndex, noteIndex) });
+    },
+    [track]
+  );
+  // useCallback(() => {}, []);
 
   ///
 
-  function killLoop(loop) {
-    setLoop(clearInterval(loop));
-    clearUI();
-  }
+  // useCallback(() => {}, []);
+
+  const killLoop = useCallback(
+    loop => {
+      console.log('killLoop');
+      setLoop(clearInterval(loop));
+      clearUI();
+    },
+    [loop]
+  );
 
   // const overlay = useContext(Play);
 

@@ -6,7 +6,7 @@ import {
 } from '../../../../../utils/initialValues';
 import Image from 'next/image';
 import AppSelect from '../../../../shared/AppSelect';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 interface IInstrumentProps {
   rowIndex: number;
@@ -26,6 +26,7 @@ export default function Instrument({
 
   useEffect(() => {
     // console.log(rowIndex);
+
     setImg(instrumentImgs[vox]);
     updateInstrument(vox, img, rowIndex);
   }, [vox]);

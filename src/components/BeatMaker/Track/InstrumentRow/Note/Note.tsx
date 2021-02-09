@@ -16,6 +16,7 @@ export default function Note({ id, position, rowIndex, play, changeNote }: INote
   const bar = id.substr(25, 1);
 
   useEffect(() => {
+    console.log('note touched!');
     changeNote(active, rowIndex, position);
   }, [active]);
 
