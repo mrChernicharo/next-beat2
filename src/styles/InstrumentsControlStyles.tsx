@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // }
 
 interface IBtnProps {
-  disabled: boolean;
+  // disabled: boolean;
   add?: boolean;
   remove?: boolean;
 }
@@ -52,7 +52,5 @@ export const InstrumentsControlBtn = styled.button`
   :active {
     box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 0.4);
   }
-  pointer-events: ${props => (props.disabled ? 'none' : 'all')};
-  color: ${props => (props.disabled ? '#777' : '#fff')};
   margin-right: ${(props: IBtnProps) => (props.add ? '4px' : '')};
 `;

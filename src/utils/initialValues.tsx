@@ -64,6 +64,22 @@ export const initialTrack: ITrack = {
     },
   ],
 };
+export const appSounds = {
+  // click: `../static/sounds/tick.mp3`,
+  bassKick: `../static/sounds/tunn.mp3`,
+  snare: `../static/sounds/snare.mp3`,
+  snareSidestick: `../static/sounds/side-stick.mp3`,
+  hiHat: `../static/sounds/hi-hat.mp3`,
+  ride: '../static/sounds/ride.mp3',
+  rideBell: '../static/sounds/ride-bell.mp3',
+  shake: `../static/sounds/shake.mp3`,
+  cowbell1: '../static/sounds/cuba_cowbell.mp3',
+  cowbell2: '../static/sounds/light_cowbell.mp3',
+  woodblock: '../static/sounds/wood_block.mp3',
+  timbale1: '../static/sounds/timbale.mp3',
+  timbale2: '../static/sounds/timbale2.mp3',
+  click: '../static/sounds/tick.mp3',
+};
 
 export const resetTrackNotes = (
   track: ITrack,
