@@ -90,9 +90,9 @@ function updateUI(beat: number, click: number, bar: number) {
   //   previousNoteEl(beat, click).classList.remove('current-note');
 }
 export function clearUI() {
-  const remainingEl = document.querySelector('.current-note');
+  const remainingEl = document.querySelectorAll('.current-note');
   if (remainingEl) {
     // console.log(remainingEl);
-    remainingEl.classList.remove('current-note');
+    remainingEl.forEach(el => el.classList.remove('current-note'));
   }
 }

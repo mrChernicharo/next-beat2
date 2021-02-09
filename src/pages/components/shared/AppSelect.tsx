@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { BaseSyntheticEvent, useEffect, useState } from 'react';
 import { AppSelectContainer, Overlay } from '../../../styles/AppSelectStyles';
 interface ISelectProps {
   options: any[];
@@ -25,39 +25,53 @@ export default function AppSelect({
   }, [isOpened]);
 
   function handleOptionClick(val) {
-    // console.log(val);
     setSelectedValue(val);
     setIsOpened(false);
     return selectedValue;
   }
 
-  function handleOverlayClick() {
+  function handleOverlayClick(e) {
     console.log('clicked overlay');
+    console.log(e);
     setIsOpened(false);
   }
 
-  function toggleOpened() {
+  function toggleOpened(e: BaseSyntheticEvent) {
+    // console.log((e.bubbles = false));
+
+    // setTimeout(() => {
+    //   const thisLay = document.querySelector(`.select-overlay[id=${lable}]`);
+    //   const allLays = document.querySelectorAll('.select-overlay');
+
+    //   console.log('thisLay');
+    //   console.log(thisLay);
+    //   console.log('allLays');
+    //   console.log(allLays);
+
+    //   const els = [];
+    //   allLays.forEach(lay => {
+    //     (lay as any).style.visibility = 'hidden';
+    //   });
+
+    //   (thisLay as any).style.visibility = 'visible';
+    // }, 0);
+
     setIsOpened(!isOpened);
   }
 
-  // const openLays: Element[] = [];
-
   return (
     <>
-      {isOpened ? (
-        <Overlay
-          className="select-overlay"
-          onClick={() => handleOverlayClick()}
-          opened={isOpened}
-        />
-      ) : (
-        ''
-      )}
+      <Overlay
+        id={lable}
+        className="select-overlay"
+        onClick={e => handleOverlayClick(e)}
+        opened={isOpened}
+      />
       <AppSelectContainer opened={isOpened}>
         <div className="label">
           <label>{lable}</label>
         </div>
-        <div className="value" onClick={() => toggleOpened()}>
+        <div className="value" onClick={e => toggleOpened(e)}>
           {selectedValue}
         </div>
         <>

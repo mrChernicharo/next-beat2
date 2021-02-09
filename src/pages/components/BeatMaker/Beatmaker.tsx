@@ -10,7 +10,7 @@ import {
   resetTrackNotes,
   updateNotes,
 } from '../../../utils/initialValues';
-import { playLoop } from '../../../utils/Loop';
+import { clearUI, playLoop } from '../../../utils/Loop';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
 
@@ -79,7 +79,7 @@ export default function BeatMaker() {
 
   function killLoop(loop) {
     setLoop(clearInterval(loop));
-    // clearUI();
+    clearUI();
   }
 
   // const overlay = useContext(OverlayCtx);

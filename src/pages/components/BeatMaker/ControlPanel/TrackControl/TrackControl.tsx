@@ -24,12 +24,6 @@ export function TrackControl({
   setBeats,
   setBars,
 }: ITrackControlProps) {
-  // const [trackBeats, setTrackBeats] = useState(beats);
-  // const [trackClicks, setTrackClicks] = useState(clicks);
-  // const [trackBars, setTrackBars] = useState(bars);
-
-  // useEffect(() => {}, []);
-
   return (
     <TrackControlContainer>
       <div className="title">

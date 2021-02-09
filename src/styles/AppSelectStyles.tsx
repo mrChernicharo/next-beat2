@@ -59,6 +59,6 @@ export const Overlay = styled.div`
     top: 0;
     left: 0;
     z-index: 2;
-    position: absolute;
+    position: fixed;
   }
 `;
