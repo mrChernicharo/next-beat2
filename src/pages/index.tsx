@@ -4,11 +4,7 @@ import BeatMaker from './components/BeatMaker/Beatmaker';
 import Header from './components/Header/Header';
 import SEO from './components/SEO/SEO';
 
-export const OverlayCtx = React.createContext(false);
-
 export default function Home() {
-  const overlay = useContext(OverlayCtx);
-
   return (
     <div>
       <SEO />
@@ -16,9 +12,7 @@ export default function Home() {
         <Header />
       </header>
       <main>
-        <OverlayCtx.Provider value={overlay}>
-          <BeatMaker />
-        </OverlayCtx.Provider>
+        <BeatMaker />
       </main>
     </div>
   );

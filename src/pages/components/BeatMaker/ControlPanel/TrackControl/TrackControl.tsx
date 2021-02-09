@@ -14,6 +14,7 @@ interface ITrackControlProps {
   setClicks: Function;
   setBeats: Function;
   setBars: Function;
+  isPlaying: boolean;
 }
 
 export function TrackControl({
@@ -23,7 +24,10 @@ export function TrackControl({
   setClicks,
   setBeats,
   setBars,
+  isPlaying,
 }: ITrackControlProps) {
+  // const [play, setPlay] = useState(isPlaying);
+
   return (
     <TrackControlContainer>
       <div className="title">
@@ -31,6 +35,7 @@ export function TrackControl({
       </div>
       <div className="container">
         <AppSelect
+          disabled={isPlaying}
           lable={'beats'}
           options={appBeatOptions}
           initialValue={beats}
@@ -38,6 +43,7 @@ export function TrackControl({
         />
 
         <AppSelect
+          disabled={isPlaying}
           lable={'clicks'}
           options={appClickOptions}
           initialValue={clicks}
@@ -45,6 +51,7 @@ export function TrackControl({
         />
 
         <AppSelect
+          disabled={isPlaying}
           lable={'bars'}
           options={appBarOptions}
           initialValue={bars}

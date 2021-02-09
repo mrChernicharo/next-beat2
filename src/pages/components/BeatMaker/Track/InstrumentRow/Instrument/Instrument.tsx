@@ -39,6 +39,7 @@ export default function Instrument({
       <img src={img} width={30} height={30} />
 
       <AppSelect
+        disabled={false}
         setValue={setNewInstrument}
         lable="instrument"
         initialValue={voice}

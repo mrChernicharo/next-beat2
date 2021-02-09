@@ -43,11 +43,16 @@ export function ControlPanel({
       <div className="body">
         <PlayPause isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
         <TempoSlider tempo={tempo} setTempo={setTempo} />
-        <InstrumentsControl instruments={instruments} setInstruments={setInstruments} />
+        <InstrumentsControl
+          disabled={isPlaying}
+          instruments={instruments}
+          setInstruments={setInstruments}
+        />
         <TrackControl
           clicks={clicks}
           beats={beats}
           bars={bars}
+          isPlaying={isPlaying}
           setClicks={setClicks}
           setBeats={setBeats}
           setBars={setBars}

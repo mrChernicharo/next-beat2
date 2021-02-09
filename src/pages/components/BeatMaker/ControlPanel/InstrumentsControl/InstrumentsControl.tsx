@@ -15,11 +15,13 @@ import { clearUI } from '../../../../../utils/Loop';
 interface IInstrumentControlProps {
   instruments: IInstrumentRow[];
   setInstruments: Function;
+  disabled: boolean;
 }
 
 export function InstrumentsControl({
   instruments,
   setInstruments,
+  disabled,
 }: IInstrumentControlProps) {
   const [appInstruments, setAppInstruments] = useState(instruments);
 
@@ -54,10 +56,10 @@ export function InstrumentsControl({
         <span>Instruments</span>
       </div>
       <div className="btn-container">
-        <InstrumentsControlBtn add>
+        <InstrumentsControlBtn disabled={disabled} add>
           <FiPlus onClick={() => addInstrument()} />
         </InstrumentsControlBtn>
-        <InstrumentsControlBtn remove>
+        <InstrumentsControlBtn disabled={disabled} remove>
           <FiMinus onClick={() => removeInstrument()} />
         </InstrumentsControlBtn>
       </div>

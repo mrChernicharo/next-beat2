@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface ISelectProps {
   opened: boolean;
+  disabled: boolean;
 }
 
 export const AppSelectContainer = styled.div`
@@ -11,6 +12,9 @@ export const AppSelectContainer = styled.div`
   flex-direction: column;
   border-radius: 2px;
   z-index: ${(props: ISelectProps) => (props.opened ? 5 : 3)};
+
+  pointer-events: ${props => (props.disabled ? 'none' : 'all')};
+  color: ${props => (props.disabled ? '#777' : '#fff')};
 
   .label {
     border: 1px solid;

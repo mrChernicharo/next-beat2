@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { OverlayCtx } from '../..';
 import { BeatMakerContainer } from '../../../styles/BeatMakerStyles';
 import {
   IInstrument,
@@ -16,8 +15,8 @@ import { Track } from './Track/Track';
 
 export default function BeatMaker() {
   const [track, setTrack] = useState<ITrack>(initialTrack);
-  const [overlay, setOverlay] = useState(false);
   const [loop, setLoop] = useState(null);
+
   useEffect(() => {
     if (track.playing) {
       setLoop(playLoop(track));
@@ -82,45 +81,41 @@ export default function BeatMaker() {
     clearUI();
   }
 
-  // const overlay = useContext(OverlayCtx);
+  // const overlay = useContext(Play);
 
   return (
-    <OverlayCtx.Consumer>
-      {overlay => (
-        <BeatMakerContainer>
-          <span>Beat Maker</span>
-          <div>
-            <ControlPanel
-              tempo={track.tempo}
-              clicks={track.clicks}
-              beats={track.beats}
-              bars={track.bars}
-              instruments={track.instrumentRows}
-              isPlaying={track.playing}
-              setIsPlaying={handlePlay}
-              setTempo={handleTempoSliderChange}
-              setClicks={handleClicksChange}
-              setBeats={handleBeatsChange}
-              setBars={handleBarsChange}
-              setInstruments={handleInstrumentRowsChange}
-            />
-          </div>
-          <div>
-            <Track
-              tempo={track.tempo}
-              clicks={track.clicks}
-              beats={track.beats}
-              bars={track.bars}
-              instrumentRows={track.instrumentRows}
-              isPlaying={track.playing}
-              setInstrumentRows={handleInstrumentRowsChange}
-              setInstrument={handleInstrumentChange}
-              setNote={handleNoteChange}
-            />
-          </div>
-          {overlay ? <div className="state-log">{JSON.stringify(track)}</div> : ''}
-        </BeatMakerContainer>
-      )}
-    </OverlayCtx.Consumer>
+    <BeatMakerContainer>
+      <span>Beat Maker</span>
+      <div>
+        <ControlPanel
+          tempo={track.tempo}
+          clicks={track.clicks}
+          beats={track.beats}
+          bars={track.bars}
+          instruments={track.instrumentRows}
+          isPlaying={track.playing}
+          setIsPlaying={handlePlay}
+          setTempo={handleTempoSliderChange}
+          setClicks={handleClicksChange}
+          setBeats={handleBeatsChange}
+          setBars={handleBarsChange}
+          setInstruments={handleInstrumentRowsChange}
+        />
+      </div>
+      <div>
+        <Track
+          tempo={track.tempo}
+          clicks={track.clicks}
+          beats={track.beats}
+          bars={track.bars}
+          instrumentRows={track.instrumentRows}
+          isPlaying={track.playing}
+          setInstrumentRows={handleInstrumentRowsChange}
+          setInstrument={handleInstrumentChange}
+          setNote={handleNoteChange}
+        />
+      </div>
+      <div className="state-log">{JSON.stringify(track)}</div>
+    </BeatMakerContainer>
   );
 }

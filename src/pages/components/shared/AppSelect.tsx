@@ -5,6 +5,7 @@ interface ISelectProps {
   lable: string;
   initialValue: any;
   setValue: Function;
+  disabled: boolean;
 }
 
 export default function AppSelect({
@@ -12,6 +13,7 @@ export default function AppSelect({
   options,
   initialValue,
   setValue,
+  disabled,
 }: ISelectProps) {
   const [selectedValue, setSelectedValue] = useState(initialValue);
   const [isOpened, setIsOpened] = useState(false);
@@ -62,12 +64,13 @@ export default function AppSelect({
   return (
     <>
       <Overlay
+        disabled={disabled}
         id={lable}
         className="select-overlay"
         onClick={e => handleOverlayClick(e)}
         opened={isOpened}
       />
-      <AppSelectContainer opened={isOpened}>
+      <AppSelectContainer disabled={disabled} opened={isOpened}>
         <div className="label">
           <label>{lable}</label>
         </div>
