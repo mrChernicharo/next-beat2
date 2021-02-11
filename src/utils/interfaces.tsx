@@ -1,6 +1,6 @@
 export interface Note {
-  play: boolean;
   id: string;
+  play: boolean;
   beat: number;
   click: number;
   bar: number;

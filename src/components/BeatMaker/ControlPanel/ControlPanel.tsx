@@ -21,42 +21,17 @@ interface IControlPanelProps {
   setInstruments: Function;
 }
 
-export function ControlPanel({
-  tempo,
-  clicks,
-  beats,
-  bars,
-  instruments,
-  isPlaying,
-  setIsPlaying,
-  setTempo,
-  setClicks,
-  setBeats,
-  setBars,
-  setInstruments,
-}: IControlPanelProps) {
+export function ControlPanel() {
   return (
     <ControlPanelContainer>
       <div className="header">
         <span>ControlPanel</span>
       </div>
       <div className="body">
-        <PlayPause isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
-        <TempoSlider tempo={tempo} setTempo={setTempo} />
-        <InstrumentsControl
-          disabled={isPlaying}
-          instruments={instruments}
-          setInstruments={setInstruments}
-        />
-        <TrackControl
-          clicks={clicks}
-          beats={beats}
-          bars={bars}
-          isPlaying={isPlaying}
-          setClicks={setClicks}
-          setBeats={setBeats}
-          setBars={setBars}
-        />
+        <PlayPause />
+        <TempoSlider />
+        <InstrumentsControl />
+        <TrackControl />
       </div>
     </ControlPanelContainer>
   );

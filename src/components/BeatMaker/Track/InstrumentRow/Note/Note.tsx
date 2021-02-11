@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { NoteContainer } from '../../../../../styles/NoteStyles';
+import styled from 'styled-components';
 
 interface INoteProps {
   id: string;
@@ -9,31 +9,34 @@ interface INoteProps {
   changeNote: Function;
 }
 
-export default function Note({ id, position, rowIndex, play, changeNote }: INoteProps) {
-  const [active, setActive] = useState(play);
-  const beat = id.substr(11, 1);
-  const click = id.substr(19, 1);
-  const bar = id.substr(25, 1);
+export default function Note() {
+  const beat = 1;
 
-  useEffect(() => {
-    console.log('note touched!');
-    changeNote(active, rowIndex, position);
-  }, [active, play]);
-
-  function toggleActive() {
-    setActive(!active);
-  }
+  function toggleActive() {}
   return (
-    <NoteContainer
-      beat={beat}
-      click={click}
-      bar={bar}
-      id={id}
-      shouldPlay={active}
-      onClick={() => toggleActive()}
-      className="note"
-    >
-      {beat === '1' ? <span>○</span> : <span>_</span>}
+    <NoteContainer shouldPlay={false}>
+      {beat === 1 ? <span>○</span> : <span>_</span>}
     </NoteContainer>
   );
 }
+const NoteContainer = styled.div`
+  border: 1px solid;
+  min-width: 20px !important;
+  height: 20px !important;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  background-color: ${(props: { shouldPlay: boolean }) =>
+    props.shouldPlay ? 'blue' : 'transparent'};
+
+  &.current-note {
+    border-bottom: 3px solid #9b119b;
+  }
+
+  span {
+    pointer-events: none;
+  }
+`;

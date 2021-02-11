@@ -15,36 +15,21 @@ interface IInstrumentProps {
   updateInstrument: Function;
 }
 
-export default function Instrument({
-  voice,
-  image,
-  rowIndex,
-  updateInstrument,
-}: IInstrumentProps) {
-  const [vox, setVox] = useState(voice);
-  const [img, setImg] = useState(image);
+export default function Instrument() {
+  useEffect(() => {}, []);
 
-  useEffect(() => {
-    // console.log(rowIndex);
-
-    setImg(instrumentImgs[vox]);
-    updateInstrument(vox, img, rowIndex);
-  }, [vox]);
-
-  function setNewInstrument(selectedVox) {
-    setVox(selectedVox);
-  }
+  function setNewInstrument(selectedVox) {}
 
   return (
     <InstrumentContainer>
-      <img src={img} width={30} height={30} />
+      <img src={'../img'} width={30} height={30} />
 
       <AppSelect
         disabled={false}
-        setValue={setNewInstrument}
-        lable="instrument"
-        initialValue={voice}
+        initialValue={'hiHat'}
+        lable={'instrument'}
         options={appVoices}
+        setValue={() => {}}
       />
     </InstrumentContainer>
   );

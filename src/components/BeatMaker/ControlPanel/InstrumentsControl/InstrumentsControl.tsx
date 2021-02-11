@@ -18,37 +18,14 @@ interface IInstrumentControlProps {
   disabled: boolean;
 }
 
-export function InstrumentsControl({
-  instruments,
-  setInstruments,
-  disabled,
-}: IInstrumentControlProps) {
-  const [appInstruments, setAppInstruments] = useState(instruments);
-
-  useEffect(() => {
-    console.log(appInstruments);
-    setInstruments(appInstruments);
-  }, [appInstruments]);
+export function InstrumentsControl() {
+  useEffect(() => {}, []);
+  const disabled = false;
   // useEffect(() => {}, [])
 
-  function addInstrument() {
-    if (appInstruments.length < 6) {
-      const newInstr: IInstrumentRow = {
-        instrument: { voice: appVoices[2], image: instrumentImgs.shake },
-        notes: Array(appInstruments[0].notes.length).fill({ play: false, id: '' }),
-      };
-      setAppInstruments([...appInstruments, newInstr]);
-    }
-  }
+  function addInstrument() {}
 
-  function removeInstrument() {
-    if (appInstruments.length > 1) {
-      const copy = [...appInstruments];
-      copy.pop();
-
-      setAppInstruments([...copy]);
-    }
-  }
+  function removeInstrument() {}
 
   return (
     <InstrumentsControlContainer>

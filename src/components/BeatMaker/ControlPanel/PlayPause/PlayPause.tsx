@@ -7,24 +7,24 @@ interface IPlayPauseProps {
   setIsPlaying: Function;
 }
 
-export function PlayPause({ isPlaying, setIsPlaying }: IPlayPauseProps) {
-  const [playing, setPlaying] = useState(isPlaying);
+export function PlayPause() {
+  const [playing, setPlaying] = useState(false);
   const [hover, setHover] = useState(false);
 
   useEffect(() => {
     // console.log(playing);
-    setIsPlaying(playing);
-  }, [playing]);
+    // setIsPlaying(playing);
+  }, []);
 
   function playToggle() {
-    setPlaying(!playing);
+    // setPlaying(!playing);
   }
 
   function hoverIcon() {
-    setHover(true);
+    // setHover(true);
   }
   function leaveIcon() {
-    setHover(false);
+    // setHover(false);
   }
 
   return (

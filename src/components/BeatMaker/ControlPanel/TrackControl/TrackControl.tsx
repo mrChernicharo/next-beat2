@@ -17,16 +17,17 @@ interface ITrackControlProps {
   isPlaying: boolean;
 }
 
-export function TrackControl({
-  clicks,
-  beats,
-  bars,
-  setClicks,
-  setBeats,
-  setBars,
-  isPlaying,
-}: ITrackControlProps) {
+export function TrackControl() {
   // const [play, setPlay] = useState(isPlaying);
+  const [isPlaying, beats, setBeats, clicks, setClicks, bars, setBars] = [
+    false,
+    4,
+    () => {},
+    2,
+    () => {},
+    2,
+    () => {},
+  ];
 
   return (
     <TrackControlContainer>

@@ -5,7 +5,8 @@ interface ITempoSliderProps {
   setTempo: Function;
 }
 
-export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
+export default function TempoSlider() {
+  const tempo = 120;
   return (
     <TempoSliderContainer>
       <div className="top">
@@ -29,7 +30,7 @@ export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
             min="20"
             max="400"
             value={tempo}
-            onChange={e => setTempo(+e.target.value)}
+            onChange={e => {}}
           />
         </div>
       </div>

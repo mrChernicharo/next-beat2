@@ -12,88 +12,42 @@ import {
 import { clearUI, playLoop } from '../../utils/Loop';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
-import { of } from 'rxjs';
-import { debounceTime, throttleTime, take, tap } from 'rxjs/operators';
 
 export default function BeatMaker() {
-  const [track, setTrack] = useState<ITrack>(initialTrack);
-  const [loop, setLoop] = useState(null);
-
-  useEffect(() => {
-    console.log('useEffect, setLoopp');
-    if (track.playing) {
-      setLoop(playLoop(track));
-    } else {
-      killLoop(loop);
-    }
-  }, [track.playing]);
+  useEffect(() => {}, []);
 
   // useEffect(() => {
   //   console.log('hey');
   // }, [track]);
-  function handleTempoSliderChange(tempo: number) {
-    setTrack({ ...track, tempo });
-  }
+  function handleTempoSliderChange(tempo: number) {}
 
-  function handleBeatsChange(beats: number) {
-    setTrack({ ...resetTrackNotes(track, beats, track.clicks, track.bars) });
-  }
+  function handleBeatsChange(beats: number) {}
 
-  function handleClicksChange(clicks: number) {
-    setTrack({ ...resetTrackNotes(track, track.beats, clicks, track.bars) });
-  }
+  function handleClicksChange(clicks: number) {}
 
   function handleBarsChange(bars: number) {
     // console.log(bars);
-    setTrack({ ...resetTrackNotes(track, track.beats, track.clicks, bars) });
   }
 
-  function handlePlay(playing: boolean) {
-    setTrack({ ...track, playing });
-  }
+  function handlePlay(playing: boolean) {}
 
   // muda o row todo
-  function handleInstrumentRowsChange(val: IInstrumentRow[]) {
-    setTrack({ ...track, instrumentRows: val });
-  }
+  function handleInstrumentRowsChange(val: IInstrumentRow[]) {}
 
   // muda o intrument dentro do row
-  const handleInstrumentChange = useCallback(
-    (voice: string, image: string, instrIndex: number) => {
-      //
-      const updatedRows = (instr: IInstrument, rowIndex: number) => {
-        const rowsCopy = [...track.instrumentRows];
-        rowsCopy[rowIndex].instrument = instr;
-        return rowsCopy as IInstrumentRow[];
-      };
-
-      setTrack({ ...track, instrumentRows: updatedRows({ voice, image }, instrIndex) });
-    },
-    [track]
-  );
+  function handleInstrumentChange(voice: string, image: string, instrIndex: number) {}
 
   // muda nota dentro do row
-  const handleNoteChange = useCallback(
+  function handleNoteChange(play: boolean, rowIndex: number, noteIndex: number) {
     // console.log('handleNoteChange');
-    (play: boolean, rowIndex: number, noteIndex: number) => {
-      setTrack({ ...updateNotes(track, play, rowIndex, noteIndex) });
-    },
-    [track]
-  );
+  }
   // useCallback(() => {}, []);
 
   ///
 
   // useCallback(() => {}, []);
 
-  const killLoop = useCallback(
-    loop => {
-      console.log('killLoop');
-      setLoop(clearInterval(loop));
-      clearUI();
-    },
-    [loop]
-  );
+  const killLoop = () => {};
 
   // const overlay = useContext(Play);
 
@@ -101,35 +55,12 @@ export default function BeatMaker() {
     <BeatMakerContainer>
       <span>Beat Maker</span>
       <div>
-        <ControlPanel
-          tempo={track.tempo}
-          clicks={track.clicks}
-          beats={track.beats}
-          bars={track.bars}
-          instruments={track.instrumentRows}
-          isPlaying={track.playing}
-          setIsPlaying={handlePlay}
-          setTempo={handleTempoSliderChange}
-          setClicks={handleClicksChange}
-          setBeats={handleBeatsChange}
-          setBars={handleBarsChange}
-          setInstruments={handleInstrumentRowsChange}
-        />
+        <ControlPanel />
       </div>
       <div>
-        <Track
-          tempo={track.tempo}
-          clicks={track.clicks}
-          beats={track.beats}
-          bars={track.bars}
-          instrumentRows={track.instrumentRows}
-          isPlaying={track.playing}
-          setInstrumentRows={handleInstrumentRowsChange}
-          setInstrument={handleInstrumentChange}
-          setNote={handleNoteChange}
-        />
+        <Track />
       </div>
-      <div className="state-log">{JSON.stringify(track)}</div>
+      <div className="state-log"></div>
     </BeatMakerContainer>
   );
 }
