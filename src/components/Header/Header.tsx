@@ -1,5 +1,6 @@
 import React from 'react';
-import { HeaderContainer } from '../../styles/HeaderStyles';
+import styled from 'styled-components';
+// import { HeaderContainer } from '../../styles/HeaderStyles';
 
 export default function Header() {
   return (
@@ -8,3 +9,12 @@ export default function Header() {
     </HeaderContainer>
   );
 }
+
+const HeaderContainer = styled.div`
+  border: 1px solid;
+  padding: 16px;
+
+  h1 {
+    text-align: center;
+  }
+`;

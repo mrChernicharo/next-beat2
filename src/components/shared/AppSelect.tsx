@@ -39,25 +39,6 @@ export default function AppSelect({
   }
 
   function toggleOpened(e: BaseSyntheticEvent) {
-    // console.log((e.bubbles = false));
-
-    // setTimeout(() => {
-    //   const thisLay = document.querySelector(`.select-overlay[id=${lable}]`);
-    //   const allLays = document.querySelectorAll('.select-overlay');
-
-    //   console.log('thisLay');
-    //   console.log(thisLay);
-    //   console.log('allLays');
-    //   console.log(allLays);
-
-    //   const els = [];
-    //   allLays.forEach(lay => {
-    //     (lay as any).style.visibility = 'hidden';
-    //   });
-
-    //   (thisLay as any).style.visibility = 'visible';
-    // }, 0);
-
     setIsOpened(!isOpened);
   }
 
