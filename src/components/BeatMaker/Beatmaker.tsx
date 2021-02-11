@@ -15,41 +15,17 @@ import { Track } from './Track/Track';
 
 export default function BeatMaker() {
   useEffect(() => {}, []);
+  // useCallback(() => {}, []);
 
-  // useEffect(() => {
-  //   console.log('hey');
-  // }, [track]);
   function handleTempoSliderChange(tempo: number) {}
-
   function handleBeatsChange(beats: number) {}
-
   function handleClicksChange(clicks: number) {}
-
-  function handleBarsChange(bars: number) {
-    // console.log(bars);
-  }
-
+  function handleBarsChange(bars: number) {}
   function handlePlay(playing: boolean) {}
-
-  // muda o row todo
   function handleInstrumentRowsChange(val: IInstrumentRow[]) {}
-
-  // muda o intrument dentro do row
   function handleInstrumentChange(voice: string, image: string, instrIndex: number) {}
-
-  // muda nota dentro do row
-  function handleNoteChange(play: boolean, rowIndex: number, noteIndex: number) {
-    // console.log('handleNoteChange');
-  }
-  // useCallback(() => {}, []);
-
-  ///
-
-  // useCallback(() => {}, []);
-
+  function handleNoteChange(play: boolean, rowIndex: number, noteIndex: number) {}
   const killLoop = () => {};
-
-  // const overlay = useContext(Play);
 
   return (
     <BeatMakerContainer>

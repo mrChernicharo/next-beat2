@@ -52,17 +52,12 @@ export const AppSelectContainer = styled.div`
 `;
 
 export const Overlay = styled.div`
-  /* display: none; */
-
-  &.select-overlay {
-    /* display: block; */
-    visibility: ${(props: ISelectProps) => (props.opened ? 'visible' : 'hidden')};
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(200, 240, 255, 0.1);
-    top: 0;
-    left: 0;
-    z-index: 2;
-    position: fixed;
-  }
+  visibility: ${(props: ISelectProps) => (props.opened ? 'visible' : 'hidden')};
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 240, 255, 0.1);
+  top: 0;
+  left: 0;
+  z-index: 4;
+  position: fixed;
 `;

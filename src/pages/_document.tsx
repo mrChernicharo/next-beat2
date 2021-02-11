@@ -18,19 +18,6 @@ export default class MyDocument extends Document {
         ...initialProps,
         styles: (
           <div>
-            {/* <Html>
-              <Head>
-                <link
-                  href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap"
-                  rel="stylesheet"
-                />
-              </Head>
-              <body>
-                <Main />
-                <NextScript>
-                </NextScript>
-              </body>
-            </Html> */}
             {initialProps.styles}
             {sheet.getStyleElement()}
           </div>
