@@ -1,5 +1,6 @@
 import { appSounds, ITrack } from './initialValues';
 
+let loopInterval;
 let totalBeats;
 let totalClicks;
 let totalBars;
@@ -13,35 +14,39 @@ export function playLoop(track: ITrack) {
   totalClicks = track.clicks;
   totalBars = track.bars;
 
-  let loopInterval = setInterval(() => {
-    updateUI(beat, click, bar);
-    // console.log(`pos -> ${pos}, beat${beat}, click${click}, bar${bar}`);
-    playSounds(track, pos);
+  function play(tempo) {
+    setTimeout(() => {
+      updateUI(beat, click, bar);
+      // console.log(`pos -> ${pos}, beat${beat}, click${click}, bar${bar}`);
+      playSounds(track, pos);
 
-    if (beat !== totalBeats) {
-      beat++;
-    } else if (beat === totalBeats) {
-      beat = 1;
-      if (click !== totalClicks) {
-        click++;
-      } else if (click === totalClicks) {
-        click = 1;
+      if (beat !== totalBeats) {
+        beat++;
+      } else if (beat === totalBeats) {
+        beat = 1;
+        if (click !== totalClicks) {
+          click++;
+        } else if (click === totalClicks) {
+          click = 1;
 
-        if (bar !== totalBars) {
-          bar++;
-        } else if (bar === totalBars) {
-          bar = 1;
+          if (bar !== totalBars) {
+            bar++;
+          } else if (bar === totalBars) {
+            bar = 1;
+          }
         }
       }
-    }
 
-    if (click === 1 && beat === 1 && bar === 1) {
-      pos = 1;
-    } else {
-      pos++;
-    }
-  }, Math.round(60_000 / (track.tempo * totalBeats)));
+      if (click === 1 && beat === 1 && bar === 1) {
+        pos = 1;
+      } else {
+        pos++;
+      }
+      play(track.tempo);
+    }, Math.round(60_000 / (tempo * totalBeats)));
+  }
 
+  loopInterval = play(track.tempo);
   return loopInterval;
 }
 
