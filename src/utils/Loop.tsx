@@ -15,7 +15,7 @@ export function playLoop(track: ITrack) {
   totalBars = track.bars;
 
   function play(tempo) {
-    setTimeout(() => {
+    loopInterval = setTimeout(() => {
       updateUI(beat, click, bar);
       // console.log(`pos -> ${pos}, beat${beat}, click${click}, bar${bar}`);
       playSounds(track, pos);
@@ -46,14 +46,14 @@ export function playLoop(track: ITrack) {
     }, Math.round(60_000 / (tempo * totalBeats)));
   }
 
-  loopInterval = play(track.tempo);
+  play(track.tempo);
   return loopInterval;
 }
 
-// export function killLoop(loop) {
-//   setLoop(clearInterval(loop));
-//   // clearUI();
-// }
+export function killLoop() {
+  clearTimeout(loopInterval);
+  clearUI();
+}
 
 function updateUI(beat: number, click: number, bar: number) {
   // console.log('updateUI');

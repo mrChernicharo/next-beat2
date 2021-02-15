@@ -9,28 +9,36 @@ import {
   resetTrackNotes,
   updateNotes,
 } from '../../utils/initialValues';
-import { clearUI, playLoop } from '../../utils/Loop';
+import { clearUI, killLoop, playLoop } from '../../utils/Loop';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
-import { of } from 'rxjs';
-import { debounceTime, throttleTime, take, tap } from 'rxjs/operators';
 
 export default function BeatMaker() {
   const [track, setTrack] = useState<ITrack>(initialTrack);
   const [loop, setLoop] = useState(null);
 
   useEffect(() => {
-    console.log('useEffect, setLoopp');
     if (track.playing) {
       setLoop(playLoop(track));
     } else {
-      killLoop(loop);
+      killLoop();
     }
   }, [track.playing]);
 
-  // useEffect(() => {
-  //   console.log('hey');
-  // }, [track]);
+  useEffect(() => {
+    if (track.playing) {
+      killLoop();
+      setLoop(playLoop(track));
+    }
+  }, [track.tempo]);
+
+  useEffect(() => {
+    if (track.playing) {
+      killLoop();
+      setLoop(playLoop(track));
+    }
+  }, [track.instrumentRows, track.bars, track.beats, track.clicks]);
+
   function handleTempoSliderChange(tempo: number) {
     setTrack({ ...track, tempo });
   }
@@ -86,14 +94,14 @@ export default function BeatMaker() {
 
   // useCallback(() => {}, []);
 
-  const killLoop = useCallback(
-    loop => {
-      console.log('killLoop');
-      setLoop(clearInterval(loop));
-      clearUI();
-    },
-    [loop]
-  );
+  // const killLoop = useCallback(
+  //   loop => {
+  //     console.log('killLoop');
+  //     setLoop(clearTimeout(loop));
+  //     clearUI();
+  //   },
+  //   [loop]
+  // );
 
   // const overlay = useContext(Play);
 
