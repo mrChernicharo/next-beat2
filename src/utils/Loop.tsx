@@ -108,7 +108,7 @@ export function playSounds(track: ITrack, pos: number) {
   const position = pos - 1;
   const soundBatch = [];
   // console.log();
-  console.log(position);
+  // console.log(position);
   //
   track.instrumentRows.forEach(row => {
     row.notes[position].play ? soundBatch.push(row.instrument.voice) : '';
@@ -118,7 +118,7 @@ export function playSounds(track: ITrack, pos: number) {
     soundBatch.push('click');
   }
 
-  console.log(soundBatch);
+  // console.log(soundBatch);
 
   soundBatch.forEach(s => new Audio(appSounds[s]).play());
 }

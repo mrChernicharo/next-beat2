@@ -126,7 +126,7 @@ export default function BeatMaker() {
           setNote={handleNoteChange}
         />
       </div>
-      <div className="state-log">{JSON.stringify(track)}</div>
+      {/* <div className="state-log">{JSON.stringify(track)}</div> */}
     </BeatMakerContainer>
   );
 }

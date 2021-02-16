@@ -1,4 +1,5 @@
-import { InstrumentContainer } from '../../../../../styles/InstrumentStyles';
+import styled from 'styled-components';
+
 import {
   appVoices,
   IInstrument,
@@ -49,3 +50,20 @@ export default function Instrument({
     </InstrumentContainer>
   );
 }
+
+//****************************************************//
+
+export const InstrumentContainer = styled.div`
+  /* border: 1px solid green; */
+
+  padding: 2px;
+  margin: 4px;
+  display: flex;
+
+  .head {
+    border: 1px solid;
+  }
+  .body {
+    display: flex;
+  }
+`;

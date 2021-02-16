@@ -33,8 +33,8 @@ export default function AppSelect({
   }
 
   function handleOverlayClick(e) {
-    console.log('clicked overlay');
-    console.log(e);
+    // console.log('clicked overlay');
+    // console.log(e);
     setIsOpened(false);
   }
 

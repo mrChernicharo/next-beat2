@@ -1,4 +1,5 @@
-import { TrackContainer } from '../../../styles/TrackStyles';
+import styled from 'styled-components';
+
 import { IInstrumentRow } from '../../../utils/initialValues';
 import InstrumentRow from './InstrumentRow/InstrumentRow';
 
@@ -43,3 +44,12 @@ export function Track({
     </TrackContainer>
   );
 }
+
+//****************************************************//
+
+export const TrackContainer = styled.div`
+  border: 1px solid;
+  // 100%;
+  height: 100%;
+  padding: 4px;
+`;

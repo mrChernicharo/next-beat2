@@ -28,6 +28,8 @@ export default function ClickControl({ toggleClick }: IClickControlProps) {
   );
 }
 
+//****************************************************//
+
 const Container = styled.div`
   border: 1px solid;
   display: flex;
