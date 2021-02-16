@@ -88,22 +88,10 @@ export default function BeatMaker() {
     },
     [track]
   );
-  // useCallback(() => {}, []);
 
-  ///
-
-  // useCallback(() => {}, []);
-
-  // const killLoop = useCallback(
-  //   loop => {
-  //     console.log('killLoop');
-  //     setLoop(clearTimeout(loop));
-  //     clearUI();
-  //   },
-  //   [loop]
-  // );
-
-  // const overlay = useContext(Play);
+  function handleClickOn(on: boolean) {
+    setTrack({ ...track, clickOn: on });
+  }
 
   return (
     <BeatMakerContainer>
@@ -122,6 +110,7 @@ export default function BeatMaker() {
           setBeats={handleBeatsChange}
           setBars={handleBarsChange}
           setInstruments={handleInstrumentRowsChange}
+          setClickOn={handleClickOn}
         />
       </div>
       <div>

@@ -20,6 +20,7 @@ interface IControlPanelProps {
   setBeats: Function;
   setBars: Function;
   setInstruments: Function;
+  setClickOn: Function;
 }
 
 export function ControlPanel({
@@ -35,6 +36,7 @@ export function ControlPanel({
   setBeats,
   setBars,
   setInstruments,
+  setClickOn,
 }: IControlPanelProps) {
   return (
     <ControlPanelContainer>
@@ -49,7 +51,7 @@ export function ControlPanel({
           instruments={instruments}
           setInstruments={setInstruments}
         />
-        <ClickControl />
+        <ClickControl toggleClick={setClickOn} />
         <TrackControl
           clicks={clicks}
           beats={beats}

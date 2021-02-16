@@ -22,5 +22,6 @@ export interface Track {
   clicks: number;
   bars: number;
   playing: boolean;
+  clickOn: boolean;
   instrumentRows: InstrumentRow[];
 }

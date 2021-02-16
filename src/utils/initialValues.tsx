@@ -19,6 +19,7 @@ export interface ITrack {
   clicks: number;
   bars: number;
   playing: boolean;
+  clickOn: boolean;
   instrumentRows: IInstrumentRow[];
 }
 
@@ -47,6 +48,7 @@ export const initialTrack: ITrack = {
   clicks: 4,
   bars: 2,
   playing: false,
+  clickOn: false,
   instrumentRows: [
     {
       instrument: {

@@ -1,6 +1,18 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-export default function ClickControl() {
+interface IClickControlProps {
+  toggleClick: Function;
+}
+
+export default function ClickControl({ toggleClick }: IClickControlProps) {
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => toggleClick(checked), [checked]);
+
+  function handleSlideToggle() {
+    setChecked(!checked);
+  }
   return (
     <Container>
       <div className="top">
@@ -8,7 +20,7 @@ export default function ClickControl() {
       </div>
       <div className="bottom">
         <label className="switch">
-          <input type="checkbox" />
+          <input type="checkbox" onChange={handleSlideToggle} />
           <span className="slider"></span>
         </label>
       </div>
@@ -44,7 +56,7 @@ const Container = styled.div`
     .switch {
       position: relative;
       display: inline-block;
-      width: 46px;
+      width: 44px;
       height: 20px;
     }
 
