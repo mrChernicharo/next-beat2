@@ -30,14 +30,14 @@ export default function BeatMaker() {
       killLoop();
       setLoop(playLoop(track));
     }
-  }, [track.tempo]);
-
-  useEffect(() => {
-    if (track.playing) {
-      killLoop();
-      setLoop(playLoop(track));
-    }
-  }, [track.instrumentRows, track.bars, track.beats, track.clicks]);
+  }, [
+    track.tempo,
+    track.clickOn,
+    track.instrumentRows,
+    track.bars,
+    track.beats,
+    track.clicks,
+  ]);
 
   function handleTempoSliderChange(tempo: number) {
     setTrack({ ...track, tempo });

@@ -114,6 +114,10 @@ export function playSounds(track: ITrack, pos: number) {
     row.notes[position].play ? soundBatch.push(row.instrument.voice) : '';
   });
 
+  if (track.clickOn && pos % track.beats === 1) {
+    soundBatch.push('click');
+  }
+
   console.log(soundBatch);
 
   soundBatch.forEach(s => new Audio(appSounds[s]).play());
