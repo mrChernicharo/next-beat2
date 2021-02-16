@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { IInstrumentRow } from '../../../utils/initialValues';
+import { IInstrumentRow } from '../../../utils/interfaces';
 import InstrumentRow from './InstrumentRow/InstrumentRow';
 
 interface ITrackProps {

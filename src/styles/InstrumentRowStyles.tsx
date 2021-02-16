@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { INote } from '../utils/initialValues';
+import { INote } from '../utils/interfaces';
 
 interface INoteWrapperProps {
   noteItem: INote;

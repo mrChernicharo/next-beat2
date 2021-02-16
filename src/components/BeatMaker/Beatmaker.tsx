@@ -1,14 +1,7 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { BeatMakerContainer } from '../../styles/BeatMakerStyles';
-import {
-  IInstrument,
-  IInstrumentRow,
-  initialTrack,
-  INote,
-  ITrack,
-  resetTrackNotes,
-  updateNotes,
-} from '../../utils/initialValues';
+import { initialTrack, resetTrackNotes, updateNotes } from '../../utils/initialValues';
+import { IInstrument, IInstrumentRow, INote, ITrack } from '../../utils/interfaces';
 import { clearUI, killLoop, playLoop } from '../../utils/Loop';
 import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';

@@ -1,27 +1,4 @@
-export interface INote {
-  play: boolean;
-  id: string;
-}
-
-export interface IInstrument {
-  voice: string;
-  image: string;
-}
-
-export interface IInstrumentRow {
-  instrument: IInstrument;
-  notes: INote[];
-}
-
-export interface ITrack {
-  tempo: number;
-  beats: number;
-  clicks: number;
-  bars: number;
-  playing: boolean;
-  clickOn: boolean;
-  instrumentRows: IInstrumentRow[];
-}
+import { IInstrumentRow, INote, ITrack } from './interfaces';
 
 export const appBeatOptions = [2, 3, 4, 6];
 export const appClickOptions = [2, 3, 4, 5, 6, 7];

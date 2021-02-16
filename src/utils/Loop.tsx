@@ -1,9 +1,7 @@
-import { appSounds, ITrack } from './initialValues';
+import { appSounds } from './initialValues';
+import { ITrack } from './interfaces';
 
-let loopInterval;
-let totalBeats;
-let totalClicks;
-let totalBars;
+let loopInterval, totalBeats, totalClicks, totalBars;
 
 export function playLoop(track: ITrack) {
   let click = 1;
@@ -85,11 +83,6 @@ function updateUI(beat: number, click: number, bar: number) {
     }
     return document.querySelectorAll(selector);
   };
-  // console.log('currentNoteEl');
-  // console.log(currentNoteEl);
-  // console.log('previousNoteEl');
-  // console.log(previousNoteEl(beat, click, bar));
-  // console.log();
 
   previousNoteEl(beat, click, bar).forEach(el => el.classList.remove('current-note'));
   currentNoteEl.forEach(el => el.classList.add('current-note'));
@@ -107,18 +100,15 @@ export function clearUI() {
 export function playSounds(track: ITrack, pos: number) {
   const position = pos - 1;
   const soundBatch = [];
-  // console.log();
-  // console.log(position);
   //
   track.instrumentRows.forEach(row => {
     row.notes[position].play ? soundBatch.push(row.instrument.voice) : '';
   });
 
-  if (track.clickOn && pos % track.beats === 1) {
+  if (track.clickOn && position % track.beats === 0) {
     soundBatch.push('click');
   }
 
   // console.log(soundBatch);
-
   soundBatch.forEach(s => new Audio(appSounds[s]).play());
 }

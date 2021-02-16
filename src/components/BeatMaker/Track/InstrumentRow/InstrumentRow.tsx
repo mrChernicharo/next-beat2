@@ -2,7 +2,7 @@ import {
   InstrumentRowContainer,
   NoteWrapper,
 } from '../../../../styles/InstrumentRowStyles';
-import { IInstrument, INote } from '../../../../utils/initialValues';
+import { IInstrument, INote } from '../../../../utils/interfaces';
 import Note from './Note/Note';
 import Instrument from './Instrument/Instrument';
 import { useEffect, useState } from 'react';

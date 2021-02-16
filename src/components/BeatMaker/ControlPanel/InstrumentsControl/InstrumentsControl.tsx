@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
-import {
-  appVoices,
-  IInstrument,
-  IInstrumentRow,
-  instrumentImgs,
-} from '../../../../utils/initialValues';
+import { appVoices, instrumentImgs } from '../../../../utils/initialValues';
+import { IInstrument, IInstrumentRow } from '../../../../utils/interfaces';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
 import { clearUI } from '../../../../utils/Loop';

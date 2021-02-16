@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
-import {
-  appVoices,
-  IInstrument,
-  instrumentImgs,
-} from '../../../../../utils/initialValues';
+import { appVoices, instrumentImgs } from '../../../../../utils/initialValues';
+import { IInstrument } from '../../../../../utils/interfaces';
 import Image from 'next/image';
 import AppSelect from '../../../../shared/AppSelect';
 import { useCallback, useEffect, useState } from 'react';

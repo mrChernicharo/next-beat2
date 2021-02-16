@@ -42,7 +42,7 @@ export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
 const TempoSliderContainer = styled.div`
   border: 1px solid;
   width: 260px;
-  height: 64px;
+  height: 61px;
   padding: 4px;
   display: flex;
   flex-direction: column;

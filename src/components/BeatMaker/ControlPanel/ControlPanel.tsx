@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { IInstrument, IInstrumentRow } from '../../../utils/initialValues';
+import { IInstrument, IInstrumentRow } from '../../../utils/interfaces';
 import ClickControl from './ClickControl/ClickControl';
 import { InstrumentsControl } from './InstrumentsControl/InstrumentsControl';
 import { PlayPause } from './PlayPause/PlayPause';
