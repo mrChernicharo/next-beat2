@@ -1,6 +1,7 @@
 import React from 'react';
 import { ControlPanelContainer } from '../../../styles/ControlPanelStyles';
 import { IInstrument, IInstrumentRow } from '../../../utils/initialValues';
+import ClickControl from './ClickControl/ClickControl';
 import { InstrumentsControl } from './InstrumentsControl/InstrumentsControl';
 import { PlayPause } from './PlayPause/PlayPause';
 import TempoSlider from './TempoSlider/TempoSlider';
@@ -48,6 +49,7 @@ export function ControlPanel({
           instruments={instruments}
           setInstruments={setInstruments}
         />
+        <ClickControl />
         <TrackControl
           clicks={clicks}
           beats={beats}

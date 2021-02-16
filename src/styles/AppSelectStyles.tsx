@@ -20,6 +20,10 @@ export const AppSelectContainer = styled.div`
     border: 1px solid;
     font-size: 10px;
     padding: 0 4px;
+
+    &:focus {
+      box-shadow: 0px 0px 4px 1px #2196f3;
+    }
   }
   .value {
     border: 1px solid;
@@ -28,7 +32,7 @@ export const AppSelectContainer = styled.div`
     cursor: pointer;
 
     &:hover {
-      background: #02ffab;
+      background: #2196f3;
     }
   }
   .dropdown {
@@ -45,7 +49,7 @@ export const AppSelectContainer = styled.div`
       z-index: ${(props: ISelectProps) => (props.opened ? 5 : 4)};
 
       &:hover {
-        background: #02ffab;
+        background: #2196f3;
       }
     }
   }
