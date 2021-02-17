@@ -70,10 +70,10 @@ interface IBtnProps {
 }
 
 export const InstrumentsControlContainer = styled.div`
-  border: 1px solid;
-  height: 61px;
+  border: 1px solid #444;
+  height: 69px;
   padding: 4px;
-  min-width: 120px;
+  min-width: 130px;
   display: grid;
   grid-area: instrument;
 
@@ -82,27 +82,23 @@ export const InstrumentsControlContainer = styled.div`
     border-bottom: none;
     display: flex;
     justify-content: center;
-
-    span {
-      line-height: 16px;
-    }
+    height: 17px;
   }
 
   .btn-container {
     display: flex;
     border: 1px solid;
-    padding: 4px;
-    height: 34px;
+    padding: 6px;
+    height: 42px;
   }
 `;
 export const InstrumentsControlBtn = styled.button`
   width: 50%;
+  font-size: 22px;
+  color: #7244bd;
   background: transparent;
-  color: #fff;
-  font-size: 18px;
-  border: 1px solid;
+  border: 1px solid #ddd;
   border-radius: 2px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,6 +107,7 @@ export const InstrumentsControlBtn = styled.button`
 
   :hover {
     background: rgba(255, 255, 255, 0.1);
+    color: #fff;
   }
 
   :active {

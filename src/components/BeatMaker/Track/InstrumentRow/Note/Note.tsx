@@ -50,6 +50,7 @@ interface INoteContainerProps {
 
 export const NoteContainer = styled.div`
   border: 1px solid;
+  border-radius: 3px;
   min-width: 20px !important;
   height: 20px !important;
   font-size: 9px;
@@ -60,6 +61,7 @@ export const NoteContainer = styled.div`
   cursor: pointer;
   background-color: ${(props: INoteContainerProps) =>
     props.shouldPlay ? 'blue' : 'transparent'};
+  transform: translateY(-6px);
 
   &.current-note {
     border-bottom: 3px solid #9b119b;

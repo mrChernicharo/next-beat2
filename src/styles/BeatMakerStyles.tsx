@@ -10,4 +10,8 @@ export const BeatMakerContainer = styled.div`
     line-height: 24px;
     pointer-events: none;
   }
+
+  @media screen and (max-width: 550px) {
+    padding: 16px 4px;
+  }
 `;

@@ -71,8 +71,8 @@ export function PlayPause({ isPlaying, setIsPlaying }: IPlayPauseProps) {
 //****************************************************//
 
 export const PlayPauseContainer = styled.div`
-  border: 1px solid;
-  height: 122px;
+  border: 1px solid #444;
+  height: 130px;
   padding: 4px;
   display: grid;
   grid-area: play;
@@ -81,9 +81,9 @@ export const PlayPauseContainer = styled.div`
 export const PlayPauseBtn = styled.button`
   background: transparent;
   color: #fff;
-  font-size: 56px;
-  border: none;
-  border-radius: 2px;
+  font-size: 55px;
+  border: 1px solid #fff;
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   outline: none;
@@ -91,7 +91,7 @@ export const PlayPauseBtn = styled.button`
   transition: 0.4s;
 
   h1 {
-    line-height: 68px;
+    line-height: 88px;
 
     :hover {
       background: rgba(255, 255, 255, 0.1);

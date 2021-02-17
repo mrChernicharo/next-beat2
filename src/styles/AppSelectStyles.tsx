@@ -7,7 +7,7 @@ interface ISelectProps {
 
 export const AppSelectContainer = styled.div`
   height: 36px;
-  min-width: 60px;
+  min-width: 70px;
   font-size: 12px;
   flex-direction: column;
   border-radius: 2px;

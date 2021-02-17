@@ -31,7 +31,7 @@ export default function ClickControl({ toggleClick }: IClickControlProps) {
 //****************************************************//
 
 const Container = styled.div`
-  border: 1px solid;
+  border: 1px solid #444;
   /* display: flex; */
   /* flex-direction: column; */
   padding: 4px;

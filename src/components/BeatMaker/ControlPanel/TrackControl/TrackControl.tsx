@@ -67,12 +67,12 @@ export function TrackControl({
 // key="beats" items={appBeatOptions}
 
 export const TrackControlContainer = styled.div`
-  /* border: 1px solid #444; */
-  border: 1px solid;
+  border: 1px solid #444;
+
   display: grid;
   grid-area: track;
   height: 69px;
-  width: 200px;
+  width: 230px;
   padding: 4px;
 
   .title {

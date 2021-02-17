@@ -68,9 +68,19 @@ export const ControlPanelContainer = styled.div`
   height: 100%;
   padding: 16px;
   display: grid;
-  grid-template-columns: 122px 130px 130px 100px;
-  grid-template-rows: 68px 68px;
+  grid-template-columns: 122px 130px 130px 100px 130px 230px;
+  grid-template-rows: 68px 60px;
   grid-template-areas:
-    'play tempo tempo click'
-    'play instrument track track';
+    'play tempo tempo click instrument track'
+    'play . . . . .';
+
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 122px 130px 130px 100px;
+    grid-template-rows: 62px 68px;
+    grid-template-areas:
+      'play tempo tempo click'
+      'play instrument track track';
+  }
+  @media screen and (max-width: 550px) {
+  }
 `;
