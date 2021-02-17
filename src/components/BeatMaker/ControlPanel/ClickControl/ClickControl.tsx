@@ -32,11 +32,13 @@ export default function ClickControl({ toggleClick }: IClickControlProps) {
 
 const Container = styled.div`
   border: 1px solid;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   padding: 4px;
   width: 100px;
   height: 61px;
+  display: grid;
+  grid-area: click;
 
   .top {
     border: 1px solid;

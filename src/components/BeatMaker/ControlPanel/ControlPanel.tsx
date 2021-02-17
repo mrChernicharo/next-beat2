@@ -67,5 +67,10 @@ export const ControlPanelContainer = styled.div`
   border: 1px solid;
   height: 100%;
   padding: 16px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 122px 130px 130px 100px;
+  grid-template-rows: 68px 68px;
+  grid-template-areas:
+    'play tempo tempo click'
+    'play instrument track track';
 `;

@@ -67,10 +67,12 @@ export function TrackControl({
 // key="beats" items={appBeatOptions}
 
 export const TrackControlContainer = styled.div`
+  /* border: 1px solid #444; */
   border: 1px solid;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-area: track;
   height: 69px;
+  width: 200px;
   padding: 4px;
 
   .title {
@@ -84,8 +86,9 @@ export const TrackControlContainer = styled.div`
     }
   }
   .container {
-    padding: 4px 4px 0px;
     border: 1px solid;
     display: flex;
+    justify-content: center;
+    padding: 4px 4px 0px;
   }
 `;

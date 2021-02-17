@@ -73,9 +73,9 @@ export const InstrumentsControlContainer = styled.div`
   border: 1px solid;
   height: 61px;
   padding: 4px;
-  display: flex;
-  flex-direction: column;
   min-width: 120px;
+  display: grid;
+  grid-area: instrument;
 
   .title-container {
     border: 1px solid;
@@ -102,6 +102,7 @@ export const InstrumentsControlBtn = styled.button`
   font-size: 18px;
   border: 1px solid;
   border-radius: 2px;
+
   display: flex;
   align-items: center;
   justify-content: center;
