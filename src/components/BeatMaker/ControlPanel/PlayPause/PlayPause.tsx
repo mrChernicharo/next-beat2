@@ -70,14 +70,11 @@ export function PlayPause({ isPlaying, setIsPlaying }: IPlayPauseProps) {
 
 //****************************************************//
 
-// interface IPlayProps {
-//   key: string;
-// }
 export const PlayPauseContainer = styled.div`
   border: 1px solid;
-  // 100%;
-  height: 100%;
+  height: 122px;
   padding: 4px;
+  display: flex;
 `;
 
 export const PlayPauseBtn = styled.button`
@@ -102,9 +99,6 @@ export const PlayPauseBtn = styled.button`
 
     :active {
       box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 0.4);
-    }
-
-    svg {
     }
   }
 `;

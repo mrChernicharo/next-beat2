@@ -36,7 +36,7 @@ const Container = styled.div`
   flex-direction: column;
   padding: 4px;
   width: 100px;
-  height: 57px;
+  height: 61px;
 
   .top {
     border: 1px solid;
@@ -53,7 +53,8 @@ const Container = styled.div`
     border-top: none;
     display: flex;
     justify-content: center;
-    padding: 4px;
+    padding: 6px 4px 4px;
+    height: 34px;
 
     .switch {
       position: relative;

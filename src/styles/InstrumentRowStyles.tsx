@@ -7,14 +7,14 @@ interface INoteWrapperProps {
 
 export const InstrumentRowContainer = styled.div`
   border: 1px solid #ccc;
-  padding: 0 0 0 4px;
   margin: 10px;
   display: flex;
 
   .instrument-container {
     border-right: 1px solid #ccc;
-    padding-right: 10px;
     box-shadow: 1px 2px 19px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
   }
   .notes-container {
     /* border: 1px solid lightblue; */
@@ -73,7 +73,6 @@ export const InstrumentRowContainer = styled.div`
 
 export const NoteWrapper = styled.div`
   height: 60px;
-  /* border: 1px solid; */
   padding-left: ${(props: INoteWrapperProps) =>
     props.noteItem.id.substr(11, 1) === '1' && props.noteItem.id.substr(19, 1) === '1'
       ? '12px'
@@ -84,8 +83,6 @@ export const NoteWrapper = styled.div`
   .notes-top {
     height: 40px;
   }
-  /* .note-wrapper { */
-  //
   .click-indicator {
     text-align: end;
     padding-left: 4px;
@@ -102,7 +99,4 @@ export const NoteWrapper = styled.div`
     z-index: -2;
     transform: translate(-7px, -20px);
   }
-
-  /* height: 75px; */
-  /* transform: translate(0px, -24px); */
 `;

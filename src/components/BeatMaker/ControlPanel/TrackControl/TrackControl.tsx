@@ -70,11 +70,13 @@ export const TrackControlContainer = styled.div`
   border: 1px solid;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 69px;
   padding: 4px;
 
   .title {
     border: 1px solid;
+    border-bottom: none;
+    display: flex;
     justify-content: center;
 
     span {
@@ -84,5 +86,6 @@ export const TrackControlContainer = styled.div`
   .container {
     padding: 4px 4px 0px;
     border: 1px solid;
+    display: flex;
   }
 `;

@@ -3,10 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
   @font-face {
     font-family: 'MusicalSymbols';
-		src: url('../static/MUSICAL.eot'),
-      url('../static/MUSICAL.woff'),
-      url('../static/MUSICAL.ttf'),
-      url('../static/MUSICAL.svg#MusicalSymbolsNormal');
+		src: url('../static/fonts/MUSICAL.eot'),
+      url('../static/fonts/MUSICAL.woff'),
+      url('../static/fonts/MUSICAL.ttf'),
+      url('../static/fonts/MUSICAL.svg#MusicalSymbolsNormal');
     font-style: normal;
   }
 	

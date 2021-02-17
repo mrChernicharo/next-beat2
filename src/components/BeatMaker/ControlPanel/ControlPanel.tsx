@@ -40,28 +40,23 @@ export function ControlPanel({
 }: IControlPanelProps) {
   return (
     <ControlPanelContainer>
-      <div className="header">
-        <span>ControlPanel</span>
-      </div>
-      <div className="body">
-        <PlayPause isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
-        <TempoSlider tempo={tempo} setTempo={setTempo} />
-        <InstrumentsControl
-          disabled={isPlaying}
-          instruments={instruments}
-          setInstruments={setInstruments}
-        />
-        <ClickControl toggleClick={setClickOn} />
-        <TrackControl
-          clicks={clicks}
-          beats={beats}
-          bars={bars}
-          isPlaying={isPlaying}
-          setClicks={setClicks}
-          setBeats={setBeats}
-          setBars={setBars}
-        />
-      </div>
+      <PlayPause isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+      <TempoSlider tempo={tempo} setTempo={setTempo} />
+      <InstrumentsControl
+        disabled={isPlaying}
+        instruments={instruments}
+        setInstruments={setInstruments}
+      />
+      <ClickControl toggleClick={setClickOn} />
+      <TrackControl
+        clicks={clicks}
+        beats={beats}
+        bars={bars}
+        isPlaying={isPlaying}
+        setClicks={setClicks}
+        setBeats={setBeats}
+        setBars={setBars}
+      />
     </ControlPanelContainer>
   );
 }
@@ -70,11 +65,7 @@ export function ControlPanel({
 
 export const ControlPanelContainer = styled.div`
   border: 1px solid;
-  // 100%;
   height: 100%;
   padding: 16px;
-
-  div {
-    display: flex;
-  }
+  display: flex;
 `;

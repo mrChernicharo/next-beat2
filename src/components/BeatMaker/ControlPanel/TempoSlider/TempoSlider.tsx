@@ -59,11 +59,11 @@ const TempoSliderContainer = styled.div`
       width: 100%;
       display: flex;
       justify-content: center;
-      /* border: 1px solid; */
     }
   }
   .bottom {
     border: 1px solid;
+    display: flex;
 
     > .tempo-container {
       /* border: 1px solid; */
@@ -88,7 +88,8 @@ const TempoSliderContainer = styled.div`
     .slider-container {
       width: 100%;
       border-left: 1px solid;
-      padding: 10px 0 0 0;
+      padding: 11px 0 0 0;
+      display: flex;
       justify-content: center;
     }
   }

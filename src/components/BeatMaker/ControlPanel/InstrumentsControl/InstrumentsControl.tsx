@@ -63,10 +63,6 @@ export function InstrumentsControl({
 
 //****************************************************//
 
-// interface IControlProps {
-//   disabled: boolean;
-// }
-
 interface IBtnProps {
   // disabled: boolean;
   add?: boolean;
@@ -75,15 +71,16 @@ interface IBtnProps {
 
 export const InstrumentsControlContainer = styled.div`
   border: 1px solid;
-  height: 100%;
+  height: 61px;
   padding: 4px;
   display: flex;
   flex-direction: column;
-  width: 120px;
+  min-width: 120px;
 
   .title-container {
     border: 1px solid;
     border-bottom: none;
+    display: flex;
     justify-content: center;
 
     span {
@@ -92,8 +89,10 @@ export const InstrumentsControlContainer = styled.div`
   }
 
   .btn-container {
+    display: flex;
     border: 1px solid;
     padding: 4px;
+    height: 34px;
   }
 `;
 export const InstrumentsControlBtn = styled.button`
@@ -104,6 +103,7 @@ export const InstrumentsControlBtn = styled.button`
   border: 1px solid;
   border-radius: 2px;
   display: flex;
+  align-items: center;
   justify-content: center;
   outline: none;
   cursor: pointer;

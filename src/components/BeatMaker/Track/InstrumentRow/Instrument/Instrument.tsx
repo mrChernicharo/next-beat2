@@ -35,7 +35,7 @@ export default function Instrument({
 
   return (
     <InstrumentContainer>
-      <img src={img} width={30} height={30} />
+      <img src={img} width={40} height={40} />
 
       <AppSelect
         disabled={false}
@@ -51,16 +51,17 @@ export default function Instrument({
 //****************************************************//
 
 export const InstrumentContainer = styled.div`
-  /* border: 1px solid green; */
-
+  width: 120px;
   padding: 2px;
   margin: 4px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  .head {
+  img {
     border: 1px solid;
-  }
-  .body {
-    display: flex;
+    padding: 4px;
+    margin-bottom: 4px;
+    background-image: linear-gradient(to bottom, #224, #448);
   }
 `;
