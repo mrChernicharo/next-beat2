@@ -59,12 +59,13 @@ export const NoteContainer = styled.div`
   justify-content: center;
   z-index: 10;
   cursor: pointer;
-  background-color: ${(props: INoteContainerProps) =>
-    props.shouldPlay ? 'blue' : 'transparent'};
+  background: ${(props: INoteContainerProps) =>
+    props.shouldPlay ? 'linear-gradient(270deg, #7a6ded, #591885)' : 'transparent'};
   transform: translateY(-6px);
 
   &.current-note {
     border-bottom: 3px solid #9b119b;
+    transform: ${props => (props.shouldPlay ? 'scale(1.2) translateY(-6px)' : '')};
   }
 
   span {

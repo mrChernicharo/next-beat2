@@ -84,11 +84,8 @@ export const NoteWrapper = styled.div`
     height: 40px;
   }
   .click-indicator {
-    text-align: end;
-    padding-left: 4px;
     z-index: 4;
-    display: inline;
-    position: sticky;
+    transform: translate(4px, 6px);
   }
 
   .bar-inidcator {

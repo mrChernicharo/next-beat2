@@ -31,7 +31,7 @@ export function TrackControl({
   return (
     <TrackControlContainer>
       <div className="title">
-        <span>TrackControl</span>
+        <span>Parameters</span>
       </div>
       <div className="container">
         <AppSelect

@@ -23,11 +23,10 @@ export default function Instrument({
   const [img, setImg] = useState(image);
 
   useEffect(() => {
-    // console.log(rowIndex);
-
     setImg(instrumentImgs[vox]);
     updateInstrument(vox, img, rowIndex);
-  }, [vox]);
+    console.log(vox, img, rowIndex);
+  }, [vox, img]);
 
   function setNewInstrument(selectedVox) {
     setVox(selectedVox);

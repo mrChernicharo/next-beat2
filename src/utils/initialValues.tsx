@@ -4,13 +4,14 @@ export const appBeatOptions = [2, 3, 4, 6];
 export const appClickOptions = [2, 3, 4, 5, 6, 7];
 export const appBarOptions = [1, 2, 3, 4];
 
-export const appVoices = ['snare', 'bassKick', 'shake', 'hiHat', 'crash'];
+export const appVoices = ['snare', 'bassKick', 'shake', 'hiHat', 'crash', 'sideStick'];
 export const instrumentImgs = {
   snare: '../static/images/snare.png',
   bassKick: '../static/images/bass-kick.png',
   hiHat: '../static/images/hi-hat.png',
   crash: '../static/images/crash.png',
   shake: '../static/images/maracas.png',
+  sideStick: '../static/images/snare.png',
 };
 
 const idMaker = (row, beat, click, bar) => {
@@ -19,9 +20,9 @@ const idMaker = (row, beat, click, bar) => {
 
 export const initialTrack: ITrack = {
   tempo: 120,
-  beats: 2,
+  beats: 4,
   clicks: 4,
-  bars: 2,
+  bars: 1,
   playing: false,
   clickOn: false,
   instrumentRows: [
@@ -30,22 +31,22 @@ export const initialTrack: ITrack = {
         voice: appVoices[0],
         image: instrumentImgs.snare,
       },
-      notes: Array(2 * 4 * 2).fill({ play: false, id: idMaker(0, 2, 4, 2) }),
+      notes: Array(2 * 4 * 2).fill({ play: false, id: idMaker(0, 4, 4, 1) }),
     },
     {
       instrument: {
         voice: appVoices[1],
         image: instrumentImgs.bassKick,
       },
-      notes: Array(2 * 4 * 2).fill({ play: false, id: idMaker(1, 2, 4, 2) }),
+      notes: Array(2 * 4 * 2).fill({ play: false, id: idMaker(1, 4, 4, 1) }),
     },
   ],
 };
 export const appSounds = {
-  // click: `../static/sounds/tick.mp3`,
-  bassKick: `../static/sounds/tunn.mp3`,
+  crash: `../static/sounds/crash.mp3`,
+  bassKick: `../static/sounds/bassKick.mp3`,
   snare: `../static/sounds/snare.mp3`,
-  snareSidestick: `../static/sounds/side-stick.mp3`,
+  sideStick: `../static/sounds/sideStick.mp3`,
   hiHat: `../static/sounds/hi-hat.mp3`,
   ride: '../static/sounds/ride.mp3',
   rideBell: '../static/sounds/ride-bell.mp3',

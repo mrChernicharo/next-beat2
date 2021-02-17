@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { BeatMakerContainer } from '../../styles/BeatMakerStyles';
 import { initialTrack, resetTrackNotes, updateNotes } from '../../utils/initialValues';
 import { IInstrument, IInstrumentRow, INote, ITrack } from '../../utils/interfaces';
@@ -12,7 +12,7 @@ export default function BeatMaker() {
 
   useEffect(() => {
     if (track.playing) {
-      setLoop(playLoop(track));
+      handleLoop(track);
     } else {
       killLoop();
     }
@@ -21,7 +21,7 @@ export default function BeatMaker() {
   useEffect(() => {
     if (track.playing) {
       killLoop();
-      setLoop(playLoop(track));
+      handleLoop(track);
     }
   }, [
     track.tempo,
@@ -31,6 +31,13 @@ export default function BeatMaker() {
     track.beats,
     track.clicks,
   ]);
+
+  const handleLoop = useMemo(
+    () => track => {
+      setLoop(playLoop(track));
+    },
+    [track.playing]
+  );
 
   function handleTempoSliderChange(tempo: number) {
     setTrack({ ...track, tempo });
@@ -59,8 +66,8 @@ export default function BeatMaker() {
   }
 
   // muda o intrument dentro do row
-  const handleInstrumentChange = useCallback(
-    (voice: string, image: string, instrIndex: number) => {
+  const handleInstrumentChange = useMemo(
+    () => (voice: string, image: string, instrIndex: number) => {
       //
       const updatedRows = (instr: IInstrument, rowIndex: number) => {
         const rowsCopy = [...track.instrumentRows];
@@ -74,9 +81,9 @@ export default function BeatMaker() {
   );
 
   // muda nota dentro do row
-  const handleNoteChange = useCallback(
+  const handleNoteChange = useMemo(
     // console.log('handleNoteChange');
-    (play: boolean, rowIndex: number, noteIndex: number) => {
+    () => (play: boolean, rowIndex: number, noteIndex: number) => {
       setTrack({ ...updateNotes(track, play, rowIndex, noteIndex) });
     },
     [track]
@@ -119,7 +126,7 @@ export default function BeatMaker() {
           setNote={handleNoteChange}
         />
       </div>
-      {/* <div className="state-log">{JSON.stringify(track)}</div> */}
+      <div className="state-log">{JSON.stringify(track)}</div>
     </BeatMakerContainer>
   );
 }

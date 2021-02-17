@@ -106,7 +106,7 @@ export function playSounds(track: ITrack, pos: number) {
   });
 
   if (track.clickOn && position % track.beats === 0) {
-    soundBatch.push('click');
+    soundBatch.unshift('click');
   }
 
   // console.log(soundBatch);
