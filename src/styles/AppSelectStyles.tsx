@@ -11,7 +11,7 @@ export const AppSelectContainer = styled.div`
   font-size: 12px;
   flex-direction: column;
   border-radius: 2px;
-  z-index: ${(props: ISelectProps) => (props.opened ? 5 : 3)};
+  z-index: ${(props: ISelectProps) => (props.opened ? 3 : 1)};
 
   pointer-events: ${props => (props.disabled ? 'none' : 'all')};
   color: ${props => (props.disabled ? '#777' : '#fff')};
@@ -39,14 +39,14 @@ export const AppSelectContainer = styled.div`
     border: 1px solid;
     display: block;
     background: #32333c;
-    z-index: ${(props: ISelectProps) => (props.opened ? 5 : 4)};
+    z-index: ${(props: ISelectProps) => (props.opened ? 3 : 2)};
 
     .option {
       border: 1px solid;
       padding: 0 4px;
 
       cursor: pointer;
-      z-index: ${(props: ISelectProps) => (props.opened ? 5 : 4)};
+      z-index: ${(props: ISelectProps) => (props.opened ? 3 : 2)};
 
       &:hover {
         background: #2196f3;

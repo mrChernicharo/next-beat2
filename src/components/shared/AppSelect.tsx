@@ -1,4 +1,5 @@
 import { BaseSyntheticEvent, useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { AppSelectContainer, Overlay } from '../../styles/AppSelectStyles';
 interface ISelectProps {
   options: any[];
@@ -59,21 +60,26 @@ export default function AppSelect({
           {selectedValue}
         </div>
         <>
-          {isOpened ? (
-            <div className="dropdown">
-              {options.map(option => (
-                <div
-                  onClick={() => handleOptionClick(option)}
-                  className="option"
-                  key={option}
-                >
-                  {option}
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div></div>
-          )}
+          <AnimatePresence>
+            {isOpened && (
+              <motion.div
+                className="dropdown"
+                initial={{ y: -40, scaleY: 0 }}
+                animate={{ y: 0, scaleY: 1 }}
+                exit={{ y: -40, scaleY: 0, opacity: 0 }}
+              >
+                {options.map(option => (
+                  <div
+                    onClick={() => handleOptionClick(option)}
+                    className="option"
+                    key={option}
+                  >
+                    {option}
+                  </div>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </>
       </AppSelectContainer>
     </>
