@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import {
@@ -29,7 +30,7 @@ export function TrackControl({
   // const [play, setPlay] = useState(isPlaying);
 
   return (
-    <TrackControlContainer>
+    <TrackControlContainer drag>
       <div className="title">
         <span>Parameters</span>
       </div>
@@ -66,7 +67,7 @@ export function TrackControl({
 
 // key="beats" items={appBeatOptions}
 
-export const TrackControlContainer = styled.div`
+export const TrackControlContainer = styled(motion.div)`
   border: 1px solid #444;
 
   display: grid;

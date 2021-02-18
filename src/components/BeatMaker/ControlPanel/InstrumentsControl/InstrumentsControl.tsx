@@ -5,6 +5,7 @@ import { IInstrument, IInstrumentRow } from '../../../../utils/interfaces';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
 import { clearUI } from '../../../../utils/Loop';
+import { motion } from 'framer-motion';
 
 interface IInstrumentControlProps {
   instruments: IInstrumentRow[];
@@ -45,7 +46,7 @@ export function InstrumentsControl({
   }
 
   return (
-    <InstrumentsControlContainer>
+    <InstrumentsControlContainer drag>
       <div className="title-container">
         <span>Instruments</span>
       </div>
@@ -69,7 +70,7 @@ interface IBtnProps {
   remove?: boolean;
 }
 
-export const InstrumentsControlContainer = styled.div`
+export const InstrumentsControlContainer = styled(motion.div)`
   border: 1px solid #444;
   height: 69px;
   padding: 4px;

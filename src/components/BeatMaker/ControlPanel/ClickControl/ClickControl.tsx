@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 interface IClickControlProps {
@@ -14,7 +15,7 @@ export default function ClickControl({ toggleClick }: IClickControlProps) {
     setChecked(!checked);
   }
   return (
-    <Container>
+    <Container drag>
       <div className="top">
         <span>Click</span>
       </div>
@@ -30,7 +31,7 @@ export default function ClickControl({ toggleClick }: IClickControlProps) {
 
 //****************************************************//
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   border: 1px solid #444;
   /* display: flex; */
   /* flex-direction: column; */
@@ -39,6 +40,11 @@ const Container = styled.div`
   height: 61px;
   display: grid;
   grid-area: click;
+
+  &:active {
+    box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.8);
+    cursor: grabbing;
+  }
 
   .top {
     border: 1px solid;

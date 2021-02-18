@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 interface ITempoSliderProps {
@@ -7,7 +8,7 @@ interface ITempoSliderProps {
 
 export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
   return (
-    <TempoSliderContainer>
+    <TempoSliderContainer drag>
       <div className="top">
         <div className="title-container">
           <span>Tempo</span>
@@ -39,7 +40,7 @@ export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
 
 //****************************************************//
 
-const TempoSliderContainer = styled.div`
+const TempoSliderContainer = styled(motion.div)`
   border: 1px solid #444;
   width: 260px;
   height: 61px;
