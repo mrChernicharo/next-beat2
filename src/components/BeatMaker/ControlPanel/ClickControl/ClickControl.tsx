@@ -33,8 +33,6 @@ export default function ClickControl({ toggleClick }: IClickControlProps) {
 
 const Container = styled(motion.div)`
   border: 1px solid #444;
-  /* display: flex; */
-  /* flex-direction: column; */
   padding: 4px;
   width: 100px;
   height: 61px;
@@ -42,7 +40,6 @@ const Container = styled(motion.div)`
   grid-area: click;
 
   &:active {
-    box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.8);
     cursor: grabbing;
   }
 
@@ -106,11 +103,10 @@ const Container = styled(motion.div)`
 
     input:checked + .slider {
       background-image: linear-gradient(45deg, rgb(33, 150, 243), rgb(28, 58, 148));
-      /* background-color: rgb(33, 150, 243); */
     }
 
     input:focus + .slider {
-      box-shadow: 0px 0px 4px 1px #2196f3;
+      box-shadow: 0px 0px 4px 0 #fff;
     }
 
     input:checked + .slider:before {
@@ -120,6 +116,3 @@ const Container = styled(motion.div)`
     }
   }
 `;
-// background-image: linear-gradient(45deg, rgb(33, 150, 243), rgb(28, 58, 148));
-
-// rgb(94,117,162), rgb(73,125,189), rgb(28,58,148)

@@ -76,6 +76,9 @@ export const PlayPauseContainer = styled.div`
   padding: 4px;
   display: grid;
   grid-area: play;
+  :focus {
+    box-shadow: 0px 0px 4px 0 #fff;
+  }
 `;
 
 export const PlayPauseBtn = styled.button`

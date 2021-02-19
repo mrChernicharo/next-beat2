@@ -30,7 +30,7 @@ export function TrackControl({
   // const [play, setPlay] = useState(isPlaying);
 
   return (
-    <TrackControlContainer drag>
+    <TrackControlContainer>
       <div className="title">
         <span>Parameters</span>
       </div>

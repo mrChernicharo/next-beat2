@@ -46,7 +46,7 @@ export function InstrumentsControl({
   }
 
   return (
-    <InstrumentsControlContainer drag>
+    <InstrumentsControlContainer>
       <div className="title-container">
         <span>Instruments</span>
       </div>
@@ -114,5 +114,10 @@ export const InstrumentsControlBtn = styled.button`
   :active {
     box-shadow: inset 0 0 10px 0 rgba(255, 255, 255, 0.4);
   }
+
+  :focus {
+    box-shadow: 0px 0px 4px 0 #fff;
+  }
+
   margin-right: ${(props: IBtnProps) => (props.add ? '4px' : '')};
 `;
