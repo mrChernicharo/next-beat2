@@ -8,7 +8,7 @@ interface ITempoSliderProps {
 
 export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
   return (
-    <TempoSliderContainer drag>
+    <TempoSliderContainer>
       <div className="top">
         <div className="title-container">
           <span>Tempo</span>
