@@ -13,10 +13,12 @@ export function playLoop(track: ITrack) {
   totalBars = track.bars;
 
   function play(tempo) {
-    loopInterval = setTimeout(() => {
-      updateUI(beat, click, bar);
-      // console.log(`pos -> ${pos}, beat${beat}, click${click}, bar${bar}`);
-      playSounds(track, pos);
+    let start = document.timeline.currentTime;
+    let ms = Math.round(60_000 / (tempo * totalBeats));
+
+    function frame(time) {
+      const elapsed = time - start;
+      const sec = Math.round(elapsed / ms);
 
       if (beat !== totalBeats) {
         beat++;
@@ -40,8 +42,18 @@ export function playLoop(track: ITrack) {
       } else {
         pos++;
       }
-      play(track.tempo);
-    }, Math.round(60_000 / (tempo * totalBeats)));
+      updateShit(track, pos, bar, click, beat);
+
+      // console.log(time);
+      const nextTarget = (sec + 1) * ms + start;
+
+      loopInterval = setTimeout(
+        () => requestAnimationFrame(frame),
+        nextTarget - performance.now()
+      );
+    }
+
+    frame(start);
   }
 
   play(track.tempo);
@@ -111,4 +123,12 @@ export function playSounds(track: ITrack, pos: number) {
 
   // console.log(soundBatch);
   soundBatch.forEach(s => new Audio(appSounds[s]).play());
+}
+
+function updateShit(track, pos, bar, click, beat) {
+  console.log(`pos -> ${pos}, beat${beat}, click${click}, bar${bar}`);
+  playSounds(track, pos);
+  updateUI(beat, click, bar);
+
+  // play(track.tempo);
 }
