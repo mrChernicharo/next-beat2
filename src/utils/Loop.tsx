@@ -20,29 +20,33 @@ export function playLoop(track: ITrack) {
       const elapsed = time - start;
       const sec = Math.round(elapsed / ms);
 
-      if (beat !== totalBeats) {
-        beat++;
-      } else if (beat === totalBeats) {
-        beat = 1;
-        if (click !== totalClicks) {
-          click++;
-        } else if (click === totalClicks) {
-          click = 1;
+      {
+        if (beat !== totalBeats) {
+          beat++;
+        } else if (beat === totalBeats) {
+          beat = 1;
+          if (click !== totalClicks) {
+            click++;
+          } else if (click === totalClicks) {
+            click = 1;
 
-          if (bar !== totalBars) {
-            bar++;
-          } else if (bar === totalBars) {
-            bar = 1;
+            if (bar !== totalBars) {
+              bar++;
+            } else if (bar === totalBars) {
+              bar = 1;
+            }
           }
+        }
+
+        if (click === 1 && beat === 1 && bar === 1) {
+          pos = 1;
+        } else {
+          pos++;
         }
       }
 
-      if (click === 1 && beat === 1 && bar === 1) {
-        pos = 1;
-      } else {
-        pos++;
-      }
-      updateShit(track, pos, bar, click, beat);
+      playSounds(track, pos);
+      updateUI(beat, click, bar);
 
       // console.log(time);
       const nextTarget = (sec + 1) * ms + start;
@@ -123,12 +127,4 @@ export function playSounds(track: ITrack, pos: number) {
 
   // console.log(soundBatch);
   soundBatch.forEach(s => new Audio(appSounds[s]).play());
-}
-
-function updateShit(track, pos, bar, click, beat) {
-  console.log(`pos -> ${pos}, beat${beat}, click${click}, bar${bar}`);
-  playSounds(track, pos);
-  updateUI(beat, click, bar);
-
-  // play(track.tempo);
 }
