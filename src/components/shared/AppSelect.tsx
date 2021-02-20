@@ -2,6 +2,7 @@ import React, { BaseSyntheticEvent, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useCycle } from 'framer-motion';
 import { AppSelectContainer, Overlay } from '../../styles/AppSelectStyles';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { toNormalCase, toNormalTitleCase } from '../../utils/functions';
 interface ISelectProps {
   options: any[];
   lable: string;
@@ -31,19 +32,18 @@ export default function AppSelect({
   }, [selectedValue]);
 
   useEffect(() => {
-    // getAllSelects();
     return cycleAnimation();
   }, [isOpened]);
 
   function handleOptionClick(val) {
     setSelectedValue(val);
     setIsOpened(false);
+    console.log(options);
+
     return selectedValue;
   }
 
   function handleOverlayClick(e) {
-    // console.log('clicked overlay');
-    // console.log(e);
     setIsOpened(false);
   }
 
@@ -70,7 +70,9 @@ export default function AppSelect({
           </label>
         </div>
         <div className="value" onClick={e => toggleOpened(e)}>
-          {selectedValue}
+          {typeof selectedValue === 'string'
+            ? toNormalTitleCase(selectedValue)
+            : selectedValue}
         </div>
         <>
           <AnimatePresence>
@@ -87,7 +89,7 @@ export default function AppSelect({
                     className="option"
                     key={option}
                   >
-                    {option}
+                    {typeof option === 'string' ? toNormalCase(option) : option}
                   </div>
                 ))}
               </motion.div>

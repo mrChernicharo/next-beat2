@@ -20,20 +20,11 @@ export const AppSelectContainer = styled.div`
   .label-container {
     font-size: 10px;
     display: flex;
-    /* padding: 0 2px 0 4px; */
-
-    /* &:focus {
-      box-shadow: 0px 0px 4px 1px #2196f3;
-    } */
 
     label {
       display: flex;
       width: 100%;
       justify-content: space-between;
-
-      /* .icon {
-        border: 1px solid red;
-      } */
     }
   }
   .value {
@@ -43,7 +34,8 @@ export const AppSelectContainer = styled.div`
     cursor: pointer;
 
     &:hover {
-      background: #2196f3;
+      box-shadow: 0 0 2px #fff;
+      text-shadow: 0 0 2px #fff;
     }
   }
   .dropdown {
@@ -60,7 +52,8 @@ export const AppSelectContainer = styled.div`
       z-index: ${(props: ISelectProps) => (props.opened ? 3 : 2)};
 
       &:hover {
-        background: #2196f3;
+        box-shadow: 0 0 2px #fff;
+        text-shadow: 0 0 2px #fff;
       }
     }
   }
@@ -74,7 +67,7 @@ export const Overlay = styled.div`
     visibility: ${(props: ISelectProps) => (props.opened ? 'visible' : 'hidden')};
     width: 100vw;
     height: 100vh;
-    background-color: rgba(200, 240, 255, 0.1);
+    background-color: rgba(200, 240, 255, 0.01);
     top: 0;
     left: 0;
     z-index: 2;
