@@ -6,23 +6,34 @@ interface ISelectProps {
 }
 
 export const AppSelectContainer = styled.div`
+  /* border: 1px solid blue; */
   height: 36px;
-  min-width: 70px;
+  min-width: 82px;
   font-size: 12px;
   flex-direction: column;
   border-radius: 2px;
   z-index: ${(props: ISelectProps) => (props.opened ? 3 : 1)};
-
   pointer-events: ${props => (props.disabled ? 'none' : 'all')};
   color: ${props => (props.disabled ? '#777' : '#fff')};
+  padding: 0 2px;
 
-  .label {
-    border: 1px solid;
+  .label-container {
     font-size: 10px;
-    padding: 0 4px;
+    display: flex;
+    /* padding: 0 2px 0 4px; */
 
-    &:focus {
+    /* &:focus {
       box-shadow: 0px 0px 4px 1px #2196f3;
+    } */
+
+    label {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+
+      /* .icon {
+        border: 1px solid red;
+      } */
     }
   }
   .value {

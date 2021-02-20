@@ -50,7 +50,7 @@ export default function Instrument({
 //****************************************************//
 
 export const InstrumentContainer = styled.div`
-  width: 120px;
+  width: 132px;
   padding: 2px;
   margin: 4px;
   display: flex;

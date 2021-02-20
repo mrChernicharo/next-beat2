@@ -73,7 +73,7 @@ export const TrackControlContainer = styled(motion.div)`
   display: grid;
   grid-area: track;
   height: 69px;
-  width: 230px;
+  width: 266px;
   padding: 4px;
 
   .title {

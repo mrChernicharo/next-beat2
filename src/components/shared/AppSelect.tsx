@@ -1,6 +1,7 @@
-import { BaseSyntheticEvent, useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import React, { BaseSyntheticEvent, useEffect, useState } from 'react';
+import { AnimatePresence, motion, useCycle } from 'framer-motion';
 import { AppSelectContainer, Overlay } from '../../styles/AppSelectStyles';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 interface ISelectProps {
   options: any[];
   lable: string;
@@ -8,6 +9,11 @@ interface ISelectProps {
   setValue: Function;
   disabled: boolean;
 }
+
+const chevron = {
+  open: { rotate: 180, y: -3, transition: { type: 'tween' } },
+  close: { rotate: 0, y: 0, transition: { type: 'tween' } },
+};
 
 export default function AppSelect({
   lable,
@@ -18,6 +24,7 @@ export default function AppSelect({
 }: ISelectProps) {
   const [selectedValue, setSelectedValue] = useState(initialValue);
   const [isOpened, setIsOpened] = useState(false);
+  const [animation, cycleAnimation] = useCycle('close', 'open');
 
   useEffect(() => {
     setValue(selectedValue);
@@ -25,6 +32,7 @@ export default function AppSelect({
 
   useEffect(() => {
     // getAllSelects();
+    return cycleAnimation();
   }, [isOpened]);
 
   function handleOptionClick(val) {
@@ -53,8 +61,13 @@ export default function AppSelect({
         opened={isOpened}
       />
       <AppSelectContainer disabled={disabled} opened={isOpened}>
-        <div className="label">
-          <label>{lable}</label>
+        <div className="label-container">
+          <label>
+            <span>{lable}</span>
+            <motion.div className="icon" variants={chevron} animate={animation}>
+              <FiChevronUp />
+            </motion.div>
+          </label>
         </div>
         <div className="value" onClick={e => toggleOpened(e)}>
           {selectedValue}
