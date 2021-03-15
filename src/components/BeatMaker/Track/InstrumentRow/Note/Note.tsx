@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 interface INoteProps {
@@ -9,7 +9,7 @@ interface INoteProps {
   changeNote: Function;
 }
 
-export default function Note({ id, position, rowIndex, play, changeNote }: INoteProps) {
+function Note({ id, position, rowIndex, play, changeNote }: INoteProps) {
   const [active, setActive] = useState(play);
   const beat = id.substr(11, 1);
   const click = id.substr(19, 1);
@@ -37,6 +37,8 @@ export default function Note({ id, position, rowIndex, play, changeNote }: INote
     </NoteContainer>
   );
 }
+
+export default memo(Note);
 
 //****************************************************//
 

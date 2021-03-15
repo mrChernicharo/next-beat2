@@ -6,7 +6,7 @@ interface ITempoSliderProps {
   setTempo: Function;
 }
 
-export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
+function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
   return (
     <TempoSliderContainer>
       <div className="top">
@@ -37,6 +37,8 @@ export default function TempoSlider({ tempo, setTempo }: ITempoSliderProps) {
     </TempoSliderContainer>
   );
 }
+
+export default TempoSlider;
 
 //****************************************************//
 

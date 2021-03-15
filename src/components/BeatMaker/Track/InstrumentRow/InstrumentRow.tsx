@@ -5,7 +5,7 @@ import {
 import { IInstrument, INote } from '../../../../utils/interfaces';
 import Note from './Note/Note';
 import Instrument from './Instrument/Instrument';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 export interface IInstrumentRowProps {
   rowIndex: number;
@@ -15,7 +15,7 @@ export interface IInstrumentRowProps {
   setisPlayNote: Function;
 }
 
-export default function InstrumentRow({
+function InstrumentRow({
   rowIndex,
   instrument,
   notes,
@@ -63,3 +63,5 @@ export default function InstrumentRow({
     </InstrumentRowContainer>
   );
 }
+
+export default InstrumentRow;

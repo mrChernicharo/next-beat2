@@ -3,8 +3,8 @@ import { BeatMakerContainer } from '../../styles/BeatMakerStyles';
 import { initialTrack, resetTrackNotes, updateNotes } from '../../utils/initialValues';
 import { IInstrument, IInstrumentRow, INote, ITrack } from '../../utils/interfaces';
 import { clearUI, killLoop, playLoop } from '../../utils/Loop';
-import { ControlPanel } from './ControlPanel/ControlPanel';
-import { Track } from './Track/Track';
+import ControlPanel from './ControlPanel/ControlPanel';
+import Track from './Track/Track';
 
 export default function BeatMaker() {
   const [track, setTrack] = useState<ITrack>(initialTrack);

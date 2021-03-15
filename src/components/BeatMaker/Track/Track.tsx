@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 import { IInstrumentRow } from '../../../utils/interfaces';
@@ -15,7 +16,7 @@ interface ITrackProps {
   setNote: Function;
 }
 
-export function Track({
+function Track({
   bars,
   beats,
   clicks,
@@ -44,6 +45,8 @@ export function Track({
     </TrackContainer>
   );
 }
+
+export default Track;
 
 //****************************************************//
 

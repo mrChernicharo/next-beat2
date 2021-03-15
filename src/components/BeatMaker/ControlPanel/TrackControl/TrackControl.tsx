@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { memo } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -18,7 +19,7 @@ interface ITrackControlProps {
   isPlaying: boolean;
 }
 
-export function TrackControl({
+function TrackControl({
   clicks,
   beats,
   bars,
@@ -62,6 +63,8 @@ export function TrackControl({
     </TrackControlContainer>
   );
 }
+
+export default TrackControl;
 
 //****************************************************//
 

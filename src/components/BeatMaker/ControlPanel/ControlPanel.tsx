@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 
 import { IInstrument, IInstrumentRow } from '../../../utils/interfaces';
@@ -5,7 +6,7 @@ import ClickControl from './ClickControl/ClickControl';
 import { InstrumentsControl } from './InstrumentsControl/InstrumentsControl';
 import { PlayPause } from './PlayPause/PlayPause';
 import TempoSlider from './TempoSlider/TempoSlider';
-import { TrackControl } from './TrackControl/TrackControl';
+import TrackControl from './TrackControl/TrackControl';
 
 interface IControlPanelProps {
   tempo: number;
@@ -23,7 +24,7 @@ interface IControlPanelProps {
   setClickOn: Function;
 }
 
-export function ControlPanel({
+function ControlPanel({
   tempo,
   clicks,
   beats,
@@ -60,6 +61,8 @@ export function ControlPanel({
     </ControlPanelContainer>
   );
 }
+
+export default ControlPanel;
 
 //****************************************************//
 

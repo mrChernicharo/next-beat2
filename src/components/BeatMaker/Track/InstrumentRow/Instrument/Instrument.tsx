@@ -4,7 +4,7 @@ import { appVoices, instrumentImgs } from '../../../../../utils/initialValues';
 import { IInstrument } from '../../../../../utils/interfaces';
 import Image from 'next/image';
 import AppSelect from '../../../../shared/AppSelect';
-import { useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 
 interface IInstrumentProps {
   rowIndex: number;
@@ -13,12 +13,7 @@ interface IInstrumentProps {
   updateInstrument: Function;
 }
 
-export default function Instrument({
-  voice,
-  image,
-  rowIndex,
-  updateInstrument,
-}: IInstrumentProps) {
+function Instrument({ voice, image, rowIndex, updateInstrument }: IInstrumentProps) {
   const [vox, setVox] = useState(voice);
   const [img, setImg] = useState(image);
 
@@ -47,6 +42,7 @@ export default function Instrument({
   );
 }
 
+export default Instrument;
 //****************************************************//
 
 export const InstrumentContainer = styled.div`
