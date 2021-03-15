@@ -95,7 +95,6 @@ export default function BeatMaker() {
 
   return (
     <BeatMakerContainer>
-      <span>Beat Maker</span>
       <div>
         <ControlPanel
           tempo={track.tempo}
@@ -126,7 +125,7 @@ export default function BeatMaker() {
           setNote={handleNoteChange}
         />
       </div>
-      <div className="state-log">{JSON.stringify(track)}</div>
+      {/* <div className="state-log">{JSON.stringify(track)}</div> */}
     </BeatMakerContainer>
   );
 }

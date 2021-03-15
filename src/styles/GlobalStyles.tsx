@@ -23,11 +23,12 @@ body{
 }
 
 span{
-	/* display:block; */
-	/* margin-bottom: 10px; */
-	/* border: none; */
 	font-size: 10px;
-	/* border-right: 1px solid #fff; */
-	/* border-bottom: 1px solid #fff; */
 	}
+
+
+@media screen and (max-width: 520px) {
+	body{
+		     transform: scale(0.8) translate(-58px, -64px);	}
+}
 `;

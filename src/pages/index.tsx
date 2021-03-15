@@ -3,10 +3,11 @@ import React, { useContext } from 'react';
 import BeatMaker from '../components/BeatMaker/Beatmaker';
 import Header from '../components/Header/Header';
 import SEO from '../components/SEO/SEO';
+import styled from 'styled-components';
 
 export default function Home() {
   return (
-    <div>
+    <Container>
       <SEO />
       <header>
         <Header />
@@ -14,6 +15,15 @@ export default function Home() {
       <main>
         <BeatMaker />
       </main>
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  @media screen and (max-width: 520px) {
+    main,
+    header {
+      width: calc(100% + 120px);
+    }
+  }
+`;
