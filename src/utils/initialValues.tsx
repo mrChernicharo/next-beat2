@@ -32,6 +32,7 @@ export const initialTrack = () => {
     clickOn: false,
     instrumentRows: [
       {
+        volume: 60,
         instrument: {
           voice: appVoices[0],
           image: instrumentImgs.hiHat,
@@ -42,6 +43,7 @@ export const initialTrack = () => {
         }),
       },
       {
+        volume: 60,
         instrument: {
           voice: appVoices[1],
           image: instrumentImgs.snare,
@@ -52,6 +54,7 @@ export const initialTrack = () => {
         }),
       },
       {
+        volume: 60,
         instrument: {
           voice: appVoices[2],
           image: instrumentImgs.bassKick,
@@ -64,9 +67,10 @@ export const initialTrack = () => {
     ],
   } as ITrack;
 
-  const instrs = initial.instrumentRows.map(row => {
+  const initialPattern = initial.instrumentRows.map(row => {
     return {
       instrument: row.instrument,
+      volume: row.volume,
       notes: row.notes.map((note, i) => {
         if (row.instrument.voice === 'hiHat') {
           if (i % 2 === 0) {
@@ -90,7 +94,7 @@ export const initialTrack = () => {
     };
   });
 
-  return { ...initial, instrumentRows: instrs };
+  return { ...initial, instrumentRows: initialPattern };
 };
 
 export const appSounds = {

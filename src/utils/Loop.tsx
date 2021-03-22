@@ -156,10 +156,12 @@ export function playSounds(track: ITrack, pos: number) {
   const position = pos - 1;
   const soundBatch = [];
   const promises = [];
+  let volume = 0;
   //
 
   for (let row of track.instrumentRows) {
     row.notes[position].play ? soundBatch.push(row.instrument.voice) : '';
+    volume = row.volume * 0.01;
   }
 
   if (track.clickOn && position % track.beats === 0) {
@@ -172,66 +174,17 @@ export function playSounds(track: ITrack, pos: number) {
   // soundBatch.forEach(s => new Audio(appSounds[s]).play());
   soundBatch.forEach(s => {
     const audio = new Audio(appSounds[s]);
-    if (s !== 'shake') audio.volume = 0.8;
+    if (s === 'shake') {
+      audio.volume = 1;
+    } else {
+      audio.volume = volume;
+    }
+
+    console.log(s);
+    console.log('volume: ' + audio.volume);
 
     promises.push(audio);
   });
 
   Promise.all(promises.map(p => p.play()));
 }
-
-// export class Loop {
-//   constructor(track) {
-//     // this.reset();
-//     // this.print(this.times);
-//   }
-//   i = 0;
-//   // running = false;
-//   time = performance.now();
-//   // times = [0, 0, 0];
-//   // this.laps = [];
-
-//   calculate(timestamp) {
-//     var diff = timestamp - this.time;
-//     console.log(diff);
-//   }
-
-//   step(timestamp) {
-//     // if (!this.running) return;
-//     this.calculate(timestamp);
-//     this.time = timestamp;
-//     this.print();
-//     requestAnimationFrame(this.step.bind(this));
-//   }
-
-//   start() {
-//     if (!this.time) this.time = performance.now();
-//     // if (!this.running) {
-//     // this.running = true;
-//     requestAnimationFrame(this.step.bind(this));
-//     // }
-//   }
-
-//   restart() {
-//     // mesmo q start() + reset()
-//     if (!this.time) this.time = performance.now();
-//     // if (!this.running) {
-//     // this.running = true;
-//     requestAnimationFrame(this.step.bind(this));
-//     // }
-//     this.reset();
-//   }
-
-//   stop() {
-//     // this.running = false;
-//     this.time = null;
-//   }
-
-//   reset() {
-//     // this.times = [0, 0, 0];
-//   }
-
-//   print() {
-//     console.log(this.i++ + ' - ' + this.time);
-//   }
-// }

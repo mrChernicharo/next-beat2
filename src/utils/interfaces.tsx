@@ -10,6 +10,7 @@ export interface IInstrument {
 
 export interface IInstrumentRow {
   instrument: IInstrument;
+  volume: number;
   notes: INote[];
 }
 

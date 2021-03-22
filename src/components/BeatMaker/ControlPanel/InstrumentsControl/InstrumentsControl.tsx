@@ -30,6 +30,7 @@ export function InstrumentsControl({
       const newInstr: IInstrumentRow = {
         instrument: { voice: appVoices[2], image: instrumentImgs.shake },
         notes: Array(appInstruments[0].notes.length).fill({ play: false, id: '' }),
+        volume: 60,
       };
       setAppInstruments([...appInstruments, newInstr]);
     }
