@@ -4,44 +4,95 @@ export const appBeatOptions = [2, 3, 4, 6];
 export const appClickOptions = [2, 3, 4, 5, 6, 7];
 export const appBarOptions = [1, 2, 3, 4];
 
-export const appVoices = ['snare', 'bassKick', 'shake', 'hiHat', 'crash', 'sideStick'];
+export const appVoices = ['hiHat', 'snare', 'bassKick', 'shake', 'crash', 'sideStick'];
 export const instrumentImgs = {
+  hiHat: '../static/images/hi-hat.png',
   snare: '../static/images/snare.png',
   bassKick: '../static/images/bass-kick.png',
-  hiHat: '../static/images/hi-hat.png',
   crash: '../static/images/crash.png',
   shake: '../static/images/maracas.png',
   sideStick: '../static/images/snare.png',
 };
 
+const initialBeats = 4;
+const initialClicks = 4;
+const initialBars = 1;
+
 const idMaker = (row, beat, click, bar) => {
   return `row-${row + 1}-beat-${beat}-click-${click}-bar-${bar}`;
 };
 
-export const initialTrack: ITrack = {
-  tempo: 120,
-  beats: 4,
-  clicks: 4,
-  bars: 1,
-  playing: false,
-  clickOn: false,
-  instrumentRows: [
-    {
-      instrument: {
-        voice: appVoices[0],
-        image: instrumentImgs.snare,
+export const initialTrack = () => {
+  const initial = {
+    tempo: 120,
+    beats: initialBeats,
+    clicks: initialClicks,
+    bars: initialBars,
+    playing: false,
+    clickOn: false,
+    instrumentRows: [
+      {
+        instrument: {
+          voice: appVoices[0],
+          image: instrumentImgs.hiHat,
+        },
+        notes: Array(initialBeats * initialClicks * initialBars).fill({
+          play: false,
+          id: idMaker(0, 4, 4, 1),
+        }),
       },
-      notes: Array(2 * 4 * 2).fill({ play: false, id: idMaker(0, 4, 4, 1) }),
-    },
-    {
-      instrument: {
-        voice: appVoices[1],
-        image: instrumentImgs.bassKick,
+      {
+        instrument: {
+          voice: appVoices[1],
+          image: instrumentImgs.snare,
+        },
+        notes: Array(initialBeats * initialClicks * initialBars).fill({
+          play: false,
+          id: idMaker(1, 4, 4, 1),
+        }),
       },
-      notes: Array(2 * 4 * 2).fill({ play: false, id: idMaker(1, 4, 4, 1) }),
-    },
-  ],
+      {
+        instrument: {
+          voice: appVoices[2],
+          image: instrumentImgs.bassKick,
+        },
+        notes: Array(initialBeats * initialClicks * initialBars).fill({
+          play: false,
+          id: idMaker(2, 4, 4, 1),
+        }),
+      },
+    ],
+  } as ITrack;
+
+  const instrs = initial.instrumentRows.map(row => {
+    return {
+      instrument: row.instrument,
+      notes: row.notes.map((note, i) => {
+        if (row.instrument.voice === 'hiHat') {
+          if (i % 2 === 0) {
+            return { ...note, play: true };
+          }
+        }
+        if (row.instrument.voice === 'snare') {
+          if (i === 4 || i === 12) {
+            return { ...note, play: true };
+          }
+        }
+
+        if (row.instrument.voice === 'bassKick') {
+          if (i % 8 === 0) {
+            return { ...note, play: true };
+          }
+        }
+
+        return note;
+      }),
+    };
+  });
+
+  return { ...initial, instrumentRows: instrs };
 };
+
 export const appSounds = {
   crash: `../static/sounds/crash.mp3`,
   bassKick: `../static/sounds/bassKick.mp3`,

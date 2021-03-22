@@ -7,17 +7,18 @@ import { ControlPanel } from './ControlPanel/ControlPanel';
 import { Track } from './Track/Track';
 
 export default function BeatMaker() {
-  const [track, setTrack] = useState<ITrack>(initialTrack);
+  // const initTrack = initialTrack();
+  const [track, setTrack] = useState<ITrack>(initialTrack());
   const [loop, setLoop] = useState(null);
 
   // const testLoop = new TestLoop(track);
 
+  useEffect(() => console.log(track), []);
+
   useEffect(() => {
     if (track.playing) {
       handleLoop(track);
-      // testLoop.start();
     } else {
-      // testLoop.stop();
       killLoop();
     }
   }, [track.playing]);
@@ -26,9 +27,6 @@ export default function BeatMaker() {
     if (track.playing) {
       killLoop();
       handleLoop(track);
-
-      // testLoop.stop();
-      // testLoop.start();
     }
   }, [
     track.tempo,
@@ -132,7 +130,7 @@ export default function BeatMaker() {
           setNote={handleNoteChange}
         />
       </div>
-      {/* <div className="state-log">{JSON.stringify(track)}</div> */}
+      <div className="state-log">{JSON.stringify(track)}</div>
     </BeatMakerContainer>
   );
 }
