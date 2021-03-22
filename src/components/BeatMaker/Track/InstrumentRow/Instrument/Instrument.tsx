@@ -25,7 +25,7 @@ export default function Instrument({
   useEffect(() => {
     setImg(instrumentImgs[vox]);
     updateInstrument(vox, img, rowIndex);
-    console.log(vox, img, rowIndex);
+    // console.log(vox, img, rowIndex);
   }, [vox, img]);
 
   function setNewInstrument(selectedVox) {

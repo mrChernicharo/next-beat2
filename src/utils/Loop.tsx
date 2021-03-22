@@ -4,7 +4,7 @@ import { ITrack } from './interfaces';
 let loopInterval, totalBeats, totalClicks, totalBars, loopAnimFrame;
 
 export function playLoop(track: ITrack) {
-  console.log('playLoop high');
+  // console.log('playLoop high');
 
   let time = performance.now();
 
@@ -180,8 +180,8 @@ export function playSounds(track: ITrack, pos: number) {
       audio.volume = volume;
     }
 
-    console.log(s);
-    console.log('volume: ' + audio.volume);
+    // console.log(s);
+    // console.log('volume: ' + audio.volume);
 
     promises.push(audio);
   });

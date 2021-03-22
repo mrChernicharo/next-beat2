@@ -13,14 +13,14 @@ export default function BeatMaker() {
 
   // const testLoop = new TestLoop(track);
 
-  useEffect(() => console.log(track), []);
+  // useEffect(() => console.log(track), []);
 
   useEffect(() => {
     if (track.playing) {
       handleLoop(track);
     } else {
       killLoop();
-      console.log(track);
+      // console.log(track);
     }
   }, [track.playing]);
 

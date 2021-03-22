@@ -20,7 +20,7 @@ export function InstrumentsControl({
   const [appInstruments, setAppInstruments] = useState(instruments);
 
   useEffect(() => {
-    console.log(appInstruments);
+    // console.log(appInstruments);
     setInstruments(appInstruments);
   }, [appInstruments]);
   // useEffect(() => {}, [])
@@ -28,7 +28,10 @@ export function InstrumentsControl({
   function addInstrument() {
     if (appInstruments.length < 6) {
       const newInstr: IInstrumentRow = {
-        instrument: { voice: appVoices[2], image: instrumentImgs.shake },
+        instrument: {
+          voice: appVoices[Math.round(Math.random() * appInstruments.length)],
+          image: instrumentImgs.shake,
+        },
         notes: Array(appInstruments[0].notes.length).fill({ play: false, id: '' }),
         volume: 60,
       };

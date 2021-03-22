@@ -120,7 +120,7 @@ export const resetTrackNotes = (
   clicks: number,
   bars: number
 ) => {
-  console.log('resetTrackNotes');
+  // console.log('resetTrackNotes');
 
   // TODO melhorar algorítimo pra aprovitar notas clicadas anteriormente
   const trackCopy: ITrack = Object.assign(track, { beats, clicks, bars });
