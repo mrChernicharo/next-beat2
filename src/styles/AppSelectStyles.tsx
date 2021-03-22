@@ -39,6 +39,9 @@ export const AppSelectContainer = styled.div`
     border: 1px solid;
     display: block;
     background: #32333c;
+    position: absolute;
+    margin-top: -18px;
+    width: 71px;
     z-index: ${(props: ISelectProps) => (props.opened ? 5 : 4)};
 
     .option {

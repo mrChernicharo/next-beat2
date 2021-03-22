@@ -169,9 +169,15 @@ export function playSounds(track: ITrack, pos: number) {
 
   // console.log(soundBatch);
 
-  soundBatch.forEach(s => new Audio(appSounds[s]).play());
-  // soundBatch.forEach(s => promises.push(new Audio(appSounds[s]).play()));
-  // Promise.all(promises);
+  // soundBatch.forEach(s => new Audio(appSounds[s]).play());
+  soundBatch.forEach(s => {
+    const audio = new Audio(appSounds[s]);
+    if (s !== 'shake') audio.volume = 0.8;
+
+    promises.push(audio);
+  });
+
+  Promise.all(promises.map(p => p.play()));
 }
 
 // export class Loop {
