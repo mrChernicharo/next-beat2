@@ -10,10 +10,14 @@ export default function BeatMaker() {
   const [track, setTrack] = useState<ITrack>(initialTrack);
   const [loop, setLoop] = useState(null);
 
+  // const testLoop = new TestLoop(track);
+
   useEffect(() => {
     if (track.playing) {
       handleLoop(track);
+      // testLoop.start();
     } else {
+      // testLoop.stop();
       killLoop();
     }
   }, [track.playing]);
@@ -22,6 +26,9 @@ export default function BeatMaker() {
     if (track.playing) {
       killLoop();
       handleLoop(track);
+
+      // testLoop.stop();
+      // testLoop.start();
     }
   }, [
     track.tempo,
@@ -32,8 +39,8 @@ export default function BeatMaker() {
     track.clicks,
   ]);
 
-  const handleLoop = useMemo(
-    () => track => {
+  const handleLoop = useCallback(
+    track => {
       setLoop(playLoop(track));
     },
     [track.playing]
